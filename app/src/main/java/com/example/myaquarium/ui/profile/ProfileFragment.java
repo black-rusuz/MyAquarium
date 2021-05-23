@@ -17,8 +17,6 @@ import androidx.lifecycle.ViewModelProvider;
 import com.example.myaquarium.R;
 import com.example.myaquarium.ui.home.HomeFragment;
 
-import org.w3c.dom.Text;
-
 public class ProfileFragment extends Fragment {
 
     private ProfileViewModel profileViewModel;
