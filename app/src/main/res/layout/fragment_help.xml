@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    tools:context=".ui.help.HelpFragment">
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/help_left"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.1" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/help_right"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.9" />
+
+    <TextView
+        android:id="@+id/help_header"
+        style="@style/TextView.Header"
+        android:layout_marginTop="@dimen/vertical_margin"
+
+        android:layout_marginBottom="@dimen/vertical_margin_double"
+        android:text="Справочник"
+
+        app:layout_constraintBottom_toTopOf="@+id/help_sv"
+        app:layout_constraintEnd_toStartOf="@+id/help_right"
+        app:layout_constraintStart_toStartOf="@+id/help_left"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0"
+        app:layout_constraintVertical_chainStyle="packed" />
+
+    <ImageView
+        android:id="@+id/help_bg"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:scaleType="fitEnd"
+        android:src="@drawable/ic_help_bg"
+        app:layout_constraintBottom_toTopOf="@+id/help_bottom"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <ScrollView
+        android:id="@+id/help_sv"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/vertical_margin"
+        app:layout_constraintBottom_toTopOf="@+id/help_bottom"
+        app:layout_constraintEnd_toStartOf="@+id/help_right"
+        app:layout_constraintStart_toStartOf="@+id/help_left"
+        app:layout_constraintTop_toBottomOf="@+id/help_header">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <Button
+                android:id="@+id/help_sv_fish"
+                style="@style/Button.Text"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/text_margin"
+                android:layout_marginBottom="@dimen/text_margin"
+                android:gravity="left|center_vertical"
+                android:text="Рыбки"
+                android:textSize="20sp" />
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/help_border" />
+
+            <Button
+                android:id="@+id/help_sv_plant"
+                style="@style/Button.Text"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/text_margin"
+                android:layout_marginBottom="@dimen/text_margin"
+                android:gravity="left|center_vertical"
+                android:text="Растения"
+                android:textSize="20sp" />
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/help_border" />
+
+            <Button
+                android:id="@+id/help_sv_water"
+                style="@style/Button.Text"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/text_margin"
+                android:layout_marginBottom="@dimen/text_margin"
+                android:gravity="left|center_vertical"
+                android:text="Параметры воды"
+                android:textSize="20sp" />
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/help_border" />
+
+            <Button
+                android:id="@+id/help_sv_aqua"
+                style="@style/Button.Text"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/text_margin"
+                android:layout_marginBottom="@dimen/text_margin"
+                android:gravity="left|center_vertical"
+                android:text="Аквариумы"
+                android:textSize="20sp" />
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/help_border" />
+
+            <Button
+                android:id="@+id/help_sv_first"
+                style="@style/Button.Text"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/text_margin"
+                android:layout_marginBottom="@dimen/text_margin"
+                android:gravity="left|center_vertical"
+                android:text="Первый аквариум"
+                android:textSize="20sp" />
+
+        </LinearLayout>
+    </ScrollView>
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/help_bottom"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_end="@dimen/margin_bottom" />
+</androidx.constraintlayout.widget.ConstraintLayout>

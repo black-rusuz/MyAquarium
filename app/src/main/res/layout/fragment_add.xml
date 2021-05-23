@@ -1,0 +1,303 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white">
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/add_right"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.9" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/add_left"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.1" />
+
+    <Button
+        android:id="@+id/add_back"
+        style="@style/Button"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:drawableEnd="@drawable/ic_back"
+        android:stateListAnimator="@null"
+        app:layout_constraintBottom_toTopOf="@+id/add_header"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/add_header"
+        style="@style/TextView.Header"
+
+        android:layout_marginTop="@dimen/vertical_margin_double"
+        android:layout_marginBottom="@dimen/vertical_margin"
+        android:text="Добавить аквариум"
+        android:textSize="24sp"
+        app:layout_constraintBottom_toTopOf="@+id/add_sv"
+        app:layout_constraintEnd_toStartOf="@+id/add_right"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="@+id/add_left"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0"
+        app:layout_constraintVertical_chainStyle="packed" />
+
+    <ScrollView
+        android:id="@+id/add_sv"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/vertical_margin"
+        app:layout_constraintBottom_toTopOf="@+id/add_fish"
+        app:layout_constraintEnd_toStartOf="@+id/add_right"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="@+id/add_left"
+        app:layout_constraintTop_toBottomOf="@+id/add_header">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/add_sv_name"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="16dp">
+
+                <androidx.constraintlayout.widget.Guideline
+                    android:id="@+id/add_sv_name_gl"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    app:layout_constraintGuide_percent="0.28" />
+
+                <TextView
+                    android:id="@+id/add_sv_name_tv"
+                    style="@style/TextView.Text.Dark"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/roboto"
+                    android:text="Название:"
+                    android:textSize="16sp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <EditText
+                    android:id="@+id/add_sv_name_et"
+                    android:layout_width="0dp"
+                    android:layout_height="40dp"
+                    android:background="@drawable/bg_rounded_border"
+                    android:ems="10"
+                    android:hint="Введите название"
+                    android:inputType="textPersonName"
+                    android:padding="10dp"
+                    android:textSize="16sp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="@+id/add_sv_name_gl"
+                    app:layout_constraintTop_toTopOf="parent" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/add_sv_type"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="16dp">
+
+                <androidx.constraintlayout.widget.Guideline
+                    android:id="@+id/add_sv_type_gl"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    app:layout_constraintGuide_percent="0.28" />
+
+                <TextView
+                    android:id="@+id/add_sv_type_tv"
+                    style="@style/TextView.Text.Dark"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/roboto"
+                    android:text="Тип:"
+                    android:textSize="16sp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <Spinner
+                    android:id="@+id/add_sv_type_sp"
+                    android:layout_width="0dp"
+                    android:layout_height="40dp"
+                    android:background="@drawable/bg_rounded_border"
+                    android:entries="@array/types"
+                    android:popupBackground="@drawable/bg_rounded_10dp"
+                    android:textSize="16sp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="@+id/add_sv_type_gl"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <ImageView
+                    android:id="@+id/add_sv_type_iv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="16dp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_bias="0.55"
+                    app:srcCompat="@drawable/ic_select" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/add_sv_vt"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <androidx.constraintlayout.widget.Guideline
+                    android:id="@+id/add_sv_vol_gl"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    app:layout_constraintGuide_percent="0.28" />
+
+                <TextView
+                    android:id="@+id/add_sv_vol_tv"
+                    style="@style/TextView.Text.Dark"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/roboto"
+                    android:text="Объём (л):"
+                    android:textSize="16sp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <EditText
+                    android:id="@+id/add_sv_vol_et"
+                    android:layout_width="0dp"
+                    android:layout_height="40dp"
+                    android:background="@drawable/bg_rounded_border"
+                    android:ems="10"
+                    android:gravity="center"
+                    android:hint="0"
+                    android:inputType="numberDecimal"
+                    android:textSize="16sp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toStartOf="@+id/add_sv_vt_gl"
+                    app:layout_constraintStart_toStartOf="@+id/add_sv_vol_gl"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <androidx.constraintlayout.widget.Guideline
+                    android:id="@+id/add_sv_vt_gl"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    app:layout_constraintGuide_percent="0.5" />
+
+                <androidx.constraintlayout.widget.Guideline
+                    android:id="@+id/add_sv_temp_gl"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    app:layout_constraintGuide_percent="0.78" />
+
+                <TextView
+                    android:id="@+id/add_sv_temp_tv"
+                    style="@style/TextView.Text.Dark"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="16dp"
+                    android:fontFamily="@font/roboto"
+                    android:text="t (°C):"
+                    android:textSize="16sp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toStartOf="@+id/add_sv_temp_gl"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <EditText
+                    android:id="@+id/add_sv_temp_et"
+                    android:layout_width="0dp"
+                    android:layout_height="40dp"
+                    android:background="@drawable/bg_rounded_border"
+                    android:ems="10"
+                    android:gravity="center"
+                    android:hint="0"
+                    android:inputType="numberDecimal"
+                    android:textSize="16sp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="@+id/add_sv_temp_gl"
+                    app:layout_constraintTop_toTopOf="parent" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </LinearLayout>
+    </ScrollView>
+
+    <Button
+        android:id="@+id/add_fish"
+        style="@style/Button.Light"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/vertical_margin"
+        android:drawableStart="@drawable/ic_add_black_24dp"
+        android:drawableTint="@color/accent"
+
+        android:scrollbarStyle="outsideInset"
+        android:text="Добавить рыбок"
+        app:layout_constraintBottom_toTopOf="@+id/add_plant"
+        app:layout_constraintEnd_toStartOf="@+id/add_right"
+        app:layout_constraintStart_toStartOf="@+id/add_left"
+        app:layout_constraintTop_toBottomOf="@+id/add_sv" />
+
+    <Button
+        android:id="@+id/add_plant"
+        style="@style/Button.Light"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+
+        android:drawableStart="@drawable/ic_add_black_24dp"
+        android:drawableTint="@color/accent"
+        android:text="Добавить растения"
+        app:layout_constraintBottom_toTopOf="@id/add_save"
+        app:layout_constraintEnd_toStartOf="@+id/add_right"
+        app:layout_constraintStart_toStartOf="@+id/add_left"
+        app:layout_constraintTop_toBottomOf="@id/add_fish" />
+
+    <Button
+        android:id="@+id/add_save"
+        style="@style/Button.Dark"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/vertical_margin"
+        android:layout_marginBottom="@dimen/vertical_margin"
+        android:text="Сохранить"
+        app:layout_constraintBottom_toBottomOf="@id/add_bottom"
+        app:layout_constraintEnd_toStartOf="@+id/add_right"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="@+id/add_left"
+        app:layout_constraintTop_toBottomOf="@+id/add_plant" />
+
+    <ImageView
+        android:id="@+id/add_bg"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:scaleType="fitEnd"
+        app:layout_constraintBottom_toTopOf="@+id/add_bottom"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:srcCompat="@drawable/ic_add_bg" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/add_bottom"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_end="@dimen/margin_bottom" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

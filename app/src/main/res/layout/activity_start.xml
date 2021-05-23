@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white">
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/start_left"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.1" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/start_right"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.9" />
+
+    <ImageView
+        android:id="@+id/start_bg"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:scaleType="fitStart"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/ic_start_bg" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/start_middle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.5" />
+
+    <TextView
+        android:id="@+id/start_1"
+        style="@style/TextView.Text.Dark"
+        android:text="Добро пожаловать в"
+
+        android:textSize="20sp"
+
+        app:layout_constraintBottom_toTopOf="@+id/start_2"
+        app:layout_constraintEnd_toStartOf="@+id/start_right"
+        app:layout_constraintStart_toStartOf="@+id/start_left"
+        app:layout_constraintTop_toTopOf="@+id/start_middle" />
+
+    <TextView
+        android:id="@+id/start_2"
+        style="@style/TextView.Header"
+        android:text="Мой Аквариум"
+
+        android:gravity="start"
+
+        app:layout_constraintBottom_toTopOf="@+id/start_3"
+        app:layout_constraintEnd_toStartOf="@+id/start_right"
+        app:layout_constraintStart_toStartOf="@+id/start_left"
+        app:layout_constraintTop_toBottomOf="@+id/start_1" />
+
+    <TextView
+        android:id="@+id/start_3"
+        style="@style/TextView.Text.Dark"
+        android:text="Здесь вы сможете отслеживать состояние всех показателей вашего аквариума и его  обитателей."
+
+        android:textSize="16sp"
+        android:lineSpacingMultiplier="1.35"
+
+        app:layout_constraintBottom_toTopOf="@+id/login"
+        app:layout_constraintEnd_toStartOf="@+id/start_right"
+        app:layout_constraintStart_toStartOf="@+id/start_left"
+        app:layout_constraintTop_toBottomOf="@+id/start_2" />
+
+    <Button
+        android:id="@+id/login"
+        style="@style/Button.Light"
+        android:text="Войти"
+
+        app:layout_constraintBottom_toTopOf="@+id/help"
+        app:layout_constraintEnd_toStartOf="@+id/register"
+        app:layout_constraintStart_toStartOf="@+id/start_left"
+        app:layout_constraintTop_toBottomOf="@+id/start_3" />
+
+    <Button
+        android:id="@+id/register"
+        style="@style/Button.Dark"
+        android:text="Регистрация"
+
+        app:layout_constraintBottom_toBottomOf="@+id/login"
+        app:layout_constraintEnd_toStartOf="@+id/start_right"
+        app:layout_constraintStart_toEndOf="@+id/login"
+        app:layout_constraintTop_toTopOf="@+id/login" />
+
+    <Button
+        android:id="@+id/help"
+        style="@style/Button.Text"
+        android:text="@string/start_temp"
+
+        android:layout_height="20dp"
+
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/login" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

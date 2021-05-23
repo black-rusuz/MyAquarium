@@ -1,0 +1,260 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/bg_rounded_20dp">
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/aqua_left"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.1" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/aqua_right"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.9" />
+
+    <TextView
+        android:id="@+id/aqua_header"
+        style="@style/TextView.Header"
+        android:text="Аквариум"
+        app:layout_constraintBottom_toTopOf="@+id/aqua_icon"
+        app:layout_constraintEnd_toStartOf="@+id/aqua_right"
+        app:layout_constraintStart_toStartOf="@+id/aqua_left"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/aqua_icon"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:scaleType="fitCenter"
+        android:src="@drawable/ic_aquarium_mixed"
+        app:layout_constraintBottom_toTopOf="@+id/aqua_sum"
+        app:layout_constraintEnd_toStartOf="@+id/aqua_right"
+        app:layout_constraintStart_toStartOf="@+id/aqua_left"
+        app:layout_constraintTop_toBottomOf="@+id/aqua_header" />
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/aqua_sum"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toTopOf="@+id/aqua_content"
+        app:layout_constraintEnd_toStartOf="@+id/aqua_right"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="@+id/aqua_left"
+        app:layout_constraintTop_toBottomOf="@+id/aqua_icon">
+
+        <TextView
+            android:id="@+id/aqua_type_key"
+            style="@style/TextView.Text.Light"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/roboto"
+            android:text="Тип:"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/aqua_type"
+            style="@style/TextView.Text.Dark"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/text_margin"
+            android:fontFamily="@font/roboto"
+            android:text="TextView"
+            app:layout_constraintBottom_toBottomOf="@+id/aqua_type_key"
+            app:layout_constraintStart_toEndOf="@+id/aqua_type_key"
+            app:layout_constraintTop_toTopOf="@+id/aqua_type_key" />
+
+        <TextView
+            android:id="@+id/aqua_vol_key"
+            style="@style/TextView.Text.Light"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/roboto"
+            android:text="Объём:"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/aqua_type_key" />
+
+        <TextView
+            android:id="@+id/aqua_vol"
+            style="@style/TextView.Text.Dark"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/text_margin"
+            android:fontFamily="@font/roboto"
+            android:text="TextView"
+            app:layout_constraintBottom_toBottomOf="@+id/aqua_vol_key"
+            app:layout_constraintStart_toEndOf="@+id/aqua_vol_key"
+            app:layout_constraintTop_toTopOf="@+id/aqua_vol_key" />
+
+        <TextView
+            android:id="@+id/aqua_temp_key"
+            style="@style/TextView.Text.Light"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/roboto"
+            android:text="Температура:"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/aqua_vol_key" />
+
+        <TextView
+            android:id="@+id/aqua_temp"
+            style="@style/TextView.Text.Dark"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/text_margin"
+            android:fontFamily="@font/roboto"
+            android:text="TextView"
+            app:layout_constraintBottom_toBottomOf="@+id/aqua_temp_key"
+            app:layout_constraintStart_toEndOf="@+id/aqua_temp_key"
+            app:layout_constraintTop_toTopOf="@+id/aqua_temp_key" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/aqua_content"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toTopOf="@+id/aqua_calc"
+        app:layout_constraintEnd_toStartOf="@+id/aqua_right"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="@+id/aqua_left"
+        app:layout_constraintTop_toBottomOf="@+id/aqua_sum">
+
+        <TextView
+            android:id="@+id/aqua_fish_key"
+            style="@style/TextView.Text.Light"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/roboto"
+            android:text="Рыбы:"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/aqua_fish"
+            style="@style/TextView.Text.Dark"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/text_margin"
+            android:fontFamily="@font/roboto"
+            android:text="TextView"
+            app:layout_constraintBottom_toBottomOf="@+id/aqua_fish_key"
+            app:layout_constraintStart_toEndOf="@+id/aqua_fish_key"
+            app:layout_constraintTop_toTopOf="@+id/aqua_fish_key" />
+
+        <TextView
+            android:id="@+id/aqua_plant_key"
+            style="@style/TextView.Text.Light"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/roboto"
+            android:text="Растения:"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/aqua_fish_key" />
+
+        <TextView
+            android:id="@+id/aqua_plant"
+            style="@style/TextView.Text.Dark"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/text_margin"
+            android:fontFamily="@font/roboto"
+            android:text="TextView"
+            app:layout_constraintBottom_toBottomOf="@+id/aqua_plant_key"
+            app:layout_constraintStart_toEndOf="@+id/aqua_plant_key"
+            app:layout_constraintTop_toTopOf="@+id/aqua_plant_key" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/aqua_calc"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toTopOf="@+id/aqua_condition_key"
+        app:layout_constraintEnd_toStartOf="@+id/aqua_right"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="@+id/aqua_left"
+        app:layout_constraintTop_toBottomOf="@+id/aqua_content">
+
+        <TextView
+            android:id="@+id/aqua_feed_key"
+            style="@style/TextView.Text.Light"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/roboto"
+            android:text="Корм:"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/aqua_feed"
+            style="@style/TextView.Text.Dark"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/text_margin"
+            android:fontFamily="@font/roboto"
+            android:text="TextView"
+            app:layout_constraintBottom_toBottomOf="@+id/aqua_feed_key"
+            app:layout_constraintStart_toEndOf="@+id/aqua_feed_key"
+            app:layout_constraintTop_toTopOf="@+id/aqua_feed_key" />
+
+        <TextView
+            android:id="@+id/aqua_update_key"
+            style="@style/TextView.Text.Light"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/roboto"
+            android:text="Подмена:"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/aqua_feed_key" />
+
+        <TextView
+            android:id="@+id/aqua_update"
+            style="@style/TextView.Text.Dark"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/text_margin"
+            android:fontFamily="@font/roboto"
+            android:text="TextView"
+            app:layout_constraintBottom_toBottomOf="@+id/aqua_update_key"
+            app:layout_constraintStart_toEndOf="@+id/aqua_update_key"
+            app:layout_constraintTop_toTopOf="@+id/aqua_update_key" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <TextView
+        android:id="@+id/aqua_condition_key"
+        style="@style/TextView.Text.Light"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/roboto"
+        android:text="Состояние:"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/aqua_condition"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintHorizontal_chainStyle="packed"
+        app:layout_constraintStart_toEndOf="@+id/aqua_left"
+        app:layout_constraintTop_toBottomOf="@+id/aqua_calc" />
+
+    <TextView
+        android:id="@+id/aqua_condition"
+        style="@style/TextView.Text.Light"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/text_margin"
+        android:fontFamily="@font/roboto"
+        android:text="TextView"
+        android:textColor="#2E7D32"
+        app:layout_constraintBottom_toBottomOf="@+id/aqua_condition_key"
+        app:layout_constraintEnd_toStartOf="@+id/aqua_right"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/aqua_condition_key"
+        app:layout_constraintTop_toTopOf="@+id/aqua_condition_key" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
