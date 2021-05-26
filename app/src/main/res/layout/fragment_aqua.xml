@@ -22,7 +22,8 @@
     <TextView
         android:id="@+id/aqua_header"
         style="@style/TextView.Header"
-        android:text="Аквариум"
+        android:text="@string/aqua"
+        android:textSize="24sp"
         app:layout_constraintBottom_toTopOf="@+id/aqua_icon"
         app:layout_constraintEnd_toStartOf="@+id/aqua_right"
         app:layout_constraintStart_toStartOf="@+id/aqua_left"
@@ -33,7 +34,7 @@
         android:layout_width="150dp"
         android:layout_height="150dp"
         android:scaleType="fitCenter"
-        android:src="@drawable/ic_aquarium_mixed"
+        android:src="@drawable/pic_aquarium_mixed"
         app:layout_constraintBottom_toTopOf="@+id/aqua_sum"
         app:layout_constraintEnd_toStartOf="@+id/aqua_right"
         app:layout_constraintStart_toStartOf="@+id/aqua_left"
@@ -45,28 +46,20 @@
         android:layout_height="wrap_content"
         app:layout_constraintBottom_toTopOf="@+id/aqua_content"
         app:layout_constraintEnd_toStartOf="@+id/aqua_right"
-        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="@+id/aqua_left"
         app:layout_constraintTop_toBottomOf="@+id/aqua_icon">
 
         <TextView
             android:id="@+id/aqua_type_key"
             style="@style/TextView.Text.Light"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:fontFamily="@font/roboto"
-            android:text="Тип:"
+            android:text="@string/type_"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
             android:id="@+id/aqua_type"
             style="@style/TextView.Text.Dark"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="@dimen/text_margin"
-            android:fontFamily="@font/roboto"
-            android:text="TextView"
+            android:layout_marginStart="@dimen/margin_text"
             app:layout_constraintBottom_toBottomOf="@+id/aqua_type_key"
             app:layout_constraintStart_toEndOf="@+id/aqua_type_key"
             app:layout_constraintTop_toTopOf="@+id/aqua_type_key" />
@@ -74,21 +67,14 @@
         <TextView
             android:id="@+id/aqua_vol_key"
             style="@style/TextView.Text.Light"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:fontFamily="@font/roboto"
-            android:text="Объём:"
+            android:text="@string/vol_"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/aqua_type_key" />
 
         <TextView
             android:id="@+id/aqua_vol"
             style="@style/TextView.Text.Dark"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="@dimen/text_margin"
-            android:fontFamily="@font/roboto"
-            android:text="TextView"
+            android:layout_marginStart="@dimen/margin_text"
             app:layout_constraintBottom_toBottomOf="@+id/aqua_vol_key"
             app:layout_constraintStart_toEndOf="@+id/aqua_vol_key"
             app:layout_constraintTop_toTopOf="@+id/aqua_vol_key" />
@@ -96,21 +82,14 @@
         <TextView
             android:id="@+id/aqua_temp_key"
             style="@style/TextView.Text.Light"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:fontFamily="@font/roboto"
-            android:text="Температура:"
+            android:text="@string/temp_"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/aqua_vol_key" />
 
         <TextView
             android:id="@+id/aqua_temp"
             style="@style/TextView.Text.Dark"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="@dimen/text_margin"
-            android:fontFamily="@font/roboto"
-            android:text="TextView"
+            android:layout_marginStart="@dimen/margin_text"
             app:layout_constraintBottom_toBottomOf="@+id/aqua_temp_key"
             app:layout_constraintStart_toEndOf="@+id/aqua_temp_key"
             app:layout_constraintTop_toTopOf="@+id/aqua_temp_key" />
@@ -122,28 +101,20 @@
         android:layout_height="wrap_content"
         app:layout_constraintBottom_toTopOf="@+id/aqua_calc"
         app:layout_constraintEnd_toStartOf="@+id/aqua_right"
-        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="@+id/aqua_left"
         app:layout_constraintTop_toBottomOf="@+id/aqua_sum">
 
         <TextView
             android:id="@+id/aqua_fish_key"
             style="@style/TextView.Text.Light"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:fontFamily="@font/roboto"
-            android:text="Рыбы:"
+            android:text="@string/fishes_"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
             android:id="@+id/aqua_fish"
             style="@style/TextView.Text.Dark"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="@dimen/text_margin"
-            android:fontFamily="@font/roboto"
-            android:text="TextView"
+            android:layout_marginStart="@dimen/margin_text"
             app:layout_constraintBottom_toBottomOf="@+id/aqua_fish_key"
             app:layout_constraintStart_toEndOf="@+id/aqua_fish_key"
             app:layout_constraintTop_toTopOf="@+id/aqua_fish_key" />
@@ -151,21 +122,14 @@
         <TextView
             android:id="@+id/aqua_plant_key"
             style="@style/TextView.Text.Light"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:fontFamily="@font/roboto"
-            android:text="Растения:"
+            android:text="@string/plants_"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/aqua_fish_key" />
 
         <TextView
             android:id="@+id/aqua_plant"
             style="@style/TextView.Text.Dark"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="@dimen/text_margin"
-            android:fontFamily="@font/roboto"
-            android:text="TextView"
+            android:layout_marginStart="@dimen/margin_text"
             app:layout_constraintBottom_toBottomOf="@+id/aqua_plant_key"
             app:layout_constraintStart_toEndOf="@+id/aqua_plant_key"
             app:layout_constraintTop_toTopOf="@+id/aqua_plant_key" />
@@ -177,53 +141,38 @@
         android:layout_height="wrap_content"
         app:layout_constraintBottom_toTopOf="@+id/aqua_condition_key"
         app:layout_constraintEnd_toStartOf="@+id/aqua_right"
-        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="@+id/aqua_left"
         app:layout_constraintTop_toBottomOf="@+id/aqua_content">
 
         <TextView
             android:id="@+id/aqua_feed_key"
             style="@style/TextView.Text.Light"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:fontFamily="@font/roboto"
-            android:text="Корм:"
+            android:text="@string/feed_"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
             android:id="@+id/aqua_feed"
             style="@style/TextView.Text.Dark"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="@dimen/text_margin"
-            android:fontFamily="@font/roboto"
-            android:text="TextView"
+            android:layout_marginStart="@dimen/margin_text"
             app:layout_constraintBottom_toBottomOf="@+id/aqua_feed_key"
             app:layout_constraintStart_toEndOf="@+id/aqua_feed_key"
             app:layout_constraintTop_toTopOf="@+id/aqua_feed_key" />
 
         <TextView
-            android:id="@+id/aqua_update_key"
+            android:id="@+id/aqua_refresh_key"
             style="@style/TextView.Text.Light"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:fontFamily="@font/roboto"
-            android:text="Подмена:"
+            android:text="@string/refresh_"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/aqua_feed_key" />
 
         <TextView
-            android:id="@+id/aqua_update"
+            android:id="@+id/aqua_refresh"
             style="@style/TextView.Text.Dark"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="@dimen/text_margin"
-            android:fontFamily="@font/roboto"
-            android:text="TextView"
-            app:layout_constraintBottom_toBottomOf="@+id/aqua_update_key"
-            app:layout_constraintStart_toEndOf="@+id/aqua_update_key"
-            app:layout_constraintTop_toTopOf="@+id/aqua_update_key" />
+            android:layout_marginStart="@dimen/margin_text"
+            app:layout_constraintBottom_toBottomOf="@+id/aqua_refresh_key"
+            app:layout_constraintStart_toEndOf="@+id/aqua_refresh_key"
+            app:layout_constraintTop_toTopOf="@+id/aqua_refresh_key" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -231,28 +180,23 @@
         android:id="@+id/aqua_condition_key"
         style="@style/TextView.Text.Light"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:fontFamily="@font/roboto"
-        android:text="Состояние:"
+        android:text="@string/condition_"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/aqua_condition"
-        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintHorizontal_chainStyle="packed"
         app:layout_constraintStart_toEndOf="@+id/aqua_left"
         app:layout_constraintTop_toBottomOf="@+id/aqua_calc" />
 
+    <!-- TODO: Прописать цвета в colors-->
     <TextView
         android:id="@+id/aqua_condition"
         style="@style/TextView.Text.Light"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="@dimen/text_margin"
-        android:fontFamily="@font/roboto"
-        android:text="TextView"
+        android:layout_marginStart="@dimen/margin_text"
+        android:text="@string/excellent"
         android:textColor="#2E7D32"
         app:layout_constraintBottom_toBottomOf="@+id/aqua_condition_key"
         app:layout_constraintEnd_toStartOf="@+id/aqua_right"
-        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toEndOf="@+id/aqua_condition_key"
         app:layout_constraintTop_toTopOf="@+id/aqua_condition_key" />
 

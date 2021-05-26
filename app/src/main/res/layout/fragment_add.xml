@@ -21,25 +21,21 @@
 
     <Button
         android:id="@+id/add_back"
-        style="@style/Button"
-        android:layout_width="50dp"
-        android:layout_height="50dp"
-        android:drawableEnd="@drawable/ic_back"
-        android:stateListAnimator="@null"
-        app:layout_constraintBottom_toTopOf="@+id/add_header"
-        app:layout_constraintStart_toStartOf="parent" />
+        style="@style/Button.Back"
+        android:drawableTint="@color/text_dark"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/add_header" />
 
     <TextView
         android:id="@+id/add_header"
         style="@style/TextView.Header"
 
-        android:layout_marginTop="@dimen/vertical_margin_double"
-        android:layout_marginBottom="@dimen/vertical_margin"
+        android:layout_marginTop="@dimen/margin_default_2x"
+        android:layout_marginBottom="@dimen/margin_default"
         android:text="Добавить аквариум"
         android:textSize="24sp"
         app:layout_constraintBottom_toTopOf="@+id/add_sv"
         app:layout_constraintEnd_toStartOf="@+id/add_right"
-        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="@+id/add_left"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.0"
@@ -49,14 +45,14 @@
         android:id="@+id/add_sv"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="@dimen/vertical_margin"
+        android:layout_marginBottom="@dimen/margin_default"
         app:layout_constraintBottom_toTopOf="@+id/add_fish"
         app:layout_constraintEnd_toStartOf="@+id/add_right"
-        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="@+id/add_left"
         app:layout_constraintTop_toBottomOf="@+id/add_header">
 
         <LinearLayout
+            android:id="@+id/add_sv_ll"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical">
@@ -144,19 +140,20 @@
                     android:id="@+id/add_sv_type_iv"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginEnd="16dp"
+                    android:layout_marginEnd="@dimen/margin_default_0.5x"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
-                    app:layout_constraintVertical_bias="0.55"
-                    app:srcCompat="@drawable/ic_select" />
+                    app:srcCompat="@drawable/ic_select"
+                    app:tint="@color/text_dark" />
 
             </androidx.constraintlayout.widget.ConstraintLayout>
 
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:id="@+id/add_sv_vt"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content">
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/margin_default_0.5x">
 
                 <androidx.constraintlayout.widget.Guideline
                     android:id="@+id/add_sv_vol_gl"
@@ -211,7 +208,7 @@
                     style="@style/TextView.Text.Dark"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginEnd="16dp"
+                    android:layout_marginEnd="@dimen/margin_default_0.5x"
                     android:fontFamily="@font/roboto"
                     android:text="t (°C):"
                     android:textSize="16sp"
@@ -240,15 +237,14 @@
 
     <Button
         android:id="@+id/add_fish"
-        style="@style/Button.Light"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="@dimen/vertical_margin"
+        style="@style/Button.Colored.Light"
+        android:text="Добавить рыбок"
+
         android:drawableStart="@drawable/ic_add_black_24dp"
         android:drawableTint="@color/accent"
 
-        android:scrollbarStyle="outsideInset"
-        android:text="Добавить рыбок"
+        android:layout_marginBottom="@dimen/margin_default"
+
         app:layout_constraintBottom_toTopOf="@+id/add_plant"
         app:layout_constraintEnd_toStartOf="@+id/add_right"
         app:layout_constraintStart_toStartOf="@+id/add_left"
@@ -256,13 +252,14 @@
 
     <Button
         android:id="@+id/add_plant"
-        style="@style/Button.Light"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        style="@style/Button.Colored.Light"
+        android:text="Добавить растения"
 
         android:drawableStart="@drawable/ic_add_black_24dp"
         android:drawableTint="@color/accent"
-        android:text="Добавить растения"
+
+        android:layout_marginBottom="@dimen/margin_default"
+
         app:layout_constraintBottom_toTopOf="@id/add_save"
         app:layout_constraintEnd_toStartOf="@+id/add_right"
         app:layout_constraintStart_toStartOf="@+id/add_left"
@@ -270,15 +267,14 @@
 
     <Button
         android:id="@+id/add_save"
-        style="@style/Button.Dark"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/vertical_margin"
-        android:layout_marginBottom="@dimen/vertical_margin"
+        style="@style/Button.Colored.Dark"
         android:text="Сохранить"
+
+        android:layout_marginTop="@dimen/margin_default"
+        android:layout_marginBottom="@dimen/margin_default"
+
         app:layout_constraintBottom_toBottomOf="@id/add_bottom"
         app:layout_constraintEnd_toStartOf="@+id/add_right"
-        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="@+id/add_left"
         app:layout_constraintTop_toBottomOf="@+id/add_plant" />
 
@@ -290,7 +286,7 @@
         app:layout_constraintBottom_toTopOf="@+id/add_bottom"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:srcCompat="@drawable/ic_add_bg" />
+        app:srcCompat="@drawable/bg_add" />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/add_bottom"

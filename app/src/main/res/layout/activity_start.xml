@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/white">
@@ -27,7 +28,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/ic_start_bg" />
+        app:srcCompat="@drawable/bg_start" />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/start_middle"
@@ -42,18 +43,20 @@
         android:text="Добро пожаловать в"
 
         android:textSize="20sp"
+        android:fontFamily="@font/roboto_light"
 
         app:layout_constraintBottom_toTopOf="@+id/start_2"
         app:layout_constraintEnd_toStartOf="@+id/start_right"
         app:layout_constraintStart_toStartOf="@+id/start_left"
-        app:layout_constraintTop_toTopOf="@+id/start_middle" />
+        app:layout_constraintTop_toTopOf="@+id/start_middle"
+        tools:ignore="HardcodedText" />
 
     <TextView
         android:id="@+id/start_2"
         style="@style/TextView.Header"
-        android:text="Мой Аквариум"
-
         android:gravity="start"
+
+        android:text="@string/app_name"
 
         app:layout_constraintBottom_toTopOf="@+id/start_3"
         app:layout_constraintEnd_toStartOf="@+id/start_right"
@@ -66,16 +69,18 @@
         android:text="Здесь вы сможете отслеживать состояние всех показателей вашего аквариума и его  обитателей."
 
         android:textSize="16sp"
+        android:fontFamily="@font/roboto_light"
         android:lineSpacingMultiplier="1.35"
 
         app:layout_constraintBottom_toTopOf="@+id/login"
         app:layout_constraintEnd_toStartOf="@+id/start_right"
         app:layout_constraintStart_toStartOf="@+id/start_left"
-        app:layout_constraintTop_toBottomOf="@+id/start_2" />
+        app:layout_constraintTop_toBottomOf="@+id/start_2"
+        tools:ignore="HardcodedText" />
 
     <Button
         android:id="@+id/login"
-        style="@style/Button.Light"
+        style="@style/Button.Colored.Light"
         android:text="Войти"
 
         app:layout_constraintBottom_toTopOf="@+id/help"
@@ -85,7 +90,7 @@
 
     <Button
         android:id="@+id/register"
-        style="@style/Button.Dark"
+        style="@style/Button.Colored.Dark"
         android:text="Регистрация"
 
         app:layout_constraintBottom_toBottomOf="@+id/login"
@@ -95,7 +100,7 @@
 
     <Button
         android:id="@+id/help"
-        style="@style/Button.Text"
+        style="@style/Button.Text.Small"
         android:text="@string/start_temp"
 
         android:layout_height="20dp"

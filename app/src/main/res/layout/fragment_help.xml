@@ -24,10 +24,10 @@
     <TextView
         android:id="@+id/help_header"
         style="@style/TextView.Header"
-        android:layout_marginTop="@dimen/vertical_margin"
+        android:layout_marginTop="@dimen/margin_default"
 
-        android:layout_marginBottom="@dimen/vertical_margin_double"
-        android:text="Справочник"
+        android:layout_marginBottom="@dimen/margin_default_2x"
+        android:text="@string/title_help"
 
         app:layout_constraintBottom_toTopOf="@+id/help_sv"
         app:layout_constraintEnd_toStartOf="@+id/help_right"
@@ -41,7 +41,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:scaleType="fitEnd"
-        android:src="@drawable/ic_help_bg"
+        android:src="@drawable/bg_help"
         app:layout_constraintBottom_toTopOf="@+id/help_bottom"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
@@ -50,7 +50,7 @@
         android:id="@+id/help_sv"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="@dimen/vertical_margin"
+        android:layout_marginBottom="@dimen/margin_default"
         app:layout_constraintBottom_toTopOf="@+id/help_bottom"
         app:layout_constraintEnd_toStartOf="@+id/help_right"
         app:layout_constraintStart_toStartOf="@+id/help_left"
@@ -62,79 +62,37 @@
             android:orientation="vertical">
 
             <Button
-                android:id="@+id/help_sv_fish"
-                style="@style/Button.Text"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/text_margin"
-                android:layout_marginBottom="@dimen/text_margin"
-                android:gravity="left|center_vertical"
-                android:text="Рыбки"
-                android:textSize="20sp" />
+                android:id="@+id/help_sv_1"
+                style="@style/Button.Text.Help"
+                android:text="@string/fishes" />
 
-            <androidx.constraintlayout.widget.ConstraintLayout
-                android:layout_width="match_parent"
-                android:layout_height="1dp"
-                android:background="@color/help_border" />
+            <LinearLayout style="@style/LinearLayout.Border"/>
 
             <Button
-                android:id="@+id/help_sv_plant"
-                style="@style/Button.Text"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/text_margin"
-                android:layout_marginBottom="@dimen/text_margin"
-                android:gravity="left|center_vertical"
-                android:text="Растения"
-                android:textSize="20sp" />
+                android:id="@+id/help_sv_2"
+                style="@style/Button.Text.Help"
+                android:text="@string/plants" />
 
-            <androidx.constraintlayout.widget.ConstraintLayout
-                android:layout_width="match_parent"
-                android:layout_height="1dp"
-                android:background="@color/help_border" />
+            <LinearLayout style="@style/LinearLayout.Border"/>
 
             <Button
-                android:id="@+id/help_sv_water"
-                style="@style/Button.Text"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/text_margin"
-                android:layout_marginBottom="@dimen/text_margin"
-                android:gravity="left|center_vertical"
-                android:text="Параметры воды"
-                android:textSize="20sp" />
+                android:id="@+id/help_sv_3"
+                style="@style/Button.Text.Help"
+                android:text="Параметры воды" />
 
-            <androidx.constraintlayout.widget.ConstraintLayout
-                android:layout_width="match_parent"
-                android:layout_height="1dp"
-                android:background="@color/help_border" />
+            <LinearLayout style="@style/LinearLayout.Border"/>
 
             <Button
-                android:id="@+id/help_sv_aqua"
-                style="@style/Button.Text"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/text_margin"
-                android:layout_marginBottom="@dimen/text_margin"
-                android:gravity="left|center_vertical"
-                android:text="Аквариумы"
-                android:textSize="20sp" />
+                android:id="@+id/help_sv_4"
+                style="@style/Button.Text.Help"
+                android:text="@string/aquas" />
 
-            <androidx.constraintlayout.widget.ConstraintLayout
-                android:layout_width="match_parent"
-                android:layout_height="1dp"
-                android:background="@color/help_border" />
+            <LinearLayout style="@style/LinearLayout.Border"/>
 
             <Button
-                android:id="@+id/help_sv_first"
-                style="@style/Button.Text"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/text_margin"
-                android:layout_marginBottom="@dimen/text_margin"
-                android:gravity="left|center_vertical"
-                android:text="Первый аквариум"
-                android:textSize="20sp" />
+                android:id="@+id/help_sv_5"
+                style="@style/Button.Text.Help"
+                android:text="Первый аквариум" />
 
         </LinearLayout>
     </ScrollView>

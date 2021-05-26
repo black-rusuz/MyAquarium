@@ -39,7 +39,7 @@ public class ProfileFragment extends Fragment {
         if (    !((myPreferences.getInt("VOL", 0)) == 0) &&
                 !((myPreferences.getInt("TEMP", 0)) == 0)) {
             profile_aqua_num.setText("1");
-            profile_aqua_text.setText("аквариум");
+            profile_aqua_text.setText(this.getResources().getQuantityText(R.plurals.aqua, 1));
         }
 
         profile_aqua.setOnClickListener(v -> {

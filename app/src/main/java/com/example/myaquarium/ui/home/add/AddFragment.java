@@ -1,18 +1,22 @@
 package com.example.myaquarium.ui.home.add;
 
+import android.content.Context;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
+import android.view.ContextThemeWrapper;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.LinearLayout;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
+import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
 
@@ -64,10 +68,15 @@ public class AddFragment extends Fragment {
 
         Button add_fish = root.findViewById(R.id.add_fish);
         add_fish.setOnClickListener(v -> {
-            getFragmentManager().beginTransaction()
-                    .replace(R.id.nav_host_fragment, new FishFragment())
-                    .addToBackStack(null)
-                    .commit();
+//            getFragmentManager().beginTransaction()
+//                    .replace(R.id.nav_host_fragment, new FishFragment())
+//                    .addToBackStack(null)
+//                    .commit();
+            // TODO: допилить это говно с добавлениями
+
+            LinearLayout add_sv_ll = root.findViewById(R.id.add_sv_ll);
+            EditText et = new EditText(new ContextThemeWrapper(getContext(), R.style.Button));
+            add_sv_ll.addView(et);
         });
 
         Button add_plant = root.findViewById(R.id.add_plant);
@@ -91,6 +100,7 @@ public class AddFragment extends Fragment {
             } else {
                 name = "Аквариум";
                 // + Integer.toString(1);
+                // TODO: допилить много аквариумов
             }
 
             type = String.valueOf(add_type.getSelectedItem());

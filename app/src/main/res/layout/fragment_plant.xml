@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/white">
@@ -21,11 +22,8 @@
 
     <Button
         android:id="@+id/plant_back"
-        style="@style/Button"
-        android:layout_width="50dp"
-        android:layout_height="50dp"
-        android:drawableEnd="@drawable/ic_back"
-        android:stateListAnimator="@null"
+        style="@style/Button.Back"
+        android:drawableTint="@color/text_dark"
         app:layout_constraintBottom_toTopOf="@+id/plant_header"
         app:layout_constraintStart_toStartOf="parent" />
 
@@ -33,13 +31,12 @@
         android:id="@+id/plant_header"
         style="@style/TextView.Header"
 
-        android:layout_marginTop="@dimen/vertical_margin_double"
-        android:layout_marginBottom="@dimen/vertical_margin"
+        android:layout_marginTop="@dimen/margin_default_2x"
+        android:layout_marginBottom="@dimen/margin_default"
         android:text="Добавить растение"
         android:textSize="24sp"
         app:layout_constraintBottom_toTopOf="@+id/plant_sv"
         app:layout_constraintEnd_toStartOf="@+id/plant_right"
-        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="@+id/plant_left"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.0"
@@ -49,10 +46,9 @@
         android:id="@+id/plant_sv"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="@dimen/vertical_margin"
+        android:layout_marginBottom="@dimen/margin_default"
         app:layout_constraintBottom_toTopOf="@+id/plant_plant"
         app:layout_constraintEnd_toStartOf="@+id/plant_right"
-        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="@+id/plant_left"
         app:layout_constraintTop_toBottomOf="@+id/plant_header">
 
@@ -65,7 +61,7 @@
                 android:id="@+id/plant_sv_name"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="16dp">
+                android:layout_marginBottom="@dimen/margin_default_0.5x">
 
                 <androidx.constraintlayout.widget.Guideline
                     android:id="@+id/plant_sv_name_gl"
@@ -160,7 +156,7 @@
                     style="@style/TextView.Text.Dark"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginEnd="16dp"
+                    android:layout_marginEnd="@dimen/margin_default_0.5x"
                     android:fontFamily="@font/roboto"
                     android:text="t (°C):"
                     android:textSize="16sp"
@@ -189,11 +185,11 @@
 
     <Button
         android:id="@+id/plant_plant"
-        style="@style/Button.Light"
+        style="@style/Button.Colored.Light"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
 
-        android:layout_marginBottom="@dimen/vertical_margin"
+        android:layout_marginBottom="@dimen/margin_default"
         android:drawableStart="@drawable/ic_add_black_24dp"
         android:drawableTint="@color/accent"
         android:text="Добавить"
@@ -204,25 +200,15 @@
 
     <Button
         android:id="@+id/plant_save"
-        style="@style/Button.Dark"
+        style="@style/Button.Colored.Dark"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="@dimen/vertical_margin"
+        android:layout_marginBottom="@dimen/margin_default"
         android:text="Сохранить"
         app:layout_constraintBottom_toBottomOf="@id/plant_bottom"
         app:layout_constraintEnd_toStartOf="@+id/plant_right"
-        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="@+id/plant_left"
         app:layout_constraintTop_toBottomOf="@+id/plant_plant" />
-
-    <ImageView
-        android:id="@+id/plant_bg"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:scaleType="fitEnd"
-        app:layout_constraintBottom_toTopOf="@+id/plant_bottom"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/plant_bottom"

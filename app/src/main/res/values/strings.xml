@@ -1,14 +1,65 @@
 <resources>
     <string name="app_name">Мой аквариум</string>
+
     <string name="title_home">Аквариумы</string>
     <string name="title_help">Справочник</string>
     <string name="title_profile">Профиль</string>
-    <string name="start_temp">Пропустить</string> <!-- TODO: Заменить на "Техподдержка" -->
-    <string name="add_temp"> Изменить</string> <!-- TODO: Заменить на "Добавить" -->
+
+    <string name="aqua">Аквариум</string>
+    <string name="aquas">Аквариумы</string>
+    <string name="aquas_">Аквариумы:</string>
+    <string name="myaquas">Мои аквариумы</string>
+    <plurals name="aqua">
+        <item quantity="zero">Нет Аквариумов</item>
+        <item quantity="one">аквариум</item>
+        <item quantity="few">аквариума</item>
+        <item quantity="many">аквариумов</item>
+    </plurals>
+
+    <string name="fish">Рыбка</string>
+    <string name="fishes">Рыбки</string>
+    <string name="fishes_">Рыбки:</string>
+    <plurals name="fish">
+        <item quantity="zero">рыбок</item>
+        <item quantity="one">рыбка</item>
+        <item quantity="few">рыбки</item>
+        <item quantity="many">рыбок</item>
+    </plurals>
+
+    <string name="plant">Растение</string>
+    <string name="plants">Растения</string>
+    <string name="plants_">Растения:</string>
+    <plurals name="plant">
+        <item quantity="zero">Нет растений</item>
+        <item quantity="one">растение</item>
+        <item quantity="few">растения</item>
+        <item quantity="many">растений</item>
+    </plurals>
 
     <string-array name="types">
         <item>Смешанный</item>
         <item>Рыбки</item>
         <item>Растения</item>
     </string-array>
+
+    <string name="type_">Тип:</string>
+    <string name="vol_">Объём:</string>
+    <string name="temp_">Температура:</string>
+    <string name="feed_">Корм:</string>
+    <string name="refresh_">Подмена:</string>
+
+    <!-- TODO: сделать литры и температуру -->
+
+    <string name="condition_">Состояние:</string>
+
+    <string name="terrible">Ужасное</string>
+    <string name="bad">Плохое</string>
+    <string name="average">Среднее</string>
+    <string name="good">Хорошее</string>
+    <string name="excellent">Отличное</string>
+
+
+    <string name="start_temp">Пропустить</string> <!-- TODO: Заменить на "Техподдержка" -->
+
+    <string name="add_temp"> Изменить</string> <!-- TODO: Заменить на "Добавить" -->
 </resources>
