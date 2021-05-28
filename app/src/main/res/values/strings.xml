@@ -14,6 +14,7 @@
         <item quantity="one">аквариум</item>
         <item quantity="few">аквариума</item>
         <item quantity="many">аквариумов</item>
+        <item quantity="other">аквариумов</item>
     </plurals>
 
     <string name="fish">Рыбка</string>
@@ -24,6 +25,7 @@
         <item quantity="one">рыбка</item>
         <item quantity="few">рыбки</item>
         <item quantity="many">рыбок</item>
+        <item quantity="other">рыбок</item>
     </plurals>
 
     <string name="plant">Растение</string>
@@ -34,6 +36,7 @@
         <item quantity="one">растение</item>
         <item quantity="few">растения</item>
         <item quantity="many">растений</item>
+        <item quantity="other">растений</item>
     </plurals>
 
     <string-array name="types">
@@ -48,7 +51,15 @@
     <string name="feed_">Корм:</string>
     <string name="refresh_">Подмена:</string>
 
-    <!-- TODO: сделать литры и температуру -->
+    <plurals name="vol_unit">
+        <item quantity="zero">Пусто</item>
+        <item quantity="one">&#160;литр</item>
+        <item quantity="few">&#160;литра</item>
+        <item quantity="many">&#160;литров</item>
+        <item quantity="other">&#160;литров</item>
+    </plurals>
+
+    <string name="temp_unit">°C</string>
 
     <string name="condition_">Состояние:</string>
 
@@ -61,5 +72,5 @@
 
     <string name="start_temp">Пропустить</string> <!-- TODO: Заменить на "Техподдержка" -->
 
-    <string name="add_temp"> Изменить</string> <!-- TODO: Заменить на "Добавить" -->
+    <string name="add_temp">Изменить</string> <!-- TODO: Заменить на "Добавить" -->
 </resources>

@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -45,7 +46,6 @@
         android:id="@+id/add_sv"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="@dimen/margin_default"
         app:layout_constraintBottom_toTopOf="@+id/add_fish"
         app:layout_constraintEnd_toStartOf="@+id/add_right"
         app:layout_constraintStart_toStartOf="@+id/add_left"
@@ -59,9 +59,7 @@
 
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:id="@+id/add_sv_name"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="16dp">
+                style="@style/ConstraintLayout.LL">
 
                 <androidx.constraintlayout.widget.Guideline
                     android:id="@+id/add_sv_name_gl"
@@ -73,25 +71,16 @@
                 <TextView
                     android:id="@+id/add_sv_name_tv"
                     style="@style/TextView.Text.Dark"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:fontFamily="@font/roboto"
                     android:text="Название:"
-                    android:textSize="16sp"
+
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
 
                 <EditText
                     android:id="@+id/add_sv_name_et"
-                    android:layout_width="0dp"
-                    android:layout_height="40dp"
-                    android:background="@drawable/bg_rounded_border"
-                    android:ems="10"
+                    style="@style/EditText.Add.Text"
                     android:hint="Введите название"
-                    android:inputType="textPersonName"
-                    android:padding="10dp"
-                    android:textSize="16sp"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="@+id/add_sv_name_gl"
@@ -100,9 +89,7 @@
 
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:id="@+id/add_sv_type"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="16dp">
+                style="@style/ConstraintLayout.LL">
 
                 <androidx.constraintlayout.widget.Guideline
                     android:id="@+id/add_sv_type_gl"
@@ -114,11 +101,8 @@
                 <TextView
                     android:id="@+id/add_sv_type_tv"
                     style="@style/TextView.Text.Dark"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:fontFamily="@font/roboto"
                     android:text="Тип:"
-                    android:textSize="16sp"
+
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
@@ -151,9 +135,7 @@
 
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:id="@+id/add_sv_vt"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="@dimen/margin_default_0.5x">
+                style="@style/ConstraintLayout.LL">
 
                 <androidx.constraintlayout.widget.Guideline
                     android:id="@+id/add_sv_vol_gl"
@@ -165,25 +147,15 @@
                 <TextView
                     android:id="@+id/add_sv_vol_tv"
                     style="@style/TextView.Text.Dark"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:fontFamily="@font/roboto"
                     android:text="Объём (л):"
-                    android:textSize="16sp"
+
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
 
                 <EditText
                     android:id="@+id/add_sv_vol_et"
-                    android:layout_width="0dp"
-                    android:layout_height="40dp"
-                    android:background="@drawable/bg_rounded_border"
-                    android:ems="10"
-                    android:gravity="center"
-                    android:hint="0"
-                    android:inputType="numberDecimal"
-                    android:textSize="16sp"
+                    style="@style/EditText.Add.Num"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toStartOf="@+id/add_sv_vt_gl"
                     app:layout_constraintStart_toStartOf="@+id/add_sv_vol_gl"
@@ -206,26 +178,16 @@
                 <TextView
                     android:id="@+id/add_sv_temp_tv"
                     style="@style/TextView.Text.Dark"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginEnd="@dimen/margin_default_0.5x"
-                    android:fontFamily="@font/roboto"
                     android:text="t (°C):"
-                    android:textSize="16sp"
+
+                    android:layout_marginEnd="@dimen/margin_default_0.5x"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toStartOf="@+id/add_sv_temp_gl"
                     app:layout_constraintTop_toTopOf="parent" />
 
                 <EditText
                     android:id="@+id/add_sv_temp_et"
-                    android:layout_width="0dp"
-                    android:layout_height="40dp"
-                    android:background="@drawable/bg_rounded_border"
-                    android:ems="10"
-                    android:gravity="center"
-                    android:hint="0"
-                    android:inputType="numberDecimal"
-                    android:textSize="16sp"
+                    style="@style/EditText.Add.Num"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="@+id/add_sv_temp_gl"
@@ -242,8 +204,7 @@
 
         android:drawableStart="@drawable/ic_add_black_24dp"
         android:drawableTint="@color/accent"
-
-        android:layout_marginBottom="@dimen/margin_default"
+        android:layout_marginBottom="@dimen/margin_default_0.5x"
 
         app:layout_constraintBottom_toTopOf="@+id/add_plant"
         app:layout_constraintEnd_toStartOf="@+id/add_right"
@@ -257,7 +218,6 @@
 
         android:drawableStart="@drawable/ic_add_black_24dp"
         android:drawableTint="@color/accent"
-
         android:layout_marginBottom="@dimen/margin_default"
 
         app:layout_constraintBottom_toTopOf="@id/add_save"

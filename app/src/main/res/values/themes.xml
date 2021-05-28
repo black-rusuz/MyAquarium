@@ -91,6 +91,7 @@
     </style>
 
     <style name="TextView.Text">
+        <item name="android:textSize">16sp</item>
         <item name="android:fontFamily">@font/roboto</item>
     </style>
 
@@ -111,6 +112,12 @@
     </style>
 
     <style name="ConstraintLayout"></style>
+    <style name="ConstraintLayout.LL">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginBottom">@dimen/margin_default_0.5x</item>
+
+    </style>
     <style name="ConstraintLayout.Card">
         <item name="android:layout_width">90dp</item>
         <item name="android:layout_height">100dp</item>
@@ -123,6 +130,34 @@
 
     <style name="ConstraintLayout.Card.Light">
         <item name="android:backgroundTint">@color/accent_light</item>
+    </style>
+
+    <!-- EditTexts -->
+    <style name="EditText">
+        <item name="android:layout_height">40dp</item>
+        <item name="android:background">@drawable/bg_rounded_border</item>
+        <item name="android:padding">10dp</item>
+        <item name="android:textSize">16sp</item>
+    </style>
+
+    <style name="EditText.Add">
+    </style>
+
+    <style name="EditText.Add.Text">
+        <item name="android:layout_width">0dp</item>
+        <item name="android:inputType">text</item>
+    </style>
+
+    <style name="EditText.Add.Text.Coded">
+        <item name="android:ems">50</item>
+        <item name="android:hint">Начните вводить...</item>
+    </style>
+
+    <style name="EditText.Add.Num">
+        <item name="android:layout_width">0dp</item>
+        <item name="android:hint">0</item>
+        <item name="android:inputType">numberDecimal</item>
+        <item name="android:gravity">center</item>
     </style>
 
     <!-- ImageViews -->

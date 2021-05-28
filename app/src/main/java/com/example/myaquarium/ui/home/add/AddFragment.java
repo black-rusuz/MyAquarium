@@ -16,7 +16,9 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
+import androidx.constraintlayout.solver.state.State;
 import androidx.constraintlayout.widget.ConstraintLayout;
+import androidx.constraintlayout.widget.ConstraintSet;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
 
@@ -35,13 +37,10 @@ public class AddFragment extends Fragment {
                 new ViewModelProvider(this).get(AddViewModel.class);
         View root = inflater.inflate(R.layout.fragment_add, container, false);
 
-        Button add_back = root.findViewById(R.id.add_back);
-        add_back.setOnClickListener(v -> {
-            getFragmentManager().popBackStack();
-        });
-
         SharedPreferences myPreferences = PreferenceManager.getDefaultSharedPreferences(root.getContext());
         SharedPreferences.Editor myEditor = myPreferences.edit();
+
+        root.findViewById(R.id.add_back).setOnClickListener(v -> getFragmentManager().popBackStack());
 
         EditText add_name = root.findViewById(R.id.add_sv_name_et);
         Spinner add_type = root.findViewById(R.id.add_sv_type_sp);
@@ -49,8 +48,8 @@ public class AddFragment extends Fragment {
         EditText add_temp = root.findViewById(R.id.add_sv_temp_et);
         TextView add_header = root.findViewById(R.id.add_header);
 
-        if (    !((myPreferences.getInt("VOL", 0)) == 0) &&
-                !((myPreferences.getInt("TEMP", 0)) == 0)) {
+        if (    ((myPreferences.getInt("VOL", 0)) != 0) &&
+                ((myPreferences.getInt("TEMP", 0)) != 0)) {
             add_header.setText("Изменить");
             add_name.setText(myPreferences.getString("NAME", "Аквариум"));
             if (myPreferences.getString("TYPE", "Смешанный").equals("Смешанный")) {
@@ -75,8 +74,16 @@ public class AddFragment extends Fragment {
             // TODO: допилить это говно с добавлениями
 
             LinearLayout add_sv_ll = root.findViewById(R.id.add_sv_ll);
-            EditText et = new EditText(new ContextThemeWrapper(getContext(), R.style.Button));
-            add_sv_ll.addView(et);
+            ConstraintLayout add_sv_cl = new ConstraintLayout(getContext(), null, R.style.ConstraintLayout_LL, R.style.ConstraintLayout_LL);
+
+            LinearLayout.LayoutParams lp = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.WRAP_CONTENT, LinearLayout.LayoutParams.WRAP_CONTENT);
+            lp.setMargins(0, 0, 0, (int) getResources().getDimension(R.dimen.margin_default_0_5x));
+            add_sv_cl.setLayoutParams(lp);
+
+            EditText et = new EditText(getContext(), null, R.style.EditText_Add_Text_Coded, R.style.EditText_Add_Text_Coded);
+            add_sv_cl.addView(et);
+            add_sv_ll.addView(add_sv_cl);
+
         });
 
         Button add_plant = root.findViewById(R.id.add_plant);
@@ -95,11 +102,11 @@ public class AddFragment extends Fragment {
             Integer vol;
             Integer temp;
 
-            if (add_name.getText().length() > 0) {
+            if (add_name.getText().length() > 0)
                 name = String.valueOf(add_name.getText());
-            } else {
+            else {
                 name = "Аквариум";
-                // + Integer.toString(1);
+                // + " " + Integer.toString(i);
                 // TODO: допилить много аквариумов
             }
 
@@ -107,16 +114,18 @@ public class AddFragment extends Fragment {
 
             if (add_vol.getText().length() > 0) {
                 vol = Integer.parseInt(String.valueOf(add_vol.getText()));
+                if (vol == 0) {
+                    Toast.makeText(getContext(), "Объём не может быть равен нулю", Toast.LENGTH_SHORT).show();
+                    return;
+                }
             } else {
-                vol = 0;
                 Toast.makeText(getContext(),"Введите объём", Toast.LENGTH_SHORT).show();
                 return;
             }
 
-            if (add_temp.getText().length() > 0) {
+            if (add_temp.getText().length() > 0)
                 temp = Integer.parseInt(String.valueOf(add_temp.getText()));
-            } else {
-                temp = 0;
+            else {
                 Toast.makeText(getContext(),"Введите температуру", Toast.LENGTH_SHORT).show();
                 return;
             }

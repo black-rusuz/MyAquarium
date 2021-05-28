@@ -80,6 +80,15 @@
             app:layout_constraintTop_toTopOf="@+id/aqua_vol_key" />
 
         <TextView
+            android:id="@+id/aqua_vol_unit"
+            style="@style/TextView.Text.Dark"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toBottomOf="@id/aqua_vol"
+            app:layout_constraintStart_toEndOf="@id/aqua_vol"
+            app:layout_constraintTop_toTopOf="@id/aqua_vol" />
+
+        <TextView
             android:id="@+id/aqua_temp_key"
             style="@style/TextView.Text.Light"
             android:text="@string/temp_"
@@ -93,6 +102,16 @@
             app:layout_constraintBottom_toBottomOf="@+id/aqua_temp_key"
             app:layout_constraintStart_toEndOf="@+id/aqua_temp_key"
             app:layout_constraintTop_toTopOf="@+id/aqua_temp_key" />
+
+        <TextView
+            android:id="@+id/aqua_temp_unit"
+            style="@style/TextView.Text.Dark"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/temp_unit"
+            app:layout_constraintBottom_toBottomOf="@+id/aqua_temp"
+            app:layout_constraintStart_toEndOf="@+id/aqua_temp"
+            app:layout_constraintTop_toTopOf="@+id/aqua_temp" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <androidx.constraintlayout.widget.ConstraintLayout
