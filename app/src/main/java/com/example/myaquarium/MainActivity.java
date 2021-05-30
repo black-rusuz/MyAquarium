@@ -53,11 +53,10 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void onBackPressed() {
-        if (findViewById(R.id.add_back) != null) {
+        if (findViewById(R.id.add_back) != null)
             getSupportFragmentManager().popBackStack();
-        } else {
+        else
             finish();
-        }
     }
 
 }
