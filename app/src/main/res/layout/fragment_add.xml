@@ -20,6 +20,16 @@
         android:orientation="vertical"
         app:layout_constraintGuide_percent="0.1" />
 
+    <ImageView
+        android:id="@+id/add_bg"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:scaleType="fitEnd"
+        app:layout_constraintBottom_toTopOf="@+id/add_bottom"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:srcCompat="@drawable/bg_add" />
+
     <Button
         android:id="@+id/add_back"
         style="@style/Button.Back"
@@ -228,25 +238,15 @@
     <Button
         android:id="@+id/add_save"
         style="@style/Button.Colored.Dark"
-        android:text="Сохранить"
+        android:layout_marginTop="@dimen/margin_default_0.5x"
 
-        android:layout_marginTop="@dimen/margin_default"
         android:layout_marginBottom="@dimen/margin_default"
+        android:text="Сохранить"
 
         app:layout_constraintBottom_toBottomOf="@id/add_bottom"
         app:layout_constraintEnd_toStartOf="@+id/add_right"
         app:layout_constraintStart_toStartOf="@+id/add_left"
         app:layout_constraintTop_toBottomOf="@+id/add_plant" />
-
-    <ImageView
-        android:id="@+id/add_bg"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:scaleType="fitEnd"
-        app:layout_constraintBottom_toTopOf="@+id/add_bottom"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:srcCompat="@drawable/bg_add" />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/add_bottom"

@@ -1,13 +1,12 @@
 package com.example.myaquarium.ui.home.add;
 
-import android.content.Context;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
-import android.view.ContextThemeWrapper;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AutoCompleteTextView;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.LinearLayout;
@@ -16,16 +15,12 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
-import androidx.constraintlayout.solver.state.State;
 import androidx.constraintlayout.widget.ConstraintLayout;
-import androidx.constraintlayout.widget.ConstraintSet;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
 
 import com.example.myaquarium.R;
 import com.example.myaquarium.ui.home.HomeFragment;
-import com.example.myaquarium.ui.home.add.fish.FishFragment;
-import com.example.myaquarium.ui.home.add.plant.PlantFragment;
 
 public class AddFragment extends Fragment {
 
@@ -67,10 +62,6 @@ public class AddFragment extends Fragment {
 
         Button add_fish = root.findViewById(R.id.add_fish);
         add_fish.setOnClickListener(v -> {
-//            getFragmentManager().beginTransaction()
-//                    .replace(R.id.nav_host_fragment, new FishFragment())
-//                    .addToBackStack(null)
-//                    .commit();
             // TODO: допилить это говно с добавлениями
 
             LinearLayout add_sv_ll = root.findViewById(R.id.add_sv_ll);
@@ -80,18 +71,18 @@ public class AddFragment extends Fragment {
             lp.setMargins(0, 0, 0, (int) getResources().getDimension(R.dimen.margin_default_0_5x));
             add_sv_cl.setLayoutParams(lp);
 
-            EditText et = new EditText(getContext(), null, R.style.EditText_Add_Text_Coded, R.style.EditText_Add_Text_Coded);
-            add_sv_cl.addView(et);
+            AutoCompleteTextView actv = new AutoCompleteTextView(getContext(), null, R.style.AutoCompleteTextView, R.style.AutoCompleteTextView);
+            //actv.setAdapter();
+            actv.setFocusable(true);
+            actv.setFocusableInTouchMode(true);
+            add_sv_cl.addView(actv);
             add_sv_ll.addView(add_sv_cl);
 
         });
 
         Button add_plant = root.findViewById(R.id.add_plant);
         add_plant.setOnClickListener(v -> {
-            getFragmentManager().beginTransaction()
-                    .replace(R.id.nav_host_fragment, new PlantFragment())
-                    .addToBackStack(null)
-                    .commit();
+
         });
 
         Button save = root.findViewById(R.id.add_save);
