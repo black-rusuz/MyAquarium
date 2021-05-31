@@ -60,6 +60,7 @@
             style="@style/TextView.Text.Dark"
             android:layout_marginStart="@dimen/margin_text"
             app:layout_constraintBottom_toBottomOf="@+id/aqua_type_key"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@+id/aqua_type_key"
             app:layout_constraintTop_toTopOf="@+id/aqua_type_key" />
 
@@ -134,6 +135,7 @@
             style="@style/TextView.Text.Dark"
             android:layout_marginStart="@dimen/margin_text"
             app:layout_constraintBottom_toBottomOf="@+id/aqua_fish_key"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@+id/aqua_fish_key"
             app:layout_constraintTop_toTopOf="@+id/aqua_fish_key" />
 
@@ -149,6 +151,7 @@
             style="@style/TextView.Text.Dark"
             android:layout_marginStart="@dimen/margin_text"
             app:layout_constraintBottom_toBottomOf="@+id/aqua_plant_key"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@+id/aqua_plant_key"
             app:layout_constraintTop_toTopOf="@+id/aqua_plant_key" />
     </androidx.constraintlayout.widget.ConstraintLayout>
@@ -174,6 +177,7 @@
             style="@style/TextView.Text.Dark"
             android:layout_marginStart="@dimen/margin_text"
             app:layout_constraintBottom_toBottomOf="@+id/aqua_feed_key"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@+id/aqua_feed_key"
             app:layout_constraintTop_toTopOf="@+id/aqua_feed_key" />
 
@@ -189,6 +193,7 @@
             style="@style/TextView.Text.Dark"
             android:layout_marginStart="@dimen/margin_text"
             app:layout_constraintBottom_toBottomOf="@+id/aqua_refresh_key"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@+id/aqua_refresh_key"
             app:layout_constraintTop_toTopOf="@+id/aqua_refresh_key" />
 

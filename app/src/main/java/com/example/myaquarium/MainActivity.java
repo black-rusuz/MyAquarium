@@ -8,6 +8,7 @@ import android.widget.Button;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.Fragment;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
 import androidx.navigation.ui.NavigationUI;
@@ -20,7 +21,9 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
 
         SharedPreferences myPreferences = PreferenceManager.getDefaultSharedPreferences(getBaseContext());
-        boolean previouslyStarted = myPreferences.getBoolean("previously_started", false);
+        SharedPreferences.Editor myEditor = myPreferences.edit();
+        boolean previouslyStarted = myPreferences.getBoolean("PREVIOUSLY_STARTED", false);
+
 
         if(!previouslyStarted) {
             super.onCreate(savedInstanceState);
@@ -37,9 +40,7 @@ public class MainActivity extends AppCompatActivity {
                 Toast.makeText(getApplicationContext(),"Скоро будет...", Toast.LENGTH_SHORT).show();
             });
             help.setOnClickListener(v -> {
-                SharedPreferences.Editor myEditor = myPreferences.edit();
-                myEditor.putBoolean("previously_started", true);
-                myEditor.commit();
+                myEditor.putBoolean("PREVIOUSLY_STARTED", true).commit();
                 Intent intent = new Intent(this, MainActivity.class);
                 startActivity(intent);
             });

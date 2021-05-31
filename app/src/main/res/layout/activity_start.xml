@@ -80,7 +80,7 @@
     <Button
         android:id="@+id/login"
         style="@style/Button.Colored.Light"
-        android:text="Войти"
+        android:text="Вход"
 
         app:layout_constraintBottom_toTopOf="@+id/help"
         app:layout_constraintEnd_toStartOf="@+id/register"

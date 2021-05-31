@@ -148,6 +148,11 @@
         <item name="android:inputType">text</item>
     </style>
 
+    <style name="EditText.Add.Text.Coded">
+        <item name="android:ems">100</item>
+        <item name="android:hint">Название</item>
+    </style>
+
     <style name="EditText.Add.Num">
         <item name="android:layout_width">0dp</item>
         <item name="android:hint">0</item>
@@ -155,9 +160,9 @@
         <item name="android:gravity">center</item>
     </style>
 
-    <style name="AutoCompleteTextView" parent="EditText.Add.Text">
-        <item name="android:ems">100</item>
-        <item name="android:hint">Начните вводить...</item>
+    <style name="EditText.Add.Num.Coded">
+        <item name="android:ems">2</item>
+        <item name="android:hint">0</item>
     </style>
 
     <!-- ImageViews -->

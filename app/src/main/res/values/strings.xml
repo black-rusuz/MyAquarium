@@ -73,4 +73,15 @@
     <string name="start_temp">Пропустить</string> <!-- TODO: Заменить на "Техподдержка" -->
 
     <string name="add_temp">Изменить</string> <!-- TODO: Заменить на "Добавить" -->
+
+
+
+
+    <string-array name="fishes">
+        <item>Гуппи</item>
+        <item>Пецилия</item>
+        <item>Неон</item>
+        <item>Скалярия</item>
+        <item>Анцитрус</item>
+    </string-array>
 </resources>

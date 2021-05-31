@@ -7,6 +7,7 @@ import android.preference.PreferenceManager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -15,6 +16,8 @@ import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
 
 import com.example.myaquarium.R;
+
+import org.w3c.dom.Text;
 
 public class AquaFragment extends Fragment {
 
@@ -27,6 +30,7 @@ public class AquaFragment extends Fragment {
         View root = inflater.inflate(R.layout.fragment_aqua, container, false);
 
         SharedPreferences myPreferences = PreferenceManager.getDefaultSharedPreferences(root.getContext());
+        SharedPreferences.Editor myEditor = myPreferences.edit();
 
         TextView aqua_name = root.findViewById(R.id.aqua_header);
         ImageView aqua_icon = root.findViewById(R.id.aqua_icon);
@@ -34,26 +38,87 @@ public class AquaFragment extends Fragment {
         TextView aqua_vol = root.findViewById(R.id.aqua_vol);
         TextView aqua_temp = root.findViewById(R.id.aqua_temp);
 
+        TextView aqua_fish_key = root.findViewById(R.id.aqua_fish_key);
+        TextView aqua_fish = root.findViewById(R.id.aqua_fish);
+        TextView aqua_plant_key = root.findViewById(R.id.aqua_plant_key);
+        TextView aqua_plant = root.findViewById(R.id.aqua_plant);
+
+        int count_fish = myPreferences.getInt("COUNT_FISH", 0);
+        int real_count_fish = myPreferences.getInt("REAL_COUNT_FISH", 0);
+        int count_plant = myPreferences.getInt("COUNT_PLANT", 0);
+        int real_count_plant = myPreferences.getInt("REAL_COUNT_PLANT", 0);
+
+        String sp_aqua_type = myPreferences.getString("TYPE", "Смешанный");
 
         if (    !((myPreferences.getInt("VOL", 0)) == 0) &&
                 !((myPreferences.getInt("TEMP", 0)) == 0)) {
+
             aqua_name.setText(myPreferences.getString("NAME", "Аквариум"));
-            if (myPreferences.getString("TYPE", "Смешанный").equals("Смешанный")) {
+            aqua_type.setText(sp_aqua_type);
+
+            if (sp_aqua_type.equals("Смешанный")) {
                 aqua_icon.setImageResource(R.drawable.pic_aquarium_mixed);
             }
-            if (myPreferences.getString("TYPE", "Смешанный").equals("Рыбки")) {
-                aqua_icon.setImageResource(R.drawable.pic_aquarium_fish);
-            }
-            if (myPreferences.getString("TYPE", "Смешанный").equals("Растения")) {
-                aqua_icon.setImageResource(R.drawable.pic_aquarium_plant);
-            }
-            aqua_type.setText(myPreferences.getString("TYPE", "Смешанный"));
-            aqua_vol.setText(String.valueOf(myPreferences.getInt("VOL", 0)));
-            aqua_temp.setText(String.valueOf(myPreferences.getInt("TEMP", 0)));
 
+            if (sp_aqua_type.equals("Рыбки")) {
+                aqua_icon.setImageResource(R.drawable.pic_aquarium_fish);
+                aqua_plant_key.setVisibility(View.GONE);
+                aqua_plant.setVisibility(View.GONE);
+            }
+
+            if (sp_aqua_type.equals("Растения")) {
+                aqua_icon.setImageResource(R.drawable.pic_aquarium_plant);
+                aqua_fish_key.setVisibility(View.GONE);
+                aqua_fish.setVisibility(View.GONE);
+            }
+
+            aqua_vol.setText(String.valueOf(myPreferences.getInt("VOL", 0)));
             TextView aqua_vol_unit = root.findViewById(R.id.aqua_vol_unit);
             aqua_vol_unit.setText(getResources().getQuantityText(R.plurals.vol_unit,
                     myPreferences.getInt("VOL", 0)));
+            aqua_temp.setText(String.valueOf(myPreferences.getInt("TEMP", 0)));
+
+            real_count_fish = 0;
+            String fishes = "";
+            for (int i = 0; i <= count_fish; i++) {
+                String fish_id = "FISH_" + i;
+                String fish_data = myPreferences.getString(fish_id, null);
+                if (fish_data != null) {
+                    real_count_fish++;
+                    if (real_count_fish > 1)
+                        fishes = fishes + ", ";
+                    fishes = fishes + fish_data;
+                }
+            }
+            aqua_fish.setText(fishes);
+
+            real_count_plant = 0;
+            String plants = "";
+            for (int i = 0; i <= count_plant; i++) {
+                String plant_id = "PLANT_" + i;
+                String plant_data = myPreferences.getString(plant_id, null);
+                if (plant_data != null) {
+                    real_count_plant++;
+                    if (real_count_plant > 1)
+                        plants = plants + ", ";
+                    plants = plants + plant_data;
+                }
+            }
+            aqua_plant.setText(plants);
+
+            myEditor.putInt("REAL_COUNT_FISH", real_count_fish);
+            myEditor.putInt("REAL_COUNT_PLANT", real_count_plant);
+            myEditor.commit();
+
+            if (real_count_fish <= 0) {
+                aqua_fish_key.setVisibility(View.GONE);
+                aqua_fish.setVisibility(View.GONE);
+            }
+
+            if (real_count_plant <= 0) {
+                aqua_plant_key.setVisibility(View.GONE);
+                aqua_plant.setVisibility(View.GONE);
+            }
         }
 
         return root;

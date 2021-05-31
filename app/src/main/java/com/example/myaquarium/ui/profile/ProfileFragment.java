@@ -36,10 +36,26 @@ public class ProfileFragment extends Fragment {
         TextView profile_aqua_num = root.findViewById(R.id.profile_aqua_num);
         TextView profile_aqua_text = root.findViewById(R.id.profile_aqua_text);
 
+        TextView profile_fish_num = root.findViewById(R.id.profile_fish_num);
+        TextView profile_fish_text = root.findViewById(R.id.profile_fish_text);
+
+        TextView profile_plant_num = root.findViewById(R.id.profile_plant_num);
+        TextView profile_plant_text = root.findViewById(R.id.profile_plant_text);
+
+        int real_count_fish = myPreferences.getInt("REAL_COUNT_FISH", 0);
+        int real_count_plant = myPreferences.getInt("REAL_COUNT_PLANT", 0);
+
         if (    !((myPreferences.getInt("VOL", 0)) == 0) &&
                 !((myPreferences.getInt("TEMP", 0)) == 0)) {
+
             profile_aqua_num.setText("1");
             profile_aqua_text.setText(this.getResources().getQuantityText(R.plurals.aqua, 1));
+
+            profile_fish_num.setText(Integer.toString(real_count_fish));
+            profile_fish_text.setText(this.getResources().getQuantityText(R.plurals.fish,  real_count_fish));
+
+            profile_plant_num.setText(Integer.toString(real_count_plant));
+            profile_plant_text.setText(this.getResources().getQuantityText(R.plurals.plant,  real_count_plant));
         }
 
         profile_aqua.setOnClickListener(v -> {
@@ -47,9 +63,11 @@ public class ProfileFragment extends Fragment {
                     .replace(R.id.nav_host_fragment, new HomeFragment())
                     .commit();
         });
+
         profile_fish.setOnClickListener(v -> {
             Toast.makeText(getContext(),"Это покажет рыбок и их количество (наверно)", Toast.LENGTH_SHORT).show();
         });
+
         profile_plant.setOnClickListener(v -> {
             Toast.makeText(getContext(),"Это покажет растения и их количество (наверно)", Toast.LENGTH_SHORT).show();
         });

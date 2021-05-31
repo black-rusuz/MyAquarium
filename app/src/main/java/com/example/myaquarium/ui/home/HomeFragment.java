@@ -14,6 +14,7 @@ import androidx.lifecycle.ViewModelProvider;
 
 import com.example.myaquarium.R;
 import com.example.myaquarium.ui.home.add.AddFragment;
+import com.example.myaquarium.ui.home.aqua.AquaFragment;
 
 public class HomeFragment extends Fragment {
 
@@ -40,7 +41,7 @@ public class HomeFragment extends Fragment {
 
 //        home_fragment.setOnClickListener(v -> {
 //            getFragmentManager().beginTransaction()
-//                    .replace(R.id.nav_host_fragment, new AddFragment())
+//                    .replace(R.id.nav_host_fragment, new AquaFragment())
 //                    .addToBackStack(null)
 //                    .commit();
 //        });
@@ -51,6 +52,7 @@ public class HomeFragment extends Fragment {
                     .addToBackStack(null)
                     .commit();
         });
+
         home_add.setOnLongClickListener(v -> {
             myPreferences.edit().clear().commit();
             System.exit(0);
