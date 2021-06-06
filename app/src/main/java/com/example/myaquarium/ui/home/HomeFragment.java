@@ -14,7 +14,6 @@ import androidx.lifecycle.ViewModelProvider;
 
 import com.example.myaquarium.R;
 import com.example.myaquarium.ui.home.add.AddFragment;
-import com.example.myaquarium.ui.home.aqua.AquaFragment;
 
 public class HomeFragment extends Fragment {
 
@@ -36,7 +35,7 @@ public class HomeFragment extends Fragment {
                 ((myPreferences.getInt("TEMP", 0)) == 0)) {
             home_fragment.setVisibility(View.INVISIBLE);
             home_add.setText("Добавить");
-            home_add.setCompoundDrawablesWithIntrinsicBounds(getResources().getDrawable(R.drawable.ic_add_black_24dp),null,null,null);
+            home_add.setCompoundDrawablesWithIntrinsicBounds(getResources().getDrawable(R.drawable.ic_add),null,null,null);
         }
 
 //        home_fragment.setOnClickListener(v -> {

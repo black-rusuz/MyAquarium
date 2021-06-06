@@ -124,7 +124,7 @@
                     android:id="@+id/add_sv_type_sp"
                     android:layout_width="0dp"
                     android:layout_height="40dp"
-                    android:background="@drawable/bg_rounded_border"
+                    android:background="@drawable/bg_rounded_10dp_border"
                     android:entries="@array/types"
                     android:popupBackground="@drawable/bg_rounded_10dp"
                     android:textSize="16sp"
@@ -214,9 +214,9 @@
         android:id="@+id/add_fish"
         style="@style/Button.Colored.Light"
 
-        android:drawableStart="@drawable/ic_add_black_24dp"
+        android:drawableStart="@drawable/ic_add"
 
-        android:drawableEnd="@drawable/ic_nav_fish"
+        android:drawableEnd="@drawable/nav_fish"
         android:drawableTint="@color/accent"
         app:layout_constraintBottom_toTopOf="@+id/add_save"
         app:layout_constraintEnd_toStartOf="@+id/add_plant"
@@ -228,8 +228,8 @@
         android:id="@+id/add_plant"
         style="@style/Button.Colored.Light"
 
-        android:drawableStart="@drawable/ic_add_black_24dp"
-        android:drawableEnd="@drawable/ic_nav_plant"
+        android:drawableStart="@drawable/ic_add"
+        android:drawableEnd="@drawable/nav_plant"
         android:drawableTint="@color/accent"
 
         app:layout_constraintBottom_toTopOf="@+id/add_save"

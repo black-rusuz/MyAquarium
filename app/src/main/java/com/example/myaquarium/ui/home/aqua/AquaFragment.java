@@ -43,6 +43,9 @@ public class AquaFragment extends Fragment {
         TextView aqua_plant_key = root.findViewById(R.id.aqua_plant_key);
         TextView aqua_plant = root.findViewById(R.id.aqua_plant);
 
+        TextView aqua_feed = root.findViewById(R.id.aqua_feed);
+        TextView aqua_refresh = root.findViewById(R.id.aqua_refresh);
+
         int count_fish = myPreferences.getInt("COUNT_FISH", 0);
         int real_count_fish = myPreferences.getInt("REAL_COUNT_FISH", 0);
         int count_plant = myPreferences.getInt("COUNT_PLANT", 0);
@@ -77,6 +80,9 @@ public class AquaFragment extends Fragment {
             aqua_vol_unit.setText(getResources().getQuantityText(R.plurals.vol_unit,
                     myPreferences.getInt("VOL", 0)));
             aqua_temp.setText(String.valueOf(myPreferences.getInt("TEMP", 0)));
+
+            aqua_feed.setText("утром и вечером");
+            aqua_refresh.setText("каждые 2 недели");
 
             real_count_fish = 0;
             String fishes = "";

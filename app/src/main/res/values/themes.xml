@@ -91,7 +91,7 @@
     </style>
 
     <style name="TextView.Text">
-        <item name="android:textSize">16sp</item>
+        <item name="android:textSize">14sp</item>
         <item name="android:fontFamily">@font/roboto</item>
     </style>
 
@@ -135,7 +135,7 @@
     <!-- EditTexts -->
     <style name="EditText">
         <item name="android:layout_height">40dp</item>
-        <item name="android:background">@drawable/bg_rounded_border</item>
+        <item name="android:background">@drawable/bg_rounded_10dp_border</item>
         <item name="android:padding">10dp</item>
         <item name="android:textSize">16sp</item>
     </style>

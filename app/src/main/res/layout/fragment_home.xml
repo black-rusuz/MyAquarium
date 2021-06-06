@@ -40,7 +40,7 @@
         style="@style/Button.Colored.Dark"
         android:text="@string/add_temp"
 
-        android:drawableStart="@drawable/ic_edit_black_24dp"
+        android:drawableStart="@drawable/ic_edit"
         android:drawableTint="@color/white"
 
         android:layout_marginTop="@dimen/margin_default"

@@ -34,11 +34,15 @@ public class MainActivity extends AppCompatActivity {
             Button help = findViewById(R.id.help);
 
             login.setOnClickListener(v -> {
-                Toast.makeText(getApplicationContext(),"Скоро будет...", Toast.LENGTH_SHORT).show();
+                Intent intent = new Intent(this, LoginActivity.class);
+                startActivity(intent);
             });
+
             register.setOnClickListener(v -> {
-                Toast.makeText(getApplicationContext(),"Скоро будет...", Toast.LENGTH_SHORT).show();
+                Intent intent = new Intent(this, RegisterActivity.class);
+                startActivity(intent);
             });
+
             help.setOnClickListener(v -> {
                 myEditor.putBoolean("PREVIOUSLY_STARTED", true).commit();
                 Intent intent = new Intent(this, MainActivity.class);
