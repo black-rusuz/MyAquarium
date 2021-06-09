@@ -43,9 +43,9 @@ public class AquaFragment extends Fragment {
         TextView aqua_refresh = root.findViewById(R.id.aqua_refresh);
 
         int count_fish = myPreferences.getInt("COUNT_FISH", 0);
-        int real_count_fish = myPreferences.getInt("REAL_COUNT_FISH", 0);
         int count_plant = myPreferences.getInt("COUNT_PLANT", 0);
-        int real_count_plant = myPreferences.getInt("REAL_COUNT_PLANT", 0);
+        int real_count_fish;
+        int real_count_plant;
 
         String sp_aqua_type = myPreferences.getString("TYPE", "Смешанный");
 
@@ -53,6 +53,8 @@ public class AquaFragment extends Fragment {
                 !((myPreferences.getInt("TEMP", 0)) == 0)) {
 
             aqua_name.setText(myPreferences.getString("NAME", "Аквариум"));
+
+
             aqua_type.setText(sp_aqua_type);
 
             if (sp_aqua_type.equals("Смешанный")) {
@@ -81,36 +83,36 @@ public class AquaFragment extends Fragment {
             aqua_refresh.setText("каждые 2 недели");
 
             real_count_fish = 0;
-            String fishes = "";
+            String fishes = "Рыбки: ";
             for (int i = 0; i <= count_fish; i++) {
                 String fish_id = "FISH_" + i;
-                String fish_data = myPreferences.getString(fish_id, null);
-                if (fish_data != null) {
+                String fish_name = myPreferences.getString(fish_id, null);
+                if (fish_name != null) {
                     real_count_fish++;
                     if (real_count_fish > 1)
                         fishes = fishes + ", ";
-                    fishes = fishes + fish_data;
+                    fishes = fishes + fish_name;
                 }
             }
             aqua_fish.setText(fishes);
 
             real_count_plant = 0;
-            String plants = "";
+            String plants = "Растения: ";
             for (int i = 0; i <= count_plant; i++) {
                 String plant_id = "PLANT_" + i;
-                String plant_data = myPreferences.getString(plant_id, null);
-                if (plant_data != null) {
+                String plant_name = myPreferences.getString(plant_id, null);
+                if (plant_name != null) {
                     real_count_plant++;
                     if (real_count_plant > 1)
                         plants = plants + ", ";
-                    plants = plants + plant_data;
+                    plants = plants + plant_name;
                 }
             }
             aqua_plant.setText(plants);
 
             myEditor.putInt("REAL_COUNT_FISH", real_count_fish);
             myEditor.putInt("REAL_COUNT_PLANT", real_count_plant);
-            myEditor.commit();
+            myEditor.apply();
 
             if (real_count_fish <= 0) {
                 aqua_fish_key.setVisibility(View.GONE);

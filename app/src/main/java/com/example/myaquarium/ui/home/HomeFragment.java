@@ -7,6 +7,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
@@ -14,6 +15,7 @@ import androidx.lifecycle.ViewModelProvider;
 
 import com.example.myaquarium.R;
 import com.example.myaquarium.ui.home.add.AddFragment;
+import com.example.myaquarium.ui.home.aqua.AquaFragment;
 
 public class HomeFragment extends Fragment {
 
@@ -37,13 +39,6 @@ public class HomeFragment extends Fragment {
             home_add.setText("Добавить");
             home_add.setCompoundDrawablesWithIntrinsicBounds(getResources().getDrawable(R.drawable.ic_add),null,null,null);
         }
-
-//        home_fragment.setOnClickListener(v -> {
-//            getFragmentManager().beginTransaction()
-//                    .replace(R.id.nav_host_fragment, new AquaFragment())
-//                    .addToBackStack(null)
-//                    .commit();
-//        });
 
         home_add.setOnClickListener(v -> {
             getFragmentManager().beginTransaction()

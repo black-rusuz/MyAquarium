@@ -1,224 +1,249 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/bg_rounded_20dp">
+    android:background="@drawable/bg_rounded_20dp"
+    tools:showIn="@layout/fragment_home">
 
-    <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/aqua_left"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        app:layout_constraintGuide_percent="0.05" />
-
-    <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/aqua_right"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        app:layout_constraintGuide_percent="0.95" />
-
-    <TextView
-        android:id="@+id/aqua_header"
-        style="@style/TextView.Header"
-        android:text="@string/aqua"
-        android:textSize="24sp"
-        app:layout_constraintBottom_toTopOf="@+id/aqua_icon"
-        app:layout_constraintEnd_toStartOf="@+id/aqua_right"
-        app:layout_constraintStart_toStartOf="@+id/aqua_left"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <ImageView
-        android:id="@+id/aqua_icon"
-        android:layout_width="150dp"
-        android:layout_height="150dp"
-        android:scaleType="fitCenter"
-        app:layout_constraintBottom_toTopOf="@+id/aqua_sum"
-        app:layout_constraintEnd_toStartOf="@+id/aqua_right"
-        app:layout_constraintStart_toStartOf="@+id/aqua_left"
-        app:layout_constraintTop_toBottomOf="@+id/aqua_header" />
-
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/aqua_sum"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        app:layout_constraintBottom_toTopOf="@+id/aqua_content"
-        app:layout_constraintEnd_toStartOf="@+id/aqua_right"
-        app:layout_constraintStart_toStartOf="@+id/aqua_left"
-        app:layout_constraintTop_toBottomOf="@+id/aqua_icon">
-
-        <TextView
-            android:id="@+id/aqua_type_key"
-            style="@style/TextView.Text.Light"
-            android:text="@string/type_"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-
-        <TextView
-            android:id="@+id/aqua_type"
-            style="@style/TextView.Text.Dark"
-            android:layout_marginStart="@dimen/margin_text"
-            app:layout_constraintBottom_toBottomOf="@+id/aqua_type_key"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/aqua_type_key"
-            app:layout_constraintTop_toTopOf="@+id/aqua_type_key" />
-
-        <TextView
-            android:id="@+id/aqua_vol_key"
-            style="@style/TextView.Text.Light"
-            android:text="@string/vol_"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/aqua_type_key" />
-
-        <TextView
-            android:id="@+id/aqua_vol"
-            style="@style/TextView.Text.Dark"
-            android:layout_marginStart="@dimen/margin_text"
-            app:layout_constraintBottom_toBottomOf="@+id/aqua_vol_key"
-            app:layout_constraintStart_toEndOf="@+id/aqua_vol_key"
-            app:layout_constraintTop_toTopOf="@+id/aqua_vol_key" />
-
-        <TextView
-            android:id="@+id/aqua_vol_unit"
-            style="@style/TextView.Text.Dark"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            app:layout_constraintBottom_toBottomOf="@id/aqua_vol"
-            app:layout_constraintStart_toEndOf="@id/aqua_vol"
-            app:layout_constraintTop_toTopOf="@id/aqua_vol" />
-
-        <TextView
-            android:id="@+id/aqua_temp_key"
-            style="@style/TextView.Text.Light"
-            android:text="@string/temp_"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/aqua_vol_key" />
-
-        <TextView
-            android:id="@+id/aqua_temp"
-            style="@style/TextView.Text.Dark"
-            android:layout_marginStart="@dimen/margin_text"
-            app:layout_constraintBottom_toBottomOf="@+id/aqua_temp_key"
-            app:layout_constraintStart_toEndOf="@+id/aqua_temp_key"
-            app:layout_constraintTop_toTopOf="@+id/aqua_temp_key" />
-
-        <TextView
-            android:id="@+id/aqua_temp_unit"
-            style="@style/TextView.Text.Dark"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/temp_unit"
-            app:layout_constraintBottom_toBottomOf="@+id/aqua_temp"
-            app:layout_constraintStart_toEndOf="@+id/aqua_temp"
-            app:layout_constraintTop_toTopOf="@+id/aqua_temp" />
-    </androidx.constraintlayout.widget.ConstraintLayout>
-
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/aqua_content"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        app:layout_constraintBottom_toTopOf="@+id/aqua_calc"
-        app:layout_constraintEnd_toStartOf="@+id/aqua_right"
-        app:layout_constraintStart_toStartOf="@+id/aqua_left"
-        app:layout_constraintTop_toBottomOf="@+id/aqua_sum">
-
-        <TextView
-            android:id="@+id/aqua_fish_key"
-            style="@style/TextView.Text.Light"
-            android:text="@string/fishes_"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-
-        <TextView
-            android:id="@+id/aqua_fish"
-            style="@style/TextView.Text.Dark"
-            android:layout_marginStart="@dimen/margin_text"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/aqua_fish_key"
-            app:layout_constraintTop_toTopOf="@+id/aqua_fish_key" />
-
-        <TextView
-            android:id="@+id/aqua_plant_key"
-            style="@style/TextView.Text.Light"
-            android:text="@string/plants_"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/aqua_fish" />
-
-        <TextView
-            android:id="@+id/aqua_plant"
-            style="@style/TextView.Text.Dark"
-            android:layout_marginStart="@dimen/margin_text"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/aqua_plant_key"
-            app:layout_constraintTop_toTopOf="@+id/aqua_plant_key" />
-    </androidx.constraintlayout.widget.ConstraintLayout>
-
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/aqua_calc"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        app:layout_constraintBottom_toTopOf="@+id/aqua_condition_key"
-        app:layout_constraintEnd_toStartOf="@+id/aqua_right"
-        app:layout_constraintStart_toStartOf="@+id/aqua_left"
-        app:layout_constraintTop_toBottomOf="@+id/aqua_content">
-
-        <TextView
-            android:id="@+id/aqua_feed_key"
-            style="@style/TextView.Text.Light"
-            android:text="@string/feed_"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-
-        <TextView
-            android:id="@+id/aqua_feed"
-            style="@style/TextView.Text.Dark"
-            android:layout_marginStart="@dimen/margin_text"
-            app:layout_constraintBottom_toBottomOf="@+id/aqua_feed_key"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/aqua_feed_key"
-            app:layout_constraintTop_toTopOf="@+id/aqua_feed_key" />
-
-        <TextView
-            android:id="@+id/aqua_refresh_key"
-            style="@style/TextView.Text.Light"
-            android:text="@string/refresh_"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/aqua_feed_key" />
-
-        <TextView
-            android:id="@+id/aqua_refresh"
-            style="@style/TextView.Text.Dark"
-            android:layout_marginStart="@dimen/margin_text"
-            app:layout_constraintBottom_toBottomOf="@+id/aqua_refresh_key"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/aqua_refresh_key"
-            app:layout_constraintTop_toTopOf="@+id/aqua_refresh_key" />
-
-    </androidx.constraintlayout.widget.ConstraintLayout>
-
-    <TextView
-        android:id="@+id/aqua_condition_key"
-        style="@style/TextView.Text.Light"
-        android:layout_width="wrap_content"
-        android:text="@string/condition_"
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/aqua_condition"
-        app:layout_constraintHorizontal_chainStyle="packed"
-        app:layout_constraintStart_toEndOf="@+id/aqua_left"
-        app:layout_constraintTop_toBottomOf="@+id/aqua_calc" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:fillViewport="true" >
 
-    <!-- TODO: Прописать цвета в colors-->
-    <TextView
-        android:id="@+id/aqua_condition"
-        style="@style/TextView.Text.Light"
-        android:layout_width="wrap_content"
-        android:layout_marginStart="@dimen/margin_text"
-        android:text="@string/excellent"
-        android:textColor="#2E7D32"
-        app:layout_constraintBottom_toBottomOf="@+id/aqua_condition_key"
-        app:layout_constraintEnd_toStartOf="@+id/aqua_right"
-        app:layout_constraintStart_toEndOf="@+id/aqua_condition_key"
-        app:layout_constraintTop_toTopOf="@+id/aqua_condition_key" />
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/aqua_left"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                app:layout_constraintGuide_percent="0.05" />
+
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/aqua_right"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                app:layout_constraintGuide_percent="0.95" />
+
+            <TextView
+                android:id="@+id/aqua_header"
+                style="@style/TextView.Header"
+                android:layout_marginTop="@dimen/margin_text"
+                android:layout_marginBottom="@dimen/margin_text"
+                android:text="@string/aqua"
+                android:textSize="22sp"
+                app:layout_constraintBottom_toTopOf="@+id/aqua_icon"
+                app:layout_constraintEnd_toStartOf="@+id/aqua_right"
+                app:layout_constraintStart_toStartOf="@+id/aqua_left"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <ImageView
+                android:id="@+id/aqua_icon"
+                android:layout_width="150dp"
+                android:layout_height="150dp"
+                android:layout_marginBottom="@dimen/margin_text"
+                android:scaleType="fitCenter"
+                app:layout_constraintBottom_toTopOf="@+id/aqua_sum"
+                app:layout_constraintEnd_toStartOf="@+id/aqua_right"
+                app:layout_constraintStart_toStartOf="@+id/aqua_left"
+                app:layout_constraintTop_toBottomOf="@+id/aqua_header" />
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/aqua_sum"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/margin_text"
+                app:layout_constraintBottom_toTopOf="@+id/aqua_content"
+                app:layout_constraintEnd_toStartOf="@+id/aqua_right"
+                app:layout_constraintStart_toStartOf="@+id/aqua_left"
+                app:layout_constraintTop_toBottomOf="@+id/aqua_icon">
+
+                <TextView
+                    android:id="@+id/aqua_type_key"
+                    style="@style/TextView.Text.Light"
+                    android:text="@string/type_"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/aqua_type"
+                    style="@style/TextView.Text.Dark"
+                    android:layout_marginStart="@dimen/margin_text"
+                    app:layout_constraintBottom_toBottomOf="@+id/aqua_type_key"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@+id/aqua_type_key"
+                    app:layout_constraintTop_toTopOf="@+id/aqua_type_key" />
+
+                <TextView
+                    android:id="@+id/aqua_vol_key"
+                    style="@style/TextView.Text.Light"
+                    android:text="@string/vol_"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/aqua_type_key" />
+
+                <TextView
+                    android:id="@+id/aqua_vol"
+                    style="@style/TextView.Text.Dark"
+                    android:layout_marginStart="@dimen/margin_text"
+                    app:layout_constraintBottom_toBottomOf="@+id/aqua_vol_key"
+                    app:layout_constraintStart_toEndOf="@+id/aqua_vol_key"
+                    app:layout_constraintTop_toTopOf="@+id/aqua_vol_key" />
+
+                <TextView
+                    android:id="@+id/aqua_vol_unit"
+                    style="@style/TextView.Text.Dark"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintBottom_toBottomOf="@id/aqua_vol"
+                    app:layout_constraintStart_toEndOf="@id/aqua_vol"
+                    app:layout_constraintTop_toTopOf="@id/aqua_vol" />
+
+                <TextView
+                    android:id="@+id/aqua_temp_key"
+                    style="@style/TextView.Text.Light"
+                    android:text="@string/temp_"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/aqua_vol_key" />
+
+                <TextView
+                    android:id="@+id/aqua_temp"
+                    style="@style/TextView.Text.Dark"
+                    android:layout_marginStart="@dimen/margin_text"
+                    app:layout_constraintBottom_toBottomOf="@+id/aqua_temp_key"
+                    app:layout_constraintStart_toEndOf="@+id/aqua_temp_key"
+                    app:layout_constraintTop_toTopOf="@+id/aqua_temp_key" />
+
+                <TextView
+                    android:id="@+id/aqua_temp_unit"
+                    style="@style/TextView.Text.Dark"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/temp_unit"
+                    app:layout_constraintBottom_toBottomOf="@+id/aqua_temp"
+                    app:layout_constraintStart_toEndOf="@+id/aqua_temp"
+                    app:layout_constraintTop_toTopOf="@+id/aqua_temp" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/aqua_content"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/margin_text"
+                app:layout_constraintBottom_toTopOf="@+id/aqua_calc"
+                app:layout_constraintEnd_toStartOf="@+id/aqua_right"
+                app:layout_constraintStart_toStartOf="@+id/aqua_left"
+                app:layout_constraintTop_toBottomOf="@+id/aqua_sum">
+
+                <TextView
+                    android:id="@+id/aqua_fish"
+                    style="@style/TextView.Text.Dark"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="@+id/aqua_fish_key"
+                    app:layout_constraintTop_toTopOf="@+id/aqua_fish_key" />
+
+                <TextView
+                    android:id="@+id/aqua_fish_key"
+                    style="@style/TextView.Text.Light"
+                    android:text="@string/fishes_"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/aqua_plant"
+                    style="@style/TextView.Text.Dark"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="@+id/aqua_plant_key"
+                    app:layout_constraintTop_toTopOf="@+id/aqua_plant_key" />
+
+                <TextView
+                    android:id="@+id/aqua_plant_key"
+                    style="@style/TextView.Text.Light"
+                    android:text="@string/plants_"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/aqua_fish" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/aqua_calc"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/margin_text"
+                app:layout_constraintBottom_toTopOf="@+id/aqua_condition_key"
+                app:layout_constraintEnd_toStartOf="@+id/aqua_right"
+                app:layout_constraintStart_toStartOf="@+id/aqua_left"
+                app:layout_constraintTop_toBottomOf="@+id/aqua_content">
+
+                <TextView
+                    android:id="@+id/aqua_feed_key"
+                    style="@style/TextView.Text.Light"
+                    android:text="@string/feed_"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/aqua_feed"
+                    style="@style/TextView.Text.Dark"
+                    android:layout_marginStart="@dimen/margin_text"
+                    app:layout_constraintBottom_toBottomOf="@+id/aqua_feed_key"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@+id/aqua_feed_key"
+                    app:layout_constraintTop_toTopOf="@+id/aqua_feed_key" />
+
+                <TextView
+                    android:id="@+id/aqua_refresh_key"
+                    style="@style/TextView.Text.Light"
+                    android:text="@string/refresh_"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/aqua_feed_key" />
+
+                <TextView
+                    android:id="@+id/aqua_refresh"
+                    style="@style/TextView.Text.Dark"
+                    android:layout_marginStart="@dimen/margin_text"
+                    app:layout_constraintBottom_toBottomOf="@+id/aqua_refresh_key"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@+id/aqua_refresh_key"
+                    app:layout_constraintTop_toTopOf="@+id/aqua_refresh_key" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <TextView
+                android:id="@+id/aqua_condition_key"
+                style="@style/TextView.Text.Light"
+                android:layout_width="wrap_content"
+                android:layout_marginBottom="@dimen/margin_text"
+                android:text="@string/condition_"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@+id/aqua_condition"
+                app:layout_constraintHorizontal_chainStyle="packed"
+                app:layout_constraintStart_toEndOf="@+id/aqua_left"
+                app:layout_constraintTop_toBottomOf="@+id/aqua_calc" />
+
+            <!-- TODO: Прописать цвета в colors-->
+            <TextView
+                android:id="@+id/aqua_condition"
+                style="@style/TextView.Text.Light"
+                android:layout_width="wrap_content"
+                android:layout_marginStart="@dimen/margin_text"
+                android:text="@string/excellent"
+                android:textColor="#2E7D32"
+                app:layout_constraintBottom_toBottomOf="@+id/aqua_condition_key"
+                app:layout_constraintEnd_toStartOf="@+id/aqua_right"
+                app:layout_constraintStart_toEndOf="@+id/aqua_condition_key"
+                app:layout_constraintTop_toTopOf="@+id/aqua_condition_key" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </ScrollView>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

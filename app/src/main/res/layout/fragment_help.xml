@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -27,7 +28,7 @@
         android:layout_height="wrap_content"
         android:scaleType="fitEnd"
         android:src="@drawable/bg_help"
-        app:layout_constraintBottom_toTopOf="@+id/help_bottom"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
 
@@ -51,7 +52,7 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginBottom="@dimen/margin_default"
-        app:layout_constraintBottom_toTopOf="@+id/help_bottom"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/help_right"
         app:layout_constraintStart_toStartOf="@+id/help_left"
         app:layout_constraintTop_toBottomOf="@+id/help_header">
@@ -63,44 +64,38 @@
 
             <Button
                 android:id="@+id/help_sv_1"
-                style="@style/Button.Text.Help"
+                style="@style/Button.Text.ScrollView"
                 android:text="@string/fishes" />
 
             <LinearLayout style="@style/LinearLayout.Border"/>
 
             <Button
                 android:id="@+id/help_sv_2"
-                style="@style/Button.Text.Help"
+                style="@style/Button.Text.ScrollView"
                 android:text="@string/plants" />
 
             <LinearLayout style="@style/LinearLayout.Border"/>
 
             <Button
                 android:id="@+id/help_sv_3"
-                style="@style/Button.Text.Help"
+                style="@style/Button.Text.ScrollView"
                 android:text="Параметры воды" />
 
             <LinearLayout style="@style/LinearLayout.Border"/>
 
             <Button
                 android:id="@+id/help_sv_4"
-                style="@style/Button.Text.Help"
+                style="@style/Button.Text.ScrollView"
                 android:text="@string/aquas" />
 
             <LinearLayout style="@style/LinearLayout.Border"/>
 
             <Button
                 android:id="@+id/help_sv_5"
-                style="@style/Button.Text.Help"
+                style="@style/Button.Text.ScrollView"
                 android:text="Первый аквариум" />
 
         </LinearLayout>
     </ScrollView>
 
-    <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/help_bottom"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        app:layout_constraintGuide_end="@dimen/margin_bottom" />
 </androidx.constraintlayout.widget.ConstraintLayout>

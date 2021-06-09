@@ -45,7 +45,7 @@ public class AddFragment extends Fragment {
         Button add_fish = root.findViewById(R.id.add_fish);
         Button add_plant = root.findViewById(R.id.add_plant);
         Button add_save = root.findViewById(R.id.add_save);
-        ScrollView add_sv = root.findViewById(R.id.add_sv);
+        LinearLayout add_sv_ll = root.findViewById(R.id.add_sv_ll);
 
         if (    ((myPreferences.getInt("VOL", 0)) != 0) &&
                 ((myPreferences.getInt("TEMP", 0)) != 0)) {
@@ -69,28 +69,31 @@ public class AddFragment extends Fragment {
         add_fish.setOnClickListener(v -> {
             // TODO: допилить это говно с добавлениями
 
-            LinearLayout add_sv_ll = root.findViewById(R.id.add_sv_ll);
+            // Делаем ConstraintLayout и задаём стиль и отступы
             ConstraintLayout add_sv_cl = new ConstraintLayout(getContext(), null, R.style.ConstraintLayout_LL, R.style.ConstraintLayout_LL);
-
             ConstraintLayout.LayoutParams lp = new ConstraintLayout.LayoutParams(ConstraintLayout.LayoutParams.WRAP_CONTENT, ConstraintLayout.LayoutParams.WRAP_CONTENT);
             lp.setMargins(0, 0, 0, (int) getResources().getDimension(R.dimen.margin_default_0_5x));
             add_sv_cl.setLayoutParams(lp);
 
+            // Делаем EditText
             EditText et_name = new EditText(getContext(), null, R.style.EditText_Add_Text_Coded, R.style.EditText_Add_Text_Coded);
             et_name.setFocusable(true);
             et_name.setFocusableInTouchMode(true);
             et_name.setHint("Рыбка...");
 
+            // Задаём EditText ID со счётчиком
             int count_fish = myPreferences.getInt("COUNT_FISH", 0);
             String fish_id = "FISH_" + count_fish;
             count_fish++;
             et_name.setTag(fish_id);
-            myEditor.putInt("COUNT_FISH", count_fish).commit();
+            myEditor.putInt("COUNT_FISH", count_fish).apply();
 
+            // Добавляем всё на слой
             add_sv_cl.addView(et_name);
             add_sv_ll.addView(add_sv_cl);
 
-            add_sv.fullScroll(View.FOCUS_DOWN);
+            // Даём фокус ласт полю
+            et_name.requestFocus();
         });
 
         add_fish.setOnLongClickListener(v -> {
@@ -108,28 +111,32 @@ public class AddFragment extends Fragment {
         });
 
         add_plant.setOnClickListener(v -> {
-            LinearLayout add_sv_ll = root.findViewById(R.id.add_sv_ll);
-            ConstraintLayout add_sv_cl = new ConstraintLayout(getContext(), null, R.style.ConstraintLayout_LL, R.style.ConstraintLayout_LL);
 
+            // Делаем ConstraintLayout и задаём стиль и отступы
+            ConstraintLayout add_sv_cl = new ConstraintLayout(getContext(), null, R.style.ConstraintLayout_LL, R.style.ConstraintLayout_LL);
             ConstraintLayout.LayoutParams lp = new ConstraintLayout.LayoutParams(ConstraintLayout.LayoutParams.WRAP_CONTENT, ConstraintLayout.LayoutParams.WRAP_CONTENT);
             lp.setMargins(0, 0, 0, (int) getResources().getDimension(R.dimen.margin_default_0_5x));
             add_sv_cl.setLayoutParams(lp);
 
+            // Делаем EditText
             EditText et_name = new EditText(getContext(), null, R.style.EditText_Add_Text_Coded, R.style.EditText_Add_Text_Coded);
             et_name.setFocusable(true);
             et_name.setFocusableInTouchMode(true);
             et_name.setHint("Растение...");
 
+            // Задаём EditText ID со счётчиком
             int count_plant = myPreferences.getInt("COUNT_PLANT", 0);
             String plant_id = "PLANT_" + count_plant;
             count_plant++;
             et_name.setTag(plant_id);
             myEditor.putInt("COUNT_PLANT", count_plant).commit();
 
+            // Добавляем всё на слой
             add_sv_cl.addView(et_name);
             add_sv_ll.addView(add_sv_cl);
 
-            add_sv.fullScroll(View.FOCUS_DOWN);
+            // Даём фокус ласт полю
+            et_name.requestFocus();
         });
 
         add_plant.setOnLongClickListener(v -> {
@@ -150,14 +157,14 @@ public class AddFragment extends Fragment {
 
             String name;
             String type;
-            Integer vol;
-            Integer temp;
+            int vol;
+            int temp;
 
             if (add_name.getText().length() > 0)
                 name = String.valueOf(add_name.getText());
             else {
-                name = "Аквариум";
                 // TODO: допилить много аквариумов
+                name = "Аквариум";
             }
 
             type = String.valueOf(add_type.getSelectedItem());
@@ -207,7 +214,7 @@ public class AddFragment extends Fragment {
                 }
             }
 
-            myEditor.commit();
+            myEditor.apply();
 
             getFragmentManager().beginTransaction()
                     .replace(R.id.nav_host_fragment, new HomeFragment())

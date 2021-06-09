@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -24,7 +25,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:scaleType="fitEnd"
-        app:layout_constraintBottom_toTopOf="@+id/add_bottom"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:srcCompat="@drawable/bg_add" />
@@ -44,7 +45,6 @@
         android:layout_marginTop="@dimen/margin_default_2x"
         android:layout_marginBottom="@dimen/margin_default"
         android:text="Добавить аквариум"
-        android:textSize="24sp"
         app:layout_constraintBottom_toTopOf="@+id/add_sv"
         app:layout_constraintEnd_toStartOf="@+id/add_right"
         app:layout_constraintStart_toStartOf="@+id/add_left"
@@ -126,7 +126,7 @@
                     android:background="@drawable/bg_rounded_10dp_border"
                     android:entries="@array/types"
                     android:popupBackground="@drawable/bg_rounded_10dp"
-                    android:textSize="16sp"
+                    android:textSize="14sp"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="@+id/add_sv_type_gl"
@@ -246,16 +246,9 @@
         android:layout_marginTop="@dimen/margin_default_2x"
         android:layout_marginBottom="@dimen/margin_default"
         android:text="Сохранить"
-        app:layout_constraintBottom_toBottomOf="@id/add_bottom"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/add_right"
         app:layout_constraintStart_toStartOf="@+id/add_left"
         app:layout_constraintTop_toBottomOf="@+id/add_sv" />
-
-    <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/add_bottom"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        app:layout_constraintGuide_end="@dimen/margin_bottom" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
