@@ -37,19 +37,18 @@
 
     <style name="Button.Colored.Light">
         <item name="android:textColor">@color/accent</item>
-        <item name="android:backgroundTint">@color/accent_light</item>
         <item name="android:drawableTint" tools:targetApi="m">@color/accent</item>
+        <item name="android:backgroundTint">@color/accent_light</item>
     </style>
 
     <style name="Button.Colored.Dark">
         <item name="android:textColor">@color/white</item>
-        <item name="android:backgroundTint">@color/accent</item>
         <item name="android:drawableTint" tools:targetApi="m">@color/white</item>
+        <item name="android:backgroundTint">@color/accent</item>
     </style>
 
     <style name="Button.Colored.Dark.Save">
         <item name="android:text">@string/save</item>
-        <item name="android:drawableTint" tools:targetApi="m">@color/white</item>
         <item name="android:drawableStart">@drawable/ic_save</item>
     </style>
 
