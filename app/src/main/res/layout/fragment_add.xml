@@ -58,7 +58,8 @@
         app:layout_constraintHeight_max="350dp"
         app:layout_constraintStart_toStartOf="@+id/add_left"
         app:layout_constraintTop_toBottomOf="@+id/add_header"
-        app:layout_constraintVertical_bias="0.0">
+        app:layout_constraintVertical_bias="0.0"
+        app:layout_constraintVertical_chainStyle="packed">
 
         <LinearLayout
             android:id="@+id/add_sv_ll"
@@ -235,9 +236,11 @@
         android:id="@+id/add_save"
         style="@style/Button.Colored.Dark.Save"
 
+        android:layout_marginTop="@dimen/margin_double"
         android:layout_marginBottom="@dimen/margin"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/add_right"
-        app:layout_constraintStart_toStartOf="@+id/add_left" />
+        app:layout_constraintStart_toStartOf="@+id/add_left"
+        app:layout_constraintTop_toBottomOf="@+id/add_sv" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

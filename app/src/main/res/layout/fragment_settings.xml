@@ -47,12 +47,41 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/settings_right"
         app:layout_constraintStart_toStartOf="@+id/settings_left"
-        app:layout_constraintTop_toBottomOf="@+id/settings_header">
+        app:layout_constraintTop_toBottomOf="@+id/settings_header"
+        app:layout_constraintVertical_bias="0.0">
 
         <LinearLayout
             android:id="@+id/settings_sv_ll"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical" />
+            android:orientation="vertical">
+
+            <Button
+                android:id="@+id/settings_button"
+                style="@style/Button.Colored.Light"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_marginBottom="@dimen/margin_half"
+                android:stateListAnimator="@null"
+                android:text="Кнопка 1" />
+
+            <Button
+                android:id="@+id/settings_button2"
+                style="@style/Button.Colored.Light"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_marginBottom="@dimen/margin_half"
+                android:stateListAnimator="@null"
+                android:text="Кнопка 2" />
+
+            <Switch
+                android:id="@+id/switch1"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                style="@style/TextView.Header"
+                android:textSize="14sp"
+                android:text="Переключатель" />
+
+        </LinearLayout>
     </ScrollView>
 </androidx.constraintlayout.widget.ConstraintLayout>

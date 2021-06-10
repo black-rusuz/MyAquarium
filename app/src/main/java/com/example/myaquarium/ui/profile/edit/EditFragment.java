@@ -40,6 +40,7 @@ public class EditFragment extends Fragment {
 
         edit_name.setText(myPreferences.getString("USERNAME", "Джон Сноу"));
 
+        //TODO: даже, блядь, не знаю что сказать...
         edit_userpic.setOnClickListener(v ->  {
             Intent photoPickerIntent = new Intent(Intent.ACTION_PICK);
             photoPickerIntent.setType("image/*");

@@ -38,11 +38,12 @@ public class ProfileFragment extends Fragment {
         TextView profile_username = root.findViewById(R.id.profile_username);
         ImageView profile_userpic = root.findViewById(R.id.profile_userpic);
 
+        //TODO: Сделать кликабельным и выводить инфу о левелах
+        ConstraintLayout profile_exp_bar_progress = root.findViewById(R.id.profile_exp_bar_progress);
+
         ConstraintLayout profile_aqua = root.findViewById(R.id.profile_aqua);
         ConstraintLayout profile_fish = root.findViewById(R.id.profile_fish);
         ConstraintLayout profile_plant = root.findViewById(R.id.profile_plant);
-
-        ConstraintLayout profile_exp_bar_progress = root.findViewById(R.id.profile_exp_bar_progress);
 
         TextView profile_aqua_num = root.findViewById(R.id.profile_aqua_num);
         TextView profile_aqua_text = root.findViewById(R.id.profile_aqua_text);
@@ -61,6 +62,7 @@ public class ProfileFragment extends Fragment {
         int real_count_plant = myPreferences.getInt("REAL_COUNT_PLANT", 0);
 
         profile_username.setText(myPreferences.getString("USERNAME", "Джон Сноу"));
+        //TODO: тут говно какое-то с картинками
         //profile_userpic.setImageURI(Uri.parse(myPreferences.getString("USERPIC", null)));
 
         ResizeAnimation resizeAnimation = new ResizeAnimation(profile_exp_bar_progress, 250);

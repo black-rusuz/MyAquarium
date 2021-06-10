@@ -30,6 +30,7 @@ public class HelpFragment extends Fragment {
         Button help_sv_4 = root.findViewById(R.id.help_sv_4);
         Button help_sv_5 = root.findViewById(R.id.help_sv_5);
 
+        //TODO: Тут переделать под внутреннее отображение
         help_sv_1.setOnClickListener(v -> {
             Uri uri = Uri.parse("https://www.aqvium.ru/ryby");
             Intent intent = new Intent(Intent.ACTION_VIEW, uri);
