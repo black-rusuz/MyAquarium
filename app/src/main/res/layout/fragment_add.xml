@@ -1,10 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/white">
+    android:background="@color/white"
+    tools:context=".ui.home.add.AddFragment">
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/add_right"
@@ -33,7 +34,6 @@
     <Button
         android:id="@+id/add_back"
         style="@style/Button.Back"
-        android:drawableTint="@color/text_dark"
         app:layout_constraintBottom_toTopOf="@+id/add_header"
         app:layout_constraintStart_toStartOf="parent" />
 
@@ -42,26 +42,23 @@
         style="@style/TextView.Header"
 
         android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/margin_default_2x"
-        android:layout_marginBottom="@dimen/margin_default"
+        android:layout_marginTop="@dimen/margin_double"
         android:text="Добавить аквариум"
-        app:layout_constraintBottom_toTopOf="@+id/add_sv"
         app:layout_constraintEnd_toStartOf="@+id/add_right"
         app:layout_constraintStart_toStartOf="@+id/add_left"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.0"
-        app:layout_constraintVertical_chainStyle="packed" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <ScrollView
         android:id="@+id/add_sv"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
         app:layout_constraintBottom_toTopOf="@+id/add_save"
         app:layout_constraintEnd_toStartOf="@+id/add_right"
-        app:layout_constraintHeight_max="360dp"
-        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintHeight_max="350dp"
         app:layout_constraintStart_toStartOf="@+id/add_left"
-        app:layout_constraintTop_toBottomOf="@+id/add_header">
+        app:layout_constraintTop_toBottomOf="@+id/add_header"
+        app:layout_constraintVertical_bias="0.0">
 
         <LinearLayout
             android:id="@+id/add_sv_ll"
@@ -70,7 +67,7 @@
             android:orientation="vertical">
 
             <androidx.constraintlayout.widget.ConstraintLayout
-                android:id="@+id/add_sv_name"
+                android:id="@+id/add_sv_1"
                 style="@style/ConstraintLayout.LL">
 
                 <androidx.constraintlayout.widget.Guideline
@@ -81,7 +78,7 @@
                     app:layout_constraintGuide_percent="0.28" />
 
                 <TextView
-                    android:id="@+id/add_sv_name_tv"
+                    android:id="@+id/add_sv_name_key"
                     style="@style/TextView.Text.Dark"
                     android:text="Название:"
 
@@ -90,7 +87,7 @@
                     app:layout_constraintTop_toTopOf="parent" />
 
                 <EditText
-                    android:id="@+id/add_sv_name_et"
+                    android:id="@+id/add_sv_name"
                     style="@style/EditText.Add.Text"
                     android:hint="Введите название"
                     app:layout_constraintBottom_toBottomOf="parent"
@@ -100,7 +97,7 @@
             </androidx.constraintlayout.widget.ConstraintLayout>
 
             <androidx.constraintlayout.widget.ConstraintLayout
-                android:id="@+id/add_sv_type"
+                android:id="@+id/add_sv_2"
                 style="@style/ConstraintLayout.LL">
 
                 <androidx.constraintlayout.widget.Guideline
@@ -111,7 +108,7 @@
                     app:layout_constraintGuide_percent="0.28" />
 
                 <TextView
-                    android:id="@+id/add_sv_type_tv"
+                    android:id="@+id/add_sv_type_key"
                     style="@style/TextView.Text.Dark"
                     android:text="Тип:"
 
@@ -120,13 +117,12 @@
                     app:layout_constraintTop_toTopOf="parent" />
 
                 <Spinner
-                    android:id="@+id/add_sv_type_sp"
+                    android:id="@+id/add_sv_type"
                     android:layout_width="0dp"
                     android:layout_height="40dp"
                     android:background="@drawable/bg_rounded_10dp_border"
                     android:entries="@array/types"
                     android:popupBackground="@drawable/bg_rounded_10dp"
-                    android:textSize="14sp"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="@+id/add_sv_type_gl"
@@ -136,7 +132,7 @@
                     android:id="@+id/add_sv_type_iv"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginEnd="@dimen/margin_default_0.5x"
+                    android:layout_marginEnd="@dimen/margin_half"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
@@ -146,7 +142,7 @@
             </androidx.constraintlayout.widget.ConstraintLayout>
 
             <androidx.constraintlayout.widget.ConstraintLayout
-                android:id="@+id/add_sv_vt"
+                android:id="@+id/add_sv_3"
                 style="@style/ConstraintLayout.LL">
 
                 <androidx.constraintlayout.widget.Guideline
@@ -157,7 +153,7 @@
                     app:layout_constraintGuide_percent="0.28" />
 
                 <TextView
-                    android:id="@+id/add_sv_vol_tv"
+                    android:id="@+id/add_sv_vol_key"
                     style="@style/TextView.Text.Dark"
                     android:text="Объём (л):"
 
@@ -166,7 +162,7 @@
                     app:layout_constraintTop_toTopOf="parent" />
 
                 <EditText
-                    android:id="@+id/add_sv_vol_et"
+                    android:id="@+id/add_sv_vol"
                     style="@style/EditText.Add.Num"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toStartOf="@+id/add_sv_vt_gl"
@@ -188,9 +184,9 @@
                     app:layout_constraintGuide_percent="0.78" />
 
                 <TextView
-                    android:id="@+id/add_sv_temp_tv"
+                    android:id="@+id/add_sv_temp_key"
                     style="@style/TextView.Text.Dark"
-                    android:layout_marginEnd="@dimen/margin_default_0.5x"
+                    android:layout_marginEnd="@dimen/margin_half"
 
                     android:text="t (°C):"
                     app:layout_constraintBottom_toBottomOf="parent"
@@ -198,7 +194,7 @@
                     app:layout_constraintTop_toTopOf="parent" />
 
                 <EditText
-                    android:id="@+id/add_sv_temp_et"
+                    android:id="@+id/add_sv_temp"
                     style="@style/EditText.Add.Num"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
@@ -216,7 +212,6 @@
         android:drawableStart="@drawable/ic_add"
 
         android:drawableEnd="@drawable/nav_fish"
-        android:drawableTint="@color/accent"
         app:layout_constraintBottom_toTopOf="@+id/add_save"
         app:layout_constraintEnd_toStartOf="@+id/add_plant"
         app:layout_constraintStart_toStartOf="@+id/add_left"
@@ -229,7 +224,6 @@
 
         android:drawableStart="@drawable/ic_add"
         android:drawableEnd="@drawable/nav_plant"
-        android:drawableTint="@color/accent"
 
         app:layout_constraintBottom_toTopOf="@+id/add_save"
         app:layout_constraintEnd_toStartOf="@+id/add_right"
@@ -239,16 +233,11 @@
 
     <Button
         android:id="@+id/add_save"
-        style="@style/Button.Colored.Dark"
+        style="@style/Button.Colored.Dark.Save"
 
-        android:layout_height="wrap_content"
-
-        android:layout_marginTop="@dimen/margin_default_2x"
-        android:layout_marginBottom="@dimen/margin_default"
-        android:text="Сохранить"
+        android:layout_marginBottom="@dimen/margin"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/add_right"
-        app:layout_constraintStart_toStartOf="@+id/add_left"
-        app:layout_constraintTop_toBottomOf="@+id/add_sv" />
+        app:layout_constraintStart_toStartOf="@+id/add_left" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

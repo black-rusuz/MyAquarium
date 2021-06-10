@@ -46,7 +46,7 @@
         android:id="@+id/profile_cv_userpic"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/margin_default"
+        android:layout_marginTop="@dimen/margin"
         app:cardCornerRadius="75dp"
 
         app:layout_constraintBottom_toTopOf="@+id/profile_username"
@@ -67,9 +67,9 @@
     <TextView
         android:id="@+id/profile_username"
         style="@style/TextView.Header"
-        android:layout_marginTop="@dimen/margin_default_0.5x"
+        android:layout_marginTop="@dimen/margin_half"
 
-        android:layout_marginBottom="@dimen/margin_default_0.5x"
+        android:layout_marginBottom="@dimen/margin_half"
         android:fontFamily="@font/roboto"
 
         android:text="Джон Сноу"
@@ -84,7 +84,7 @@
         android:id="@+id/profile_exp"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="@dimen/margin_default"
+        android:layout_marginBottom="@dimen/margin"
         app:layout_constraintBottom_toTopOf="@+id/profile_aqua"
         app:layout_constraintEnd_toEndOf="@id/profile_right"
         app:layout_constraintStart_toStartOf="@id/profile_left"
@@ -124,7 +124,7 @@
 
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:id="@+id/profile_exp_bar_progress"
-                android:layout_width="250dp"
+                android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:background="@drawable/bg_rounded_10dp"
                 android:backgroundTint="@color/accent"
@@ -139,7 +139,7 @@
         android:id="@+id/profile_aqua"
         style="@style/ConstraintLayout.Card.Dark"
 
-        android:layout_marginBottom="@dimen/margin_default"
+        android:layout_marginBottom="@dimen/margin"
 
         app:layout_constraintBottom_toTopOf="@+id/profile_sv"
         app:layout_constraintEnd_toStartOf="@+id/profile_fish"
@@ -250,7 +250,7 @@
         android:id="@+id/profile_sv"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:layout_marginBottom="@dimen/margin_default"
+        android:layout_marginBottom="@dimen/margin_double"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/profile_right"
         app:layout_constraintStart_toStartOf="@+id/profile_left"
@@ -264,8 +264,6 @@
             <Button
                 android:id="@+id/profile_sv_1"
                 style="@style/Button.Text.ScrollView"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
                 android:text="Редактировать профиль" />
 
             <LinearLayout style="@style/LinearLayout.Border" />
@@ -273,8 +271,6 @@
             <Button
                 android:id="@+id/profile_sv_2"
                 style="@style/Button.Text.ScrollView"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
                 android:text="Настройки" />
 
             <LinearLayout style="@style/LinearLayout.Border" />
@@ -282,8 +278,6 @@
             <Button
                 android:id="@+id/profile_sv_3"
                 style="@style/Button.Text.ScrollView"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
                 android:text="О приложении" />
 
         </LinearLayout>

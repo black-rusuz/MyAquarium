@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/bg_rounded_20dp"
+    tools:context=".ui.profile.edit.EditFragment">
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/edit_left"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.1" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/edit_right"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.9" />
+
+    <Button
+        android:id="@+id/edit_back"
+        style="@style/Button.Back"
+        app:layout_constraintBottom_toTopOf="@+id/edit_header"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/edit_header"
+        style="@style/TextView.Header"
+
+        android:layout_marginTop="@dimen/margin_double"
+        android:text="Редактировать профиль"
+        app:layout_constraintEnd_toStartOf="@+id/edit_right"
+        app:layout_constraintStart_toStartOf="@+id/edit_left"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/edit_save"
+        style="@style/Button.Colored.Dark.Save"
+
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/margin"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/edit_right"
+        app:layout_constraintStart_toStartOf="@+id/edit_left" />
+
+    <ScrollView
+        android:id="@+id/edit_sv"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/margin"
+        android:layout_marginBottom="@dimen/margin"
+        app:layout_constraintBottom_toTopOf="@+id/edit_save"
+        app:layout_constraintEnd_toStartOf="@+id/edit_right"
+        app:layout_constraintStart_toStartOf="@+id/edit_left"
+        app:layout_constraintTop_toBottomOf="@+id/edit_header"
+        app:layout_constraintVertical_bias="0.0">
+
+        <LinearLayout
+            android:id="@+id/edit_sv_ll"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/edit_name_key"
+                style="@style/TextView.Text.Dark"
+                android:layout_width="match_parent"
+                android:layout_marginStart="@dimen/margin_text"
+                android:layout_marginBottom="2dp"
+                android:text="Имя" />
+
+            <EditText
+                android:id="@+id/edit_name"
+                style="@style/EditText.Add.Text"
+                android:layout_width="match_parent"
+                android:layout_marginBottom="@dimen/margin_half"
+
+                android:hint="Мария Иванова"
+                android:inputType="textPersonName"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/register_email" />
+
+
+            <TextView
+                android:id="@+id/edit_userpic_key"
+                style="@style/TextView.Text.Dark"
+                android:layout_width="match_parent"
+                android:layout_marginStart="@dimen/margin_text"
+                android:layout_marginBottom="2dp"
+                android:text="Изображение профиля" />
+
+            <Button
+                android:id="@+id/edit_userpic"
+                style="@style/Button.Colored.Light"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:stateListAnimator="@null"
+                android:text="Выбрать" />
+
+
+        </LinearLayout>
+    </ScrollView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

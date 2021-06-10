@@ -12,11 +12,7 @@ import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
 
-import com.example.myaquarium.MainActivity;
 import com.example.myaquarium.R;
-
-import java.net.URI;
-import java.net.URL;
 
 public class HelpFragment extends Fragment {
 

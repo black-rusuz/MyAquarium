@@ -35,27 +35,26 @@
     <TextView
         android:id="@+id/help_header"
         style="@style/TextView.Header"
-        android:layout_marginTop="@dimen/margin_default"
+        android:layout_marginTop="@dimen/margin"
 
-        android:layout_marginBottom="@dimen/margin_default_2x"
         android:text="@string/title_help"
 
-        app:layout_constraintBottom_toTopOf="@+id/help_sv"
         app:layout_constraintEnd_toStartOf="@+id/help_right"
         app:layout_constraintStart_toStartOf="@+id/help_left"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.0"
         app:layout_constraintVertical_chainStyle="packed" />
 
     <ScrollView
         android:id="@+id/help_sv"
         android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="@dimen/margin_default"
+        android:layout_height="0dp"
+        android:layout_marginTop="@dimen/margin"
+        android:layout_marginBottom="@dimen/margin_double"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/help_right"
         app:layout_constraintStart_toStartOf="@+id/help_left"
-        app:layout_constraintTop_toBottomOf="@+id/help_header">
+        app:layout_constraintTop_toBottomOf="@+id/help_header"
+        app:layout_constraintVertical_bias="0.0">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -67,28 +66,28 @@
                 style="@style/Button.Text.ScrollView"
                 android:text="@string/fishes" />
 
-            <LinearLayout style="@style/LinearLayout.Border"/>
+            <LinearLayout style="@style/LinearLayout.Border" />
 
             <Button
                 android:id="@+id/help_sv_2"
                 style="@style/Button.Text.ScrollView"
                 android:text="@string/plants" />
 
-            <LinearLayout style="@style/LinearLayout.Border"/>
+            <LinearLayout style="@style/LinearLayout.Border" />
 
             <Button
                 android:id="@+id/help_sv_3"
                 style="@style/Button.Text.ScrollView"
                 android:text="Параметры воды" />
 
-            <LinearLayout style="@style/LinearLayout.Border"/>
+            <LinearLayout style="@style/LinearLayout.Border" />
 
             <Button
                 android:id="@+id/help_sv_4"
                 style="@style/Button.Text.ScrollView"
                 android:text="@string/aquas" />
 
-            <LinearLayout style="@style/LinearLayout.Border"/>
+            <LinearLayout style="@style/LinearLayout.Border" />
 
             <Button
                 android:id="@+id/help_sv_5"

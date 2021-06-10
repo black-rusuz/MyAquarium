@@ -6,6 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/bg_rounded_20dp"
+    tools:context=".ui.home.aqua.AquaFragment"
     tools:showIn="@layout/fragment_home">
 
     <ScrollView
@@ -41,7 +42,7 @@
                 android:layout_marginTop="@dimen/margin_text"
                 android:layout_marginBottom="@dimen/margin_text"
                 android:text="@string/aqua"
-                android:textSize="22sp"
+                android:textSize="20sp"
                 app:layout_constraintBottom_toTopOf="@+id/aqua_icon"
                 app:layout_constraintEnd_toStartOf="@+id/aqua_right"
                 app:layout_constraintStart_toStartOf="@+id/aqua_left"
@@ -221,6 +222,7 @@
                 android:id="@+id/aqua_condition_key"
                 style="@style/TextView.Text.Light"
                 android:layout_width="wrap_content"
+                android:fontFamily="@font/comfortaa_bold"
                 android:layout_marginBottom="@dimen/margin_text"
                 android:text="@string/condition_"
                 app:layout_constraintBottom_toBottomOf="parent"
@@ -233,6 +235,7 @@
             <TextView
                 android:id="@+id/aqua_condition"
                 style="@style/TextView.Text.Light"
+                android:fontFamily="@font/comfortaa_bold"
                 android:layout_width="wrap_content"
                 android:layout_marginStart="@dimen/margin_text"
                 android:text="@string/excellent"

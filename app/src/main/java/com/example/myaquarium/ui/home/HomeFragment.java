@@ -7,7 +7,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
-import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
@@ -15,7 +14,6 @@ import androidx.lifecycle.ViewModelProvider;
 
 import com.example.myaquarium.R;
 import com.example.myaquarium.ui.home.add.AddFragment;
-import com.example.myaquarium.ui.home.aqua.AquaFragment;
 
 public class HomeFragment extends Fragment {
 
@@ -27,7 +25,7 @@ public class HomeFragment extends Fragment {
                 new ViewModelProvider(this).get(HomeViewModel.class);
         View root = inflater.inflate(R.layout.fragment_home, container, false);
 
-        SharedPreferences myPreferences = PreferenceManager.getDefaultSharedPreferences(root.getContext());
+        SharedPreferences myPreferences = PreferenceManager.getDefaultSharedPreferences(getContext());
 
         View home_fragment = root.findViewById(R.id.home_fragment);
         Button home_add = root.findViewById(R.id.home_add);

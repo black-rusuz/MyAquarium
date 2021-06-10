@@ -25,7 +25,7 @@ public class AquaFragment extends Fragment {
                 new ViewModelProvider(this).get(AquaViewModel.class);
         View root = inflater.inflate(R.layout.fragment_aqua, container, false);
 
-        SharedPreferences myPreferences = PreferenceManager.getDefaultSharedPreferences(root.getContext());
+        SharedPreferences myPreferences = PreferenceManager.getDefaultSharedPreferences(getContext());
         SharedPreferences.Editor myEditor = myPreferences.edit();
 
         TextView aqua_name = root.findViewById(R.id.aqua_header);

@@ -1,7 +1,7 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
 
     <!-- Base application theme. -->
-    <style name="Theme.MyAquarium" parent="Theme.AppCompat">
+    <style name="Theme.MyAquarium" parent="Theme.AppCompat.Light.NoActionBar">
 
         <!-- Primary brand color. -->
         <item name="colorPrimary">@color/accent</item>
@@ -22,8 +22,8 @@
     <style name="Button">
         <item name="android:layout_height">wrap_content</item>
         <item name="android:textAllCaps">false</item>
-        <item name="android:paddingLeft">@dimen/margin_default_0.5x</item>
-        <item name="android:paddingRight">@dimen/margin_default_0.5x</item>
+        <item name="android:paddingLeft">@dimen/margin_half</item>
+        <item name="android:paddingRight">@dimen/margin_half</item>
     </style>
 
     <style name="Button.Colored">
@@ -38,11 +38,19 @@
     <style name="Button.Colored.Light">
         <item name="android:textColor">@color/accent</item>
         <item name="android:backgroundTint">@color/accent_light</item>
+        <item name="android:drawableTint" tools:targetApi="m">@color/accent</item>
     </style>
 
     <style name="Button.Colored.Dark">
         <item name="android:textColor">@color/white</item>
         <item name="android:backgroundTint">@color/accent</item>
+        <item name="android:drawableTint" tools:targetApi="m">@color/white</item>
+    </style>
+
+    <style name="Button.Colored.Dark.Save">
+        <item name="android:text">@string/save</item>
+        <item name="android:drawableTint" tools:targetApi="m">@color/white</item>
+        <item name="android:drawableStart">@drawable/ic_save</item>
     </style>
 
     <style name="Button.Text">
@@ -71,6 +79,7 @@
         <item name="android:background">@color/transparent</item>
         <item name="android:drawableEnd">@drawable/ic_back</item>
         <item name="android:stateListAnimator">@null</item>
+        <item name="android:drawableTint" tools:targetApi="m">@color/text_dark</item>
     </style>
 
     <!-- TextViews -->
@@ -99,45 +108,12 @@
         <item name="android:textColor">@color/text_dark</item>
     </style>
 
-    <!-- Layouts -->
-    <style name="LinearLayout"></style>
-    <style name="LinearLayout.Border">
-        <item name="android:layout_width">match_parent</item>
-        <item name="android:layout_height">1dp</item>
-        <item name="android:background">@color/help_border</item>
-        <item name="android:layout_marginTop">@dimen/margin_text</item>
-        <item name="android:layout_marginBottom">@dimen/margin_text</item>
-    </style>
-
-    <style name="ConstraintLayout"></style>
-    <style name="ConstraintLayout.LL">
-        <item name="android:layout_width">match_parent</item>
-        <item name="android:layout_height">wrap_content</item>
-        <item name="android:layout_marginBottom">@dimen/margin_default_0.5x</item>
-
-    </style>
-    <style name="ConstraintLayout.Card">
-        <item name="android:layout_width">90dp</item>
-        <item name="android:layout_height">100dp</item>
-        <item name="android:background">@drawable/bg_rounded_20dp</item>
-    </style>
-
-    <style name="ConstraintLayout.Card.Dark">
-        <item name="android:backgroundTint">@color/accent</item>
-    </style>
-
-    <style name="ConstraintLayout.Card.Light">
-        <item name="android:backgroundTint">@color/accent_light</item>
-    </style>
-
     <!-- EditTexts -->
     <style name="EditText">
         <item name="android:layout_height">40dp</item>
         <item name="android:background">@drawable/bg_rounded_10dp_border</item>
         <item name="android:padding">10dp</item>
-        <item name="android:textSize">14sp</item>
-        <item name="android:textColorHint">@color/text_light</item>
-        <item name="android:textColor">@color/text_dark</item>
+        <item name="android:textSize">16sp</item>
     </style>
 
     <style name="EditText.Add">
@@ -167,6 +143,37 @@
 
     <!-- ImageViews -->
     <style name="ImageView">
+    </style>
+
+    <!-- Layouts -->
+    <style name="LinearLayout"></style>
+    <style name="LinearLayout.Border">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">1dp</item>
+        <item name="android:background">@color/help_border</item>
+        <item name="android:layout_marginTop">@dimen/margin_text</item>
+        <item name="android:layout_marginBottom">@dimen/margin_text</item>
+    </style>
+
+    <style name="ConstraintLayout"></style>
+    <style name="ConstraintLayout.LL">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginBottom">@dimen/margin_half</item>
+
+    </style>
+    <style name="ConstraintLayout.Card">
+        <item name="android:layout_width">90dp</item>
+        <item name="android:layout_height">100dp</item>
+        <item name="android:background">@drawable/bg_rounded_20dp</item>
+    </style>
+
+    <style name="ConstraintLayout.Card.Dark">
+        <item name="android:backgroundTint">@color/accent</item>
+    </style>
+
+    <style name="ConstraintLayout.Card.Light">
+        <item name="android:backgroundTint">@color/accent_light</item>
     </style>
 
 </resources>

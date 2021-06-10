@@ -9,7 +9,6 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.LinearLayout;
-import android.widget.ScrollView;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -32,16 +31,16 @@ public class AddFragment extends Fragment {
                 new ViewModelProvider(this).get(AddViewModel.class);
         View root = inflater.inflate(R.layout.fragment_add, container, false);
 
-        SharedPreferences myPreferences = PreferenceManager.getDefaultSharedPreferences(root.getContext());
+        SharedPreferences myPreferences = PreferenceManager.getDefaultSharedPreferences(getContext());
         SharedPreferences.Editor myEditor = myPreferences.edit();
 
         root.findViewById(R.id.add_back).setOnClickListener(v -> getFragmentManager().popBackStack());
 
         TextView add_header = root.findViewById(R.id.add_header);
-        EditText add_name = root.findViewById(R.id.add_sv_name_et);
-        Spinner add_type = root.findViewById(R.id.add_sv_type_sp);
-        EditText add_vol = root.findViewById(R.id.add_sv_vol_et);
-        EditText add_temp = root.findViewById(R.id.add_sv_temp_et);
+        EditText add_name = root.findViewById(R.id.add_sv_name);
+        Spinner add_type = root.findViewById(R.id.add_sv_type);
+        EditText add_vol = root.findViewById(R.id.add_sv_vol);
+        EditText add_temp = root.findViewById(R.id.add_sv_temp);
         Button add_fish = root.findViewById(R.id.add_fish);
         Button add_plant = root.findViewById(R.id.add_plant);
         Button add_save = root.findViewById(R.id.add_save);
@@ -72,7 +71,7 @@ public class AddFragment extends Fragment {
             // Делаем ConstraintLayout и задаём стиль и отступы
             ConstraintLayout add_sv_cl = new ConstraintLayout(getContext(), null, R.style.ConstraintLayout_LL, R.style.ConstraintLayout_LL);
             ConstraintLayout.LayoutParams lp = new ConstraintLayout.LayoutParams(ConstraintLayout.LayoutParams.WRAP_CONTENT, ConstraintLayout.LayoutParams.WRAP_CONTENT);
-            lp.setMargins(0, 0, 0, (int) getResources().getDimension(R.dimen.margin_default_0_5x));
+            lp.setMargins(0, 0, 0, (int) getResources().getDimension(R.dimen.margin_half));
             add_sv_cl.setLayoutParams(lp);
 
             // Делаем EditText
@@ -115,7 +114,7 @@ public class AddFragment extends Fragment {
             // Делаем ConstraintLayout и задаём стиль и отступы
             ConstraintLayout add_sv_cl = new ConstraintLayout(getContext(), null, R.style.ConstraintLayout_LL, R.style.ConstraintLayout_LL);
             ConstraintLayout.LayoutParams lp = new ConstraintLayout.LayoutParams(ConstraintLayout.LayoutParams.WRAP_CONTENT, ConstraintLayout.LayoutParams.WRAP_CONTENT);
-            lp.setMargins(0, 0, 0, (int) getResources().getDimension(R.dimen.margin_default_0_5x));
+            lp.setMargins(0, 0, 0, (int) getResources().getDimension(R.dimen.margin_half));
             add_sv_cl.setLayoutParams(lp);
 
             // Делаем EditText

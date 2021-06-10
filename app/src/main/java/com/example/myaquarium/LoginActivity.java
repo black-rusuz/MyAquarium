@@ -11,6 +11,6 @@ public class LoginActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
 
-
+        findViewById(R.id.login_back).setOnClickListener(v -> this.finish());
     }
 }

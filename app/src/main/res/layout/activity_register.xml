@@ -1,7 +1,187 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="@color/white">
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/register_left"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.1" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/register_right"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.9" />
+
+    <ImageView
+        android:id="@+id/register_bg"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scaleType="fitCenter"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/bg_register" />
+
+    <ImageView
+        android:id="@+id/register_bg_image"
+        android:layout_width="110dp"
+        android:layout_height="110dp"
+        android:layout_marginStart="@dimen/margin"
+        android:layout_marginBottom="@dimen/margin_half"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:srcCompat="@drawable/bg_register_image" />
+
+    <Button
+        android:id="@+id/register_back"
+        style="@style/Button.Back"
+        app:layout_constraintBottom_toTopOf="@+id/register_header"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/register_header"
+        style="@style/TextView.Header"
+
+        android:layout_marginTop="@dimen/margin_double"
+        android:text="Регистрация"
+        app:layout_constraintEnd_toStartOf="@+id/register_right"
+        app:layout_constraintStart_toStartOf="@+id/register_left"
+        app:layout_constraintTop_toTopOf="@+id/register_bg" />
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/register_cl"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toTopOf="@+id/register_action"
+        app:layout_constraintEnd_toStartOf="@+id/register_right"
+        app:layout_constraintStart_toStartOf="@+id/register_left"
+        app:layout_constraintTop_toBottomOf="@+id/register_header">
+
+        <TextView
+            android:id="@+id/register_email_key"
+            style="@style/TextView.Text.Dark"
+            android:layout_marginStart="@dimen/margin_text"
+
+            android:layout_marginBottom="2dp"
+            android:text="E-mail:"
+            app:layout_constraintBottom_toTopOf="@+id/register_email"
+            app:layout_constraintStart_toStartOf="@+id/register_email" />
+
+        <EditText
+            android:id="@+id/register_email"
+            style="@style/EditText.Add.Text"
+            android:layout_marginTop="24dp"
+            android:background="@drawable/bg_rounded_10dp"
+            android:clickable="false"
+            android:cursorVisible="false"
+
+            android:focusable="false"
+            android:focusableInTouchMode="false"
+            android:hint="maria.ivanova@gmail.com"
+            android:inputType="textEmailAddress"
+
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/register_name_key"
+            style="@style/TextView.Text.Dark"
+            android:layout_marginStart="@dimen/margin_text"
+
+            android:layout_marginBottom="2dp"
+            android:text="Имя"
+            app:layout_constraintBottom_toTopOf="@+id/register_name"
+            app:layout_constraintStart_toStartOf="@+id/register_name" />
+
+        <EditText
+            android:id="@+id/register_name"
+            style="@style/EditText.Add.Text"
+            android:layout_marginTop="@dimen/margin"
+            android:background="@drawable/bg_rounded_10dp"
+
+            android:clickable="false"
+            android:cursorVisible="false"
+            android:focusable="false"
+            android:focusableInTouchMode="false"
+
+            android:hint="Мария Иванова"
+            android:inputType="textPersonName"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/register_email" />
+
+        <TextView
+            android:id="@+id/register_password_key"
+            style="@style/TextView.Text.Dark"
+            android:layout_marginStart="@dimen/margin_text"
+
+            android:layout_marginBottom="2dp"
+            android:text="Пароль:"
+            app:layout_constraintBottom_toTopOf="@+id/register_password"
+            app:layout_constraintStart_toStartOf="@+id/register_password" />
+
+        <EditText
+            android:id="@+id/register_password"
+            style="@style/EditText.Add.Text"
+            android:layout_marginTop="@dimen/margin"
+            android:background="@drawable/bg_rounded_10dp"
+            android:clickable="false"
+            android:cursorVisible="false"
+
+            android:focusable="false"
+            android:focusableInTouchMode="false"
+            android:hint="12345678qwerty"
+            android:inputType="textPassword"
+
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/register_name" />
+
+        <TextView
+            android:id="@+id/register_password_key2"
+            style="@style/TextView.Text.Dark"
+            android:layout_marginStart="@dimen/margin_text"
+
+            android:layout_marginBottom="2dp"
+            android:text="Повторите пароль:"
+            app:layout_constraintBottom_toTopOf="@+id/register_password2"
+            app:layout_constraintStart_toStartOf="@+id/register_password2" />
+
+        <EditText
+            android:id="@+id/register_password2"
+            style="@style/EditText.Add.Text"
+            android:layout_marginTop="@dimen/margin"
+            android:background="@drawable/bg_rounded_10dp"
+
+            android:clickable="false"
+            android:cursorVisible="false"
+            android:focusable="false"
+            android:focusableInTouchMode="false"
+
+            android:hint="12345678qwerty"
+            android:inputType="textPassword"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/register_password" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <Button
+        android:id="@+id/register_action"
+        style="@style/Button.Colored.Dark"
+        android:text="Зарегистрироваться"
+        app:layout_constraintBottom_toTopOf="@+id/register_bg_image"
+        app:layout_constraintEnd_toStartOf="@+id/register_right"
+        app:layout_constraintStart_toStartOf="@+id/register_left"
+        app:layout_constraintTop_toBottomOf="@+id/register_cl" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

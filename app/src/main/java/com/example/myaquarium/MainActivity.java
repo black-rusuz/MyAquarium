@@ -5,6 +5,7 @@ import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.widget.Button;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.navigation.NavController;
@@ -32,11 +33,13 @@ public class MainActivity extends AppCompatActivity {
             Button help = findViewById(R.id.help);
 
             login.setOnClickListener(v -> {
+                Toast.makeText(this,"Авторизация временно недоступна", Toast.LENGTH_LONG).show();
                 Intent intent = new Intent(this, LoginActivity.class);
                 startActivity(intent);
             });
 
             register.setOnClickListener(v -> {
+                Toast.makeText(this,"Регистрация временно недоступна", Toast.LENGTH_LONG).show();
                 Intent intent = new Intent(this, RegisterActivity.class);
                 startActivity(intent);
             });
@@ -56,7 +59,10 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void onBackPressed() {
-        if (findViewById(R.id.add_back) != null)
+        if (    findViewById(R.id.add_back) != null ||
+                findViewById(R.id.edit_back) != null ||
+                findViewById(R.id.settings_back) != null ||
+                findViewById(R.id.about_back) != null )
             getSupportFragmentManager().popBackStack();
         else
             finish();
