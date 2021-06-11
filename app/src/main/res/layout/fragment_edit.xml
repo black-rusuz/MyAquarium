@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -22,6 +21,16 @@
         android:orientation="vertical"
         app:layout_constraintGuide_percent="0.9" />
 
+    <ImageView
+        android:id="@+id/edit_bg"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:scaleType="fitEnd"
+        android:src="@drawable/bg_profile_bottom"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
     <Button
         android:id="@+id/edit_back"
         style="@style/Button.Back"
@@ -33,10 +42,68 @@
         style="@style/TextView.Header"
 
         android:layout_marginTop="@dimen/margin_double"
-        android:text="Редактировать профиль"
+        android:text="Изменение профиля"
         app:layout_constraintEnd_toStartOf="@+id/edit_right"
         app:layout_constraintStart_toStartOf="@+id/edit_left"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/edit_cv_userpic"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/margin"
+        android:layout_marginBottom="@dimen/margin_text"
+
+        app:cardCornerRadius="100dp"
+        app:layout_constraintBottom_toTopOf="@+id/edit_userpic_key"
+        app:layout_constraintEnd_toStartOf="@+id/edit_right"
+        app:layout_constraintStart_toStartOf="@+id/edit_left"
+        app:layout_constraintTop_toBottomOf="@+id/edit_header"
+        app:layout_constraintVertical_bias="0.0"
+        app:layout_constraintVertical_chainStyle="packed">
+
+        <ImageView
+            android:id="@+id/edit_userpic"
+            android:layout_width="175dp"
+            android:layout_height="175dp"
+            android:scaleType="centerCrop"
+            android:src="@drawable/userpic" />
+    </androidx.cardview.widget.CardView>
+
+    <TextView
+        android:id="@+id/edit_userpic_key"
+        style="@style/TextView.Accent.Light"
+        android:layout_marginBottom="@dimen/margin"
+        android:gravity="center"
+        android:text="Сменить фото"
+        app:layout_constraintBottom_toTopOf="@+id/edit_name"
+        app:layout_constraintEnd_toStartOf="@+id/edit_right"
+        app:layout_constraintStart_toStartOf="@+id/edit_left"
+        app:layout_constraintTop_toBottomOf="@+id/edit_cv_userpic" />
+
+    <EditText
+        android:id="@+id/edit_name"
+        style="@style/EditText.Add.Text"
+
+        android:layout_marginBottom="@dimen/margin_text"
+        android:gravity="center"
+        android:hint="Твоё имя"
+        android:inputType="textPersonName"
+        app:layout_constraintBottom_toTopOf="@+id/edit_text"
+        app:layout_constraintEnd_toStartOf="@+id/edit_right"
+        app:layout_constraintStart_toStartOf="@+id/edit_left"
+        app:layout_constraintTop_toBottomOf="@+id/edit_userpic_key" />
+
+    <TextView
+        android:id="@+id/edit_text"
+        style="@style/TextView.Accent.Light"
+        android:layout_marginBottom="@dimen/margin"
+        android:gravity="center"
+        android:text="Можно указать своё имя или псевдоним.\nЕго будут видеть другие пользователи."
+        app:layout_constraintBottom_toTopOf="@+id/edit_save"
+        app:layout_constraintEnd_toStartOf="@+id/edit_right"
+        app:layout_constraintStart_toStartOf="@+id/edit_left"
+        app:layout_constraintTop_toBottomOf="@+id/edit_name" />
 
     <Button
         android:id="@+id/edit_save"
@@ -47,65 +114,7 @@
         android:layout_marginBottom="@dimen/margin"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/edit_right"
-        app:layout_constraintStart_toStartOf="@+id/edit_left" />
-
-    <ScrollView
-        android:id="@+id/edit_sv"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/margin"
-        android:layout_marginBottom="@dimen/margin"
-        app:layout_constraintBottom_toTopOf="@+id/edit_save"
-        app:layout_constraintEnd_toStartOf="@+id/edit_right"
         app:layout_constraintStart_toStartOf="@+id/edit_left"
-        app:layout_constraintTop_toBottomOf="@+id/edit_header"
-        app:layout_constraintVertical_bias="0.0">
-
-        <LinearLayout
-            android:id="@+id/edit_sv_ll"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical">
-
-            <TextView
-                android:id="@+id/edit_name_key"
-                style="@style/TextView.Text.Dark"
-                android:layout_width="match_parent"
-                android:layout_marginStart="@dimen/margin_text"
-                android:layout_marginBottom="2dp"
-                android:text="Имя" />
-
-            <EditText
-                android:id="@+id/edit_name"
-                style="@style/EditText.Add.Text"
-                android:layout_width="match_parent"
-                android:layout_marginBottom="@dimen/margin_half"
-
-                android:hint="Мария Иванова"
-                android:inputType="textPersonName"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/register_email" />
-
-
-            <TextView
-                android:id="@+id/edit_userpic_key"
-                style="@style/TextView.Text.Dark"
-                android:layout_width="match_parent"
-                android:layout_marginStart="@dimen/margin_text"
-                android:layout_marginBottom="2dp"
-                android:text="Изображение профиля" />
-
-            <Button
-                android:id="@+id/edit_userpic"
-                style="@style/Button.Colored.Light"
-                android:layout_width="match_parent"
-                android:layout_height="40dp"
-                android:stateListAnimator="@null"
-                android:text="Выбрать" />
-
-
-        </LinearLayout>
-    </ScrollView>
+        app:layout_constraintTop_toBottomOf="@+id/edit_text" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

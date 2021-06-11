@@ -30,11 +30,10 @@ public class AddFragment extends Fragment {
         addViewModel =
                 new ViewModelProvider(this).get(AddViewModel.class);
         View root = inflater.inflate(R.layout.fragment_add, container, false);
+        root.findViewById(R.id.add_back).setOnClickListener(v -> getFragmentManager().popBackStack());
 
         SharedPreferences myPreferences = PreferenceManager.getDefaultSharedPreferences(getContext());
         SharedPreferences.Editor myEditor = myPreferences.edit();
-
-        root.findViewById(R.id.add_back).setOnClickListener(v -> getFragmentManager().popBackStack());
 
         TextView add_header = root.findViewById(R.id.add_header);
         EditText add_name = root.findViewById(R.id.add_sv_name);

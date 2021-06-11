@@ -121,7 +121,7 @@
                     android:id="@+id/add_sv_type"
                     android:layout_width="0dp"
                     android:layout_height="40dp"
-                    android:background="@drawable/bg_rounded_10dp_border"
+                    android:background="@drawable/bg_rounded_10dp_border_dark"
                     android:entries="@array/types"
                     android:popupBackground="@drawable/bg_rounded_10dp"
                     app:layout_constraintBottom_toBottomOf="parent"
@@ -130,7 +130,7 @@
                     app:layout_constraintTop_toTopOf="parent" />
 
                 <ImageView
-                    android:id="@+id/add_sv_type_iv"
+                    android:id="@+id/settings_day_iv"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginEnd="@dimen/margin_half"

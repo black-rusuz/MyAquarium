@@ -220,12 +220,9 @@
 
             <TextView
                 android:id="@+id/aqua_condition_key"
-                style="@style/TextView.Text.Light"
-                android:layout_width="wrap_content"
+                style="@style/TextView.Accent.Light"
                 android:layout_marginBottom="@dimen/margin_text"
-                android:fontFamily="@font/comfortaa_bold"
                 android:text="@string/condition_"
-                android:textSize="13sp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toStartOf="@+id/aqua_condition"
                 app:layout_constraintHorizontal_chainStyle="packed"
@@ -235,13 +232,10 @@
             <!-- TODO: Прописать цвета в colors-->
             <TextView
                 android:id="@+id/aqua_condition"
-                style="@style/TextView.Text.Light"
-                android:layout_width="wrap_content"
+                style="@style/TextView.Accent"
                 android:layout_marginStart="@dimen/margin_text"
-                android:fontFamily="@font/comfortaa_bold"
                 android:text="@string/excellent"
                 android:textColor="#2E7D32"
-                android:textSize="13sp"
                 app:layout_constraintBottom_toBottomOf="@+id/aqua_condition_key"
                 app:layout_constraintEnd_toStartOf="@+id/aqua_right"
                 app:layout_constraintStart_toEndOf="@+id/aqua_condition_key"

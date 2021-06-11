@@ -92,16 +92,22 @@ public class ProfileFragment extends Fragment {
             Toast.makeText(getContext(),"Это покажет рыбок и их количество (наверно)", Toast.LENGTH_SHORT).show();
 
             ConstraintLayout.LayoutParams lp = (ConstraintLayout.LayoutParams) profile_exp_bar_progress.getLayoutParams();
-            lp.width += 50;
-            profile_exp_bar_progress.setLayoutParams(lp);
+            int w = lp.width;
+            w -= 50;
+            ResizeAnimation r_dec = new ResizeAnimation(profile_exp_bar_progress, w);
+            r_dec.setDuration(250);
+            profile_exp_bar_progress.startAnimation(r_dec);
         });
 
         profile_plant.setOnClickListener(v -> {
             Toast.makeText(getContext(),"Это покажет растения и их количество (наверно)", Toast.LENGTH_SHORT).show();
 
             ConstraintLayout.LayoutParams lp = (ConstraintLayout.LayoutParams) profile_exp_bar_progress.getLayoutParams();
-            lp.width -= 50;
-            profile_exp_bar_progress.setLayoutParams(lp);
+            int w = lp.width;
+            w += 50;
+            ResizeAnimation r_inc = new ResizeAnimation(profile_exp_bar_progress, w);
+            r_inc.setDuration(250);
+            profile_exp_bar_progress.startAnimation(r_inc);
         });
 
         profile_sv_1.setOnClickListener(v -> {

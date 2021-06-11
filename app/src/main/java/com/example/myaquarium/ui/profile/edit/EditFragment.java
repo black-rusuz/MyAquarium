@@ -2,6 +2,7 @@ package com.example.myaquarium.ui.profile.edit;
 
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.media.Image;
 import android.net.Uri;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
@@ -11,6 +12,8 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
+import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
@@ -28,17 +31,15 @@ public class EditFragment extends Fragment {
         editViewModel =
                 new ViewModelProvider(this).get(EditViewModel.class);
         View root = inflater.inflate(R.layout.fragment_edit, container, false);
+        root.findViewById(R.id.edit_back).setOnClickListener(v -> getFragmentManager().popBackStack());
 
         SharedPreferences myPreferences = PreferenceManager.getDefaultSharedPreferences(getContext());
         SharedPreferences.Editor myEditor = myPreferences.edit();
 
-        root.findViewById(R.id.edit_back).setOnClickListener(v -> getFragmentManager().popBackStack());
-
+        ImageView edit_userpic = root.findViewById(R.id.edit_userpic);
+        TextView edit_userpic_key = root.findViewById(R.id.edit_userpic_key);
         EditText edit_name = root.findViewById(R.id.edit_name);
-        Button edit_userpic = root.findViewById(R.id.edit_userpic);
         Button edit_save = root.findViewById(R.id.edit_save);
-
-        edit_name.setText(myPreferences.getString("USERNAME", "Джон Сноу"));
 
         //TODO: даже, блядь, не знаю что сказать...
         edit_userpic.setOnClickListener(v ->  {
@@ -46,6 +47,13 @@ public class EditFragment extends Fragment {
             photoPickerIntent.setType("image/*");
             startActivityForResult(photoPickerIntent, 1);
         });
+        edit_userpic_key.setOnClickListener(v ->  {
+            Intent photoPickerIntent = new Intent(Intent.ACTION_PICK);
+            photoPickerIntent.setType("image/*");
+            startActivityForResult(photoPickerIntent, 1);
+        });
+
+        edit_name.setText(myPreferences.getString("USERNAME", "Джон Сноу"));
 
         edit_save.setOnClickListener(v -> {
             if (edit_name.getText().length() > 0)

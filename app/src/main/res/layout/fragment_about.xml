@@ -1,28 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/bg_rounded_20dp"
     tools:context=".ui.profile.about.AboutFragment">
-
-    <TextView
-        android:id="@+id/about_header"
-        style="@style/TextView.Header"
-
-        android:layout_marginTop="@dimen/margin_double"
-        android:text="О приложении"
-        app:layout_constraintEnd_toStartOf="@+id/about_right"
-        app:layout_constraintStart_toStartOf="@+id/about_left"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <Button
-        android:id="@+id/about_back"
-        style="@style/Button.Back"
-        app:layout_constraintBottom_toTopOf="@+id/about_header"
-        app:layout_constraintStart_toStartOf="parent" />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/about_left"
@@ -37,5 +20,154 @@
         android:layout_height="wrap_content"
         android:orientation="vertical"
         app:layout_constraintGuide_percent="0.9" />
+
+    <ImageView
+        android:id="@+id/about_bg"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:scaleType="fitEnd"
+        android:src="@drawable/bg_profile_bottom"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <Button
+        android:id="@+id/about_back"
+        style="@style/Button.Back"
+        app:layout_constraintBottom_toTopOf="@+id/about_header"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/about_header"
+        style="@style/TextView.Header"
+
+        android:layout_marginTop="@dimen/margin_double"
+        android:text="О приложении"
+        app:layout_constraintEnd_toStartOf="@+id/about_right"
+        app:layout_constraintStart_toStartOf="@+id/about_left"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/about_text"
+        style="@style/TextView.Text.Dark"
+        android:layout_marginTop="@dimen/margin"
+        android:fontFamily="@font/roboto_light"
+        android:gravity="center"
+        android:lineSpacingMultiplier="1.35"
+        android:text="Иконки нагло спизжены с сайт.ру\n\nНикакие права не защищены. ©\n\nРазработчик не несёт ответственности за состояние ваших аквариумов, рыб, растений и психического здоровья при использовании приложения.\n\nИдите нахуй!"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/about_right"
+        app:layout_constraintStart_toStartOf="@+id/about_left"
+        app:layout_constraintTop_toBottomOf="@+id/about_header"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <ImageView
+        android:id="@+id/about_rusuz_img"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:layout_marginStart="@dimen/margin_text"
+        android:layout_marginBottom="@dimen/margin_half"
+        android:src="@drawable/rusuz"
+        app:layout_constraintBottom_toTopOf="@+id/about_by_1"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/about_gsusha_img" />
+
+    <ImageView
+        android:id="@+id/about_gsusha_img"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:layout_marginEnd="@dimen/margin_text"
+        android:layout_marginBottom="@dimen/margin_half"
+        android:src="@drawable/gsusha"
+        app:layout_constraintBottom_toTopOf="@+id/about_by_1"
+        app:layout_constraintEnd_toStartOf="@+id/about_rusuz_img"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintHorizontal_chainStyle="packed"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/about_di"
+        style="@style/TextView.Accent.Light"
+        android:text="design &amp; idea"
+        app:layout_constraintBottom_toBottomOf="@+id/about_by_1"
+        app:layout_constraintEnd_toStartOf="@+id/about_by_1"
+        app:layout_constraintTop_toTopOf="@+id/about_by_1" />
+
+    <TextView
+        android:id="@+id/about_by_1"
+        style="@style/TextView.Accent.Light"
+        android:layout_marginBottom="1dp"
+        android:text=" by "
+        app:layout_constraintBottom_toTopOf="@+id/about_by_2"
+        app:layout_constraintEnd_toStartOf="@+id/about_right"
+        app:layout_constraintStart_toStartOf="@+id/about_left"
+        app:layout_constraintTop_toBottomOf="@+id/about_text"
+        app:layout_constraintVertical_bias="0.8"
+        app:layout_constraintVertical_chainStyle="packed" />
+
+    <TextView
+        android:id="@+id/about_gsusha"
+        style="@style/TextView.Accent.Light"
+        android:text="gsusha"
+        android:textColor="#71C285"
+        app:layout_constraintBottom_toBottomOf="@+id/about_by_1"
+        app:layout_constraintStart_toEndOf="@+id/about_by_1"
+        app:layout_constraintTop_toTopOf="@+id/about_by_1" />
+
+    <TextView
+        android:id="@+id/about_coded"
+        style="@style/TextView.Accent.Light"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="coded"
+        app:layout_constraintBottom_toBottomOf="@+id/about_by_2"
+        app:layout_constraintEnd_toStartOf="@+id/about_by_2"
+        app:layout_constraintTop_toTopOf="@+id/about_by_2" />
+
+    <TextView
+        android:id="@+id/about_by_2"
+        style="@style/TextView.Accent.Light"
+        android:layout_marginTop="1dp"
+        android:text=" by "
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/about_right"
+        app:layout_constraintStart_toStartOf="@+id/about_left"
+        app:layout_constraintTop_toBottomOf="@+id/about_by_1" />
+
+    <TextView
+        android:id="@+id/about_rusuz"
+        style="@style/TextView.Accent.Light"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="black-rusuz"
+        android:textColor="#FF7373"
+        app:layout_constraintBottom_toBottomOf="@+id/about_by_2"
+        app:layout_constraintStart_toEndOf="@+id/about_by_2"
+        app:layout_constraintTop_toTopOf="@+id/about_by_2" />
+
+    <TextView
+        android:id="@+id/about_version_key"
+        style="@style/TextView.Accent.Light"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="@dimen/margin_text"
+        android:text="version:"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/about_version"
+        app:layout_constraintHorizontal_chainStyle="packed"
+        app:layout_constraintStart_toStartOf="@+id/about_left" />
+
+    <TextView
+        android:id="@+id/about_version"
+        style="@style/TextView.Accent.Dark"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/margin_text"
+        android:text="0.1 alpha"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/about_right"
+        app:layout_constraintStart_toEndOf="@+id/about_version_key" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

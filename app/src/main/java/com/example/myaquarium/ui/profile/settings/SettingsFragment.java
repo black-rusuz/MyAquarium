@@ -20,7 +20,6 @@ public class SettingsFragment extends Fragment {
         settingsViewModel =
                 new ViewModelProvider(this).get(SettingsViewModel.class);
         View root = inflater.inflate(R.layout.fragment_settings, container, false);
-
         root.findViewById(R.id.settings_back).setOnClickListener(v -> getFragmentManager().popBackStack());
 
         return root;

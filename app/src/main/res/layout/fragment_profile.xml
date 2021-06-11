@@ -47,7 +47,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/margin"
-        app:cardCornerRadius="75dp"
+        app:cardCornerRadius="100dp"
 
         app:layout_constraintBottom_toTopOf="@+id/profile_username"
         app:layout_constraintEnd_toStartOf="@+id/profile_right"
@@ -162,9 +162,7 @@
 
         <TextView
             android:id="@+id/profile_aqua_text"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:fontFamily="@font/comfortaa_bold"
+            style="@style/TextView.Accent"
             android:text="аквариумов"
             android:textColor="@color/white"
             android:textSize="10sp"
@@ -198,9 +196,7 @@
 
         <TextView
             android:id="@+id/profile_fish_text"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:fontFamily="@font/comfortaa_bold"
+            style="@style/TextView.Accent"
             android:text="рыб"
             android:textColor="@color/text_light"
             android:textSize="10sp"
@@ -234,9 +230,7 @@
 
         <TextView
             android:id="@+id/profile_plant_text"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:fontFamily="@font/comfortaa_bold"
+            style="@style/TextView.Accent"
             android:text="растений"
             android:textColor="@color/text_light"
             android:textSize="10sp"
@@ -264,7 +258,7 @@
             <Button
                 android:id="@+id/profile_sv_1"
                 style="@style/Button.Text.ScrollView"
-                android:text="Редактировать профиль" />
+                android:text="Изменить профиль" />
 
             <LinearLayout style="@style/LinearLayout.Border" />
 
