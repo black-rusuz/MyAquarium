@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/bg_rounded_20dp"
+    android:background="@color/white"
     tools:context=".ui.profile.settings.SettingsFragment">
 
     <androidx.constraintlayout.widget.Guideline
@@ -55,6 +55,8 @@
         android:layout_marginTop="@dimen/margin"
         android:layout_marginBottom="@dimen/margin_text"
         android:text="Уведомлять о подмене"
+        android:thumb="@drawable/bg_thumb_selector"
+        app:track="@drawable/bg_track_selector"
         app:layout_constraintBottom_toTopOf="@+id/settings_day_key"
         app:layout_constraintEnd_toStartOf="@+id/settings_right"
         app:layout_constraintStart_toStartOf="@+id/settings_left"
@@ -130,6 +132,8 @@
         android:layout_height="40dp"
         android:layout_marginBottom="@dimen/margin_text"
         android:text="Уведомлять о кормлении"
+        android:thumb="@drawable/bg_thumb_selector"
+        app:track="@drawable/bg_track_selector"
         app:layout_constraintBottom_toTopOf="@+id/settings_time_key"
         app:layout_constraintEnd_toStartOf="@+id/settings_right"
         app:layout_constraintStart_toStartOf="@+id/settings_left"

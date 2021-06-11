@@ -5,7 +5,7 @@
     <color name="text_light">#7B7F9E</color>
     <color name="text_dark">#22215B</color>
 
-    <color name="help_border">#FFCACCD8</color>
+    <color name="border">#FFCACCD8</color>
 
     <color name="transparent">#00FFFFFF</color>
     <color name="white">#FFFFFFFF</color>

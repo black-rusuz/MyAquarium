@@ -165,7 +165,7 @@
     <style name="LinearLayout.Border">
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">1dp</item>
-        <item name="android:background">@color/help_border</item>
+        <item name="android:background">@color/border</item>
         <item name="android:layout_marginTop">@dimen/margin_text</item>
         <item name="android:layout_marginBottom">@dimen/margin_text</item>
     </style>
