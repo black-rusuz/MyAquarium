@@ -64,6 +64,7 @@
             <Button
                 android:id="@+id/help_sv_1"
                 style="@style/Button.Text.ScrollView"
+                android:drawableStart="@drawable/btn_fish"
                 android:text="@string/fishes" />
 
             <LinearLayout style="@style/LinearLayout.Border" />
@@ -71,6 +72,7 @@
             <Button
                 android:id="@+id/help_sv_2"
                 style="@style/Button.Text.ScrollView"
+                android:drawableStart="@drawable/btn_plant"
                 android:text="@string/plants" />
 
             <LinearLayout style="@style/LinearLayout.Border" />
@@ -78,6 +80,7 @@
             <Button
                 android:id="@+id/help_sv_3"
                 style="@style/Button.Text.ScrollView"
+                android:drawableStart="@drawable/btn_water"
                 android:text="Параметры воды" />
 
             <LinearLayout style="@style/LinearLayout.Border" />
@@ -85,6 +88,7 @@
             <Button
                 android:id="@+id/help_sv_4"
                 style="@style/Button.Text.ScrollView"
+                android:drawableStart="@drawable/btn_aqua"
                 android:text="@string/aquas" />
 
             <LinearLayout style="@style/LinearLayout.Border" />
@@ -92,6 +96,7 @@
             <Button
                 android:id="@+id/help_sv_5"
                 style="@style/Button.Text.ScrollView"
+                android:drawableStart="@drawable/btn_first"
                 android:text="Первый аквариум" />
 
         </LinearLayout>

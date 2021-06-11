@@ -258,6 +258,7 @@
             <Button
                 android:id="@+id/profile_sv_1"
                 style="@style/Button.Text.ScrollView"
+                android:drawableStart="@drawable/btn_edit"
                 android:text="Изменить профиль" />
 
             <LinearLayout style="@style/LinearLayout.Border" />
@@ -265,6 +266,7 @@
             <Button
                 android:id="@+id/profile_sv_2"
                 style="@style/Button.Text.ScrollView"
+                android:drawableStart="@drawable/btn_settings"
                 android:text="Настройки" />
 
             <LinearLayout style="@style/LinearLayout.Border" />
@@ -272,6 +274,7 @@
             <Button
                 android:id="@+id/profile_sv_3"
                 style="@style/Button.Text.ScrollView"
+                android:drawableStart="@drawable/btn_about"
                 android:text="О приложении" />
 
         </LinearLayout>
