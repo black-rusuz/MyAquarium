@@ -41,19 +41,18 @@ public class EditFragment extends Fragment {
         EditText edit_name = root.findViewById(R.id.edit_name);
         Button edit_save = root.findViewById(R.id.edit_save);
 
+        edit_name.setText(myPreferences.getString("USERNAME", null));
+        //edit_userpic.setImageURI(Uri.parse(myPreferences.getString("USERPIC", null)));
+
         //TODO: даже, блядь, не знаю что сказать...
+        Intent photoPickerIntent = new Intent(Intent.ACTION_PICK);
+        photoPickerIntent.setType("image/*");
         edit_userpic.setOnClickListener(v ->  {
-            Intent photoPickerIntent = new Intent(Intent.ACTION_PICK);
-            photoPickerIntent.setType("image/*");
             startActivityForResult(photoPickerIntent, 1);
         });
         edit_userpic_key.setOnClickListener(v ->  {
-            Intent photoPickerIntent = new Intent(Intent.ACTION_PICK);
-            photoPickerIntent.setType("image/*");
             startActivityForResult(photoPickerIntent, 1);
         });
-
-        edit_name.setText(myPreferences.getString("USERNAME", "Джон Сноу"));
 
         edit_save.setOnClickListener(v -> {
             if (edit_name.getText().length() > 0)

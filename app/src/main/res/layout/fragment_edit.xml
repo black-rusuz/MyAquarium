@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -47,14 +48,14 @@
         app:layout_constraintStart_toStartOf="@+id/edit_left"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <androidx.cardview.widget.CardView
+    <com.google.android.material.card.MaterialCardView
         android:id="@+id/edit_cv_userpic"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/margin"
         android:layout_marginBottom="@dimen/margin_text"
-
         app:cardCornerRadius="100dp"
+
         app:layout_constraintBottom_toTopOf="@+id/edit_userpic_key"
         app:layout_constraintEnd_toStartOf="@+id/edit_right"
         app:layout_constraintStart_toStartOf="@+id/edit_left"
@@ -66,9 +67,9 @@
             android:id="@+id/edit_userpic"
             android:layout_width="175dp"
             android:layout_height="175dp"
-            android:scaleType="centerCrop"
+            android:scaleType="centerInside"
             android:src="@drawable/userpic" />
-    </androidx.cardview.widget.CardView>
+    </com.google.android.material.card.MaterialCardView>
 
     <TextView
         android:id="@+id/edit_userpic_key"

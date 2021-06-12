@@ -61,7 +61,7 @@ public class ProfileFragment extends Fragment {
         int real_count_fish = myPreferences.getInt("REAL_COUNT_FISH", 0);
         int real_count_plant = myPreferences.getInt("REAL_COUNT_PLANT", 0);
 
-        profile_username.setText(myPreferences.getString("USERNAME", "Джон Сноу"));
+        profile_username.setText(myPreferences.getString("USERNAME", "Новый пользователь"));
         //TODO: тут говно какое-то с картинками
         //profile_userpic.setImageURI(Uri.parse(myPreferences.getString("USERPIC", null)));
 
