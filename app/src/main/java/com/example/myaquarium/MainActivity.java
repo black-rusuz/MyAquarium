@@ -28,26 +28,27 @@ public class MainActivity extends AppCompatActivity {
             super.onCreate(savedInstanceState);
             setContentView(R.layout.activity_start);
 
-            Button login = findViewById(R.id.login);
-            Button register = findViewById(R.id.register);
-            Button help = findViewById(R.id.help);
+            Button start_login = findViewById(R.id.start_login);
+            Button start_register = findViewById(R.id.start_register);
+            Button start_help = findViewById(R.id.start_help);
 
-            login.setOnClickListener(v -> {
+            start_login.setOnClickListener(v -> {
                 Toast.makeText(this,"Авторизация временно недоступна", Toast.LENGTH_LONG).show();
                 Intent intent = new Intent(this, LoginActivity.class);
                 startActivity(intent);
             });
 
-            register.setOnClickListener(v -> {
+            start_register.setOnClickListener(v -> {
                 Toast.makeText(this,"Регистрация временно недоступна", Toast.LENGTH_LONG).show();
                 Intent intent = new Intent(this, RegisterActivity.class);
                 startActivity(intent);
             });
 
-            help.setOnClickListener(v -> {
+            start_help.setOnClickListener(v -> {
                 myEditor.putBoolean("PREVIOUSLY_STARTED", true).commit();
                 Intent intent = new Intent(this, MainActivity.class);
                 startActivity(intent);
+                finish();
             });
         } else {
             super.onCreate(savedInstanceState);

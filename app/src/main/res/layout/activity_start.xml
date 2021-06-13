@@ -74,34 +74,34 @@
         android:lineSpacingMultiplier="1.35"
         android:textSize="16sp"
 
-        app:layout_constraintBottom_toTopOf="@+id/login"
+        app:layout_constraintBottom_toTopOf="@+id/start_login"
         app:layout_constraintEnd_toStartOf="@+id/start_right"
         app:layout_constraintStart_toStartOf="@+id/start_left"
         app:layout_constraintTop_toBottomOf="@+id/start_2"
         tools:ignore="HardcodedText" />
 
     <Button
-        android:id="@+id/login"
+        android:id="@+id/start_login"
         style="@style/Button.Colored.Light"
         android:text="Вход"
 
-        app:layout_constraintBottom_toTopOf="@+id/help"
-        app:layout_constraintEnd_toStartOf="@+id/register"
+        app:layout_constraintBottom_toTopOf="@+id/start_help"
+        app:layout_constraintEnd_toStartOf="@+id/start_register"
         app:layout_constraintStart_toStartOf="@+id/start_left"
         app:layout_constraintTop_toBottomOf="@+id/start_3" />
 
     <Button
-        android:id="@+id/register"
+        android:id="@+id/start_register"
         style="@style/Button.Colored.Dark"
         android:text="Регистрация"
 
-        app:layout_constraintBottom_toBottomOf="@+id/login"
+        app:layout_constraintBottom_toBottomOf="@+id/start_login"
         app:layout_constraintEnd_toStartOf="@+id/start_right"
-        app:layout_constraintStart_toEndOf="@+id/login"
-        app:layout_constraintTop_toTopOf="@+id/login" />
+        app:layout_constraintStart_toEndOf="@+id/start_login"
+        app:layout_constraintTop_toTopOf="@+id/start_login" />
 
     <Button
-        android:id="@+id/help"
+        android:id="@+id/start_help"
         style="@style/Button.Text.Small"
         android:text="@string/start_temp"
 
@@ -110,6 +110,6 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/login" />
+        app:layout_constraintTop_toBottomOf="@+id/start_login" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
