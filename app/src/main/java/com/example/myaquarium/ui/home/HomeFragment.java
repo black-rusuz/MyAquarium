@@ -9,6 +9,7 @@ import android.view.ViewGroup;
 import android.widget.Button;
 
 import androidx.annotation.NonNull;
+import androidx.core.content.res.ResourcesCompat;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
 
@@ -31,19 +32,24 @@ public class HomeFragment extends Fragment {
         Button home_add = root.findViewById(R.id.home_add);
 
 
-        if (    ((myPreferences.getInt("VOL", 0)) == 0) &&
-                ((myPreferences.getInt("TEMP", 0)) == 0)) {
+        if (myPreferences.getInt("VOL", 0) == 0) {
             home_fragment.setVisibility(View.INVISIBLE);
-            home_add.setText("Добавить");
-            home_add.setCompoundDrawablesWithIntrinsicBounds(getResources().getDrawable(R.drawable.ic_add),null,null,null);
         }
 
-        home_add.setOnClickListener(v -> {
-            getFragmentManager().beginTransaction()
-                    .replace(R.id.nav_host_fragment, new AddFragment())
-                    .addToBackStack(null)
-                    .commit();
-        });
+        if (myPreferences.getInt("VOL", 0) != 0) {
+            home_add.setText("Изменить");
+            home_add.setCompoundDrawablesWithIntrinsicBounds(
+                    ResourcesCompat.getDrawable(getResources(), R.drawable.ic_edit, null),
+                    null,
+                    null,
+                    null);
+        }
+
+        home_add.setOnClickListener(v ->
+                requireActivity().getSupportFragmentManager().beginTransaction()
+                .replace(R.id.nav_host_fragment, new AddFragment())
+                .addToBackStack(null)
+                .commit());
 
         home_add.setOnLongClickListener(v -> {
             myPreferences.edit().clear().commit();

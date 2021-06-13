@@ -53,7 +53,7 @@
                 android:layout_width="150dp"
                 android:layout_height="150dp"
                 android:layout_marginBottom="@dimen/margin_text"
-                android:scaleType="fitCenter"
+                android:src="@drawable/pic_aquarium_mixed"
                 app:layout_constraintBottom_toTopOf="@+id/aqua_sum"
                 app:layout_constraintEnd_toStartOf="@+id/aqua_right"
                 app:layout_constraintStart_toStartOf="@+id/aqua_left"

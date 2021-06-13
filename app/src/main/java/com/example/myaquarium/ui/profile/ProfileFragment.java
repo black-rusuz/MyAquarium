@@ -1,6 +1,7 @@
 package com.example.myaquarium.ui.profile;
 
 import android.content.SharedPreferences;
+import android.net.Uri;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.view.LayoutInflater;
@@ -61,9 +62,13 @@ public class ProfileFragment extends Fragment {
         int real_count_fish = myPreferences.getInt("REAL_COUNT_FISH", 0);
         int real_count_plant = myPreferences.getInt("REAL_COUNT_PLANT", 0);
 
+        profile_userpic.setImageURI(Uri.parse(myPreferences.getString("USERPIC", "android.resource://com.example.myaquarium/drawable/userpic")));
+        if (myPreferences.getString("USERPIC", "android.resource://com.example.myaquarium/drawable/userpic")
+                .equals("android.resource://com.example.myaquarium/drawable/userpic")) {
+            profile_userpic.setScaleType(ImageView.ScaleType.CENTER_CROP);
+            profile_userpic.setTranslationY(0);
+        }
         profile_username.setText(myPreferences.getString("USERNAME", "Новый пользователь"));
-        //TODO: тут говно какое-то с картинками
-        //profile_userpic.setImageURI(Uri.parse(myPreferences.getString("USERPIC", null)));
 
         ResizeAnimation resizeAnimation = new ResizeAnimation(profile_exp_bar_progress, 250);
         resizeAnimation.setDuration(1000);
@@ -82,11 +87,10 @@ public class ProfileFragment extends Fragment {
             profile_plant_text.setText(this.getResources().getQuantityText(R.plurals.plant,  real_count_plant));
         }
 
-        profile_aqua.setOnClickListener(v -> {
-            getFragmentManager().beginTransaction()
+        profile_aqua.setOnClickListener(v ->
+                requireActivity().getSupportFragmentManager().beginTransaction()
                     .replace(R.id.nav_host_fragment, new HomeFragment())
-                    .commit();
-        });
+                    .commit());
 
         profile_fish.setOnClickListener(v -> {
             Toast.makeText(getContext(),"Это покажет рыбок и их количество (наверно)", Toast.LENGTH_SHORT).show();
@@ -110,26 +114,23 @@ public class ProfileFragment extends Fragment {
             profile_exp_bar_progress.startAnimation(r_inc);
         });
 
-        profile_sv_1.setOnClickListener(v -> {
-            getFragmentManager().beginTransaction()
+        profile_sv_1.setOnClickListener(v ->
+            requireActivity().getSupportFragmentManager().beginTransaction()
                     .replace(R.id.nav_host_fragment, new EditFragment())
                     .addToBackStack(null)
-                    .commit();
-        });
+                    .commit());
 
-        profile_sv_2.setOnClickListener(v -> {
-            getFragmentManager().beginTransaction()
+        profile_sv_2.setOnClickListener(v ->
+            requireActivity().getSupportFragmentManager().beginTransaction()
                     .replace(R.id.nav_host_fragment, new SettingsFragment())
                     .addToBackStack(null)
-                    .commit();
-        });
+                    .commit());
 
-        profile_sv_3.setOnClickListener(v -> {
-            getFragmentManager().beginTransaction()
-                    .replace(R.id.nav_host_fragment, new AboutFragment())
-                    .addToBackStack(null)
-                    .commit();
-        });
+        profile_sv_3.setOnClickListener(v ->
+                requireActivity().getSupportFragmentManager().beginTransaction()
+                .replace(R.id.nav_host_fragment, new AboutFragment())
+                .addToBackStack(null)
+                .commit());
 
         return root;
     }

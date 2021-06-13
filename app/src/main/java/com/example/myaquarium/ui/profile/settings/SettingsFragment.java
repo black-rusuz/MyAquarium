@@ -11,6 +11,8 @@ import androidx.lifecycle.ViewModelProvider;
 
 import com.example.myaquarium.R;
 
+import java.util.Objects;
+
 public class SettingsFragment extends Fragment {
 
     private SettingsViewModel settingsViewModel;
@@ -20,7 +22,9 @@ public class SettingsFragment extends Fragment {
         settingsViewModel =
                 new ViewModelProvider(this).get(SettingsViewModel.class);
         View root = inflater.inflate(R.layout.fragment_settings, container, false);
-        root.findViewById(R.id.settings_back).setOnClickListener(v -> getFragmentManager().popBackStack());
+        root.findViewById(R.id.settings_back).setOnClickListener(v -> requireActivity().getSupportFragmentManager().popBackStack());
+
+        // TODO: Тут надо чота делать. Это настройки есчо
 
         return root;
     }

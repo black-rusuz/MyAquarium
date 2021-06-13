@@ -9,7 +9,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.MyAquarium"
-        android:screenOrientation="sensorPortrait">
+        android:screenOrientation="sensorPortrait"
+        android:fullBackupContent="true">
         <activity
             android:name=".MainActivity"
             android:windowSoftInputMode="adjustResize|adjustPan">
@@ -28,6 +29,5 @@
             android:name="preloaded_fonts"
             android:resource="@array/preloaded_fonts" />
     </application>
-    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
 
 </manifest>

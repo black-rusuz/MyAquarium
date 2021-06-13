@@ -7,4 +7,6 @@
     <dimen name="margin_double">64dp</dimen>
 
     <dimen name="margin_text">8dp</dimen>
+
+    <!-- TODO: Прописать тут размеры шрифтов -->
 </resources>

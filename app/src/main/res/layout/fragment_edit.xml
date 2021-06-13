@@ -54,7 +54,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/margin"
         android:layout_marginBottom="@dimen/margin_text"
-        app:cardCornerRadius="100dp"
+        app:cardCornerRadius="90dp"
 
         app:layout_constraintBottom_toTopOf="@+id/edit_userpic_key"
         app:layout_constraintEnd_toStartOf="@+id/edit_right"
@@ -65,10 +65,9 @@
 
         <ImageView
             android:id="@+id/edit_userpic"
-            android:layout_width="175dp"
-            android:layout_height="175dp"
-            android:scaleType="centerInside"
-            android:src="@drawable/userpic" />
+            android:translationY="60dp"
+            android:layout_width="180dp"
+            android:layout_height="180dp" />
     </com.google.android.material.card.MaterialCardView>
 
     <TextView

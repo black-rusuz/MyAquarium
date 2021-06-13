@@ -30,7 +30,7 @@ public class AddFragment extends Fragment {
         addViewModel =
                 new ViewModelProvider(this).get(AddViewModel.class);
         View root = inflater.inflate(R.layout.fragment_add, container, false);
-        root.findViewById(R.id.add_back).setOnClickListener(v -> getFragmentManager().popBackStack());
+        root.findViewById(R.id.add_back).setOnClickListener(v -> requireActivity().getSupportFragmentManager().popBackStack());
 
         SharedPreferences myPreferences = PreferenceManager.getDefaultSharedPreferences(getContext());
         SharedPreferences.Editor myEditor = myPreferences.edit();
@@ -40,15 +40,17 @@ public class AddFragment extends Fragment {
         Spinner add_type = root.findViewById(R.id.add_sv_type);
         EditText add_vol = root.findViewById(R.id.add_sv_vol);
         EditText add_temp = root.findViewById(R.id.add_sv_temp);
+
+        LinearLayout add_sv_ll = root.findViewById(R.id.add_sv_ll);
         Button add_fish = root.findViewById(R.id.add_fish);
         Button add_plant = root.findViewById(R.id.add_plant);
         Button add_save = root.findViewById(R.id.add_save);
-        LinearLayout add_sv_ll = root.findViewById(R.id.add_sv_ll);
 
-        if (    ((myPreferences.getInt("VOL", 0)) != 0) &&
-                ((myPreferences.getInt("TEMP", 0)) != 0)) {
-            add_header.setText("Изменить");
-            add_name.setText(myPreferences.getString("NAME", "Аквариум"));
+        if (myPreferences.getInt("VOL", 0) != 0) {
+
+            add_header.setText("Изменить аквариум");
+            add_name.setText(myPreferences.getString("NAME", null));
+
             if (myPreferences.getString("TYPE", "Смешанный").equals("Смешанный")) {
                 add_type.setSelection(0);
             }
@@ -60,20 +62,25 @@ public class AddFragment extends Fragment {
                 add_type.setSelection(2);
                 add_fish.setVisibility(View.GONE);
             }
+
             add_vol.setText(String.valueOf(myPreferences.getInt("VOL", 0)));
             add_temp.setText(String.valueOf(myPreferences.getInt("TEMP", 0)));
+
+            // TODO: Допилить вывод полей с обитателями
         }
 
         add_fish.setOnClickListener(v -> {
-            // TODO: допилить это говно с добавлениями
+            // TODO: Допилить это говно с добавлениями
 
             // Делаем ConstraintLayout и задаём стиль и отступы
-            ConstraintLayout add_sv_cl = new ConstraintLayout(getContext(), null, R.style.ConstraintLayout_LL, R.style.ConstraintLayout_LL);
+            ConstraintLayout add_sv_cl = new ConstraintLayout(requireContext(), null, R.style.ConstraintLayout_LL, R.style.ConstraintLayout_LL);
             ConstraintLayout.LayoutParams lp = new ConstraintLayout.LayoutParams(ConstraintLayout.LayoutParams.WRAP_CONTENT, ConstraintLayout.LayoutParams.WRAP_CONTENT);
             lp.setMargins(0, 0, 0, (int) getResources().getDimension(R.dimen.margin_half));
             add_sv_cl.setLayoutParams(lp);
 
             // Делаем EditText
+            // TODO: Надо делать не ЕТ, а спиннер с поиском
+            // https://github.com/miteshpithadiya/SearchableSpinner
             EditText et_name = new EditText(getContext(), null, R.style.EditText_Add_Text_Coded, R.style.EditText_Add_Text_Coded);
             et_name.setFocusable(true);
             et_name.setFocusableInTouchMode(true);
@@ -111,7 +118,7 @@ public class AddFragment extends Fragment {
         add_plant.setOnClickListener(v -> {
 
             // Делаем ConstraintLayout и задаём стиль и отступы
-            ConstraintLayout add_sv_cl = new ConstraintLayout(getContext(), null, R.style.ConstraintLayout_LL, R.style.ConstraintLayout_LL);
+            ConstraintLayout add_sv_cl = new ConstraintLayout(requireContext(), null, R.style.ConstraintLayout_LL, R.style.ConstraintLayout_LL);
             ConstraintLayout.LayoutParams lp = new ConstraintLayout.LayoutParams(ConstraintLayout.LayoutParams.WRAP_CONTENT, ConstraintLayout.LayoutParams.WRAP_CONTENT);
             lp.setMargins(0, 0, 0, (int) getResources().getDimension(R.dimen.margin_half));
             add_sv_cl.setLayoutParams(lp);
@@ -161,7 +168,7 @@ public class AddFragment extends Fragment {
             if (add_name.getText().length() > 0)
                 name = String.valueOf(add_name.getText());
             else {
-                // TODO: допилить много аквариумов
+                // TODO: Допилить много аквариумов
                 name = "Аквариум";
             }
 
@@ -214,7 +221,7 @@ public class AddFragment extends Fragment {
 
             myEditor.apply();
 
-            getFragmentManager().beginTransaction()
+            requireActivity().getSupportFragmentManager().beginTransaction()
                     .replace(R.id.nav_host_fragment, new HomeFragment())
                     .commit();
         });

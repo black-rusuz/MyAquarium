@@ -10,6 +10,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
+import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
 
@@ -34,6 +35,8 @@ public class AquaFragment extends Fragment {
         TextView aqua_vol = root.findViewById(R.id.aqua_vol);
         TextView aqua_temp = root.findViewById(R.id.aqua_temp);
 
+        ConstraintLayout aqua_content = root.findViewById(R.id.aqua_content);
+
         TextView aqua_fish_key = root.findViewById(R.id.aqua_fish_key);
         TextView aqua_fish = root.findViewById(R.id.aqua_fish);
         TextView aqua_plant_key = root.findViewById(R.id.aqua_plant_key);
@@ -49,9 +52,7 @@ public class AquaFragment extends Fragment {
 
         String sp_aqua_type = myPreferences.getString("TYPE", "Смешанный");
 
-        if (    !((myPreferences.getInt("VOL", 0)) == 0) &&
-                !((myPreferences.getInt("TEMP", 0)) == 0)) {
-
+        if (myPreferences.getInt("VOL", 0) != 0) {
             aqua_name.setText(myPreferences.getString("NAME", "Аквариум"));
 
 
@@ -113,6 +114,9 @@ public class AquaFragment extends Fragment {
             myEditor.putInt("REAL_COUNT_FISH", real_count_fish);
             myEditor.putInt("REAL_COUNT_PLANT", real_count_plant);
             myEditor.apply();
+
+            if (real_count_fish <= 0 && real_count_plant <= 0)
+                aqua_content.setVisibility(View.GONE);
 
             if (real_count_fish <= 0) {
                 aqua_fish_key.setVisibility(View.GONE);

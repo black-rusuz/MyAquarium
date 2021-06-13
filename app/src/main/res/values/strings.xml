@@ -140,7 +140,9 @@
 
     <string name="start_temp">Пропустить</string> <!-- TODO: Заменить на "Техподдержка" -->
 
-    <string name="add_temp">&#160;Изменить</string> <!-- TODO: Заменить на "Добавить" -->
+    <string name="add_temp">Добавить</string> <!-- TODO: Заменить на "Добавить" -->
 
-    <string name="save">&#160;Сохранить</string>
+    <string name="save">Сохранить</string>
+
+    <!-- TODO: Прописать тут ключи шаредпрефов -->
 </resources>
