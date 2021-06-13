@@ -30,7 +30,7 @@ public class AddFragment extends Fragment {
         addViewModel =
                 new ViewModelProvider(this).get(AddViewModel.class);
         View root = inflater.inflate(R.layout.fragment_add, container, false);
-        root.findViewById(R.id.add_back).setOnClickListener(v -> requireActivity().getSupportFragmentManager().popBackStack());
+        root.findViewById(R.id.add_back).setOnClickListener(v -> getFragmentManager().popBackStack());
 
         SharedPreferences myPreferences = PreferenceManager.getDefaultSharedPreferences(getContext());
         SharedPreferences.Editor myEditor = myPreferences.edit();
@@ -221,7 +221,7 @@ public class AddFragment extends Fragment {
 
             myEditor.apply();
 
-            requireActivity().getSupportFragmentManager().beginTransaction()
+            getFragmentManager().beginTransaction()
                     .replace(R.id.nav_host_fragment, new HomeFragment())
                     .commit();
         });

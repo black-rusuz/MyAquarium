@@ -58,6 +58,7 @@
 
         <ImageView
             android:id="@+id/profile_userpic"
+            android:src="@drawable/userpic"
             android:translationY="40dp"
             android:layout_width="120dp"
             android:layout_height="120dp" />

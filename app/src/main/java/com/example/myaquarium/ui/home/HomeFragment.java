@@ -46,7 +46,7 @@ public class HomeFragment extends Fragment {
         }
 
         home_add.setOnClickListener(v ->
-                requireActivity().getSupportFragmentManager().beginTransaction()
+                getFragmentManager().beginTransaction()
                 .replace(R.id.nav_host_fragment, new AddFragment())
                 .addToBackStack(null)
                 .commit());

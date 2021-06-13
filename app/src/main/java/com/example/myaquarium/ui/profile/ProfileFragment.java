@@ -63,7 +63,7 @@ public class ProfileFragment extends Fragment {
         int real_count_plant = myPreferences.getInt("REAL_COUNT_PLANT", 0);
 
         profile_userpic.setImageURI(Uri.parse(myPreferences.getString("USERPIC", "android.resource://com.example.myaquarium/drawable/userpic")));
-        if (myPreferences.getString("USERPIC", "android.resource://com.example.myaquarium/drawable/userpic")
+        if (!myPreferences.getString("USERPIC", "android.resource://com.example.myaquarium/drawable/userpic")
                 .equals("android.resource://com.example.myaquarium/drawable/userpic")) {
             profile_userpic.setScaleType(ImageView.ScaleType.CENTER_CROP);
             profile_userpic.setTranslationY(0);
@@ -88,7 +88,7 @@ public class ProfileFragment extends Fragment {
         }
 
         profile_aqua.setOnClickListener(v ->
-                requireActivity().getSupportFragmentManager().beginTransaction()
+                getFragmentManager().beginTransaction()
                     .replace(R.id.nav_host_fragment, new HomeFragment())
                     .commit());
 
@@ -115,19 +115,19 @@ public class ProfileFragment extends Fragment {
         });
 
         profile_sv_1.setOnClickListener(v ->
-            requireActivity().getSupportFragmentManager().beginTransaction()
+            getFragmentManager().beginTransaction()
                     .replace(R.id.nav_host_fragment, new EditFragment())
                     .addToBackStack(null)
                     .commit());
 
         profile_sv_2.setOnClickListener(v ->
-            requireActivity().getSupportFragmentManager().beginTransaction()
+            getFragmentManager().beginTransaction()
                     .replace(R.id.nav_host_fragment, new SettingsFragment())
                     .addToBackStack(null)
                     .commit());
 
         profile_sv_3.setOnClickListener(v ->
-                requireActivity().getSupportFragmentManager().beginTransaction()
+                getFragmentManager().beginTransaction()
                 .replace(R.id.nav_host_fragment, new AboutFragment())
                 .addToBackStack(null)
                 .commit());

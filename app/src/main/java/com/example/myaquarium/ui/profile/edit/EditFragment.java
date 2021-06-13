@@ -31,7 +31,7 @@ public class EditFragment extends Fragment {
         editViewModel =
                 new ViewModelProvider(this).get(EditViewModel.class);
         root = inflater.inflate(R.layout.fragment_edit, container, false);
-        root.findViewById(R.id.edit_back).setOnClickListener(v -> requireActivity().getSupportFragmentManager().popBackStack());
+        root.findViewById(R.id.edit_back).setOnClickListener(v -> getFragmentManager().popBackStack());
 
         SharedPreferences myPreferences = PreferenceManager.getDefaultSharedPreferences(getContext());
         SharedPreferences.Editor myEditor = myPreferences.edit();
@@ -42,7 +42,7 @@ public class EditFragment extends Fragment {
         Button edit_save = root.findViewById(R.id.edit_save);
 
         edit_userpic.setImageURI(Uri.parse(myPreferences.getString("USERPIC", "android.resource://com.example.myaquarium/drawable/userpic")));
-        if (myPreferences.getString("USERPIC", "android.resource://com.example.myaquarium/drawable/userpic")
+        if (!myPreferences.getString("USERPIC", "android.resource://com.example.myaquarium/drawable/userpic")
                 .equals("android.resource://com.example.myaquarium/drawable/userpic")) {
             edit_userpic.setScaleType(ImageView.ScaleType.CENTER_CROP);
             edit_userpic.setTranslationY(0);
@@ -67,13 +67,14 @@ public class EditFragment extends Fragment {
 
                 edit_userpic.setImageURI(Uri.parse(myPreferences.getString("USERPIC", "android.resource://com.example.myaquarium/drawable/userpic")));
                 edit_userpic.setScaleType(ImageView.ScaleType.CENTER_CROP);
+                edit_userpic.setTranslationY(0);
 
-                requireActivity().getSupportFragmentManager().beginTransaction()
+                getFragmentManager().beginTransaction()
                         .replace(R.id.nav_host_fragment, new EditFragment())
                         .commit();
             }
 
-            requireActivity().getSupportFragmentManager().beginTransaction()
+            getFragmentManager().beginTransaction()
                     .replace(R.id.nav_host_fragment, new ProfileFragment())
                     .commit();
         });
