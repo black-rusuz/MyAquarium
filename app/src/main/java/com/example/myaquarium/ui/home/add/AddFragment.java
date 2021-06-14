@@ -73,15 +73,25 @@ public class AddFragment extends Fragment {
             // TODO: Допилить это говно с добавлениями
 
             // Делаем ConstraintLayout и задаём стиль и отступы
-            ConstraintLayout add_sv_cl = new ConstraintLayout(requireContext(), null, R.style.ConstraintLayout_LL, R.style.ConstraintLayout_LL);
-            ConstraintLayout.LayoutParams lp = new ConstraintLayout.LayoutParams(ConstraintLayout.LayoutParams.WRAP_CONTENT, ConstraintLayout.LayoutParams.WRAP_CONTENT);
+            ConstraintLayout add_sv_cl = new ConstraintLayout(
+                    getContext(),
+                    null,
+                    R.style.ConstraintLayout_LL,
+                    R.style.ConstraintLayout_LL);
+            ConstraintLayout.LayoutParams lp = new ConstraintLayout.LayoutParams(
+                    ConstraintLayout.LayoutParams.WRAP_CONTENT,
+                    ConstraintLayout.LayoutParams.WRAP_CONTENT);
             lp.setMargins(0, 0, 0, (int) getResources().getDimension(R.dimen.margin_half));
             add_sv_cl.setLayoutParams(lp);
 
             // Делаем EditText
             // TODO: Надо делать не ЕТ, а спиннер с поиском
             // https://github.com/miteshpithadiya/SearchableSpinner
-            EditText et_name = new EditText(getContext(), null, R.style.EditText_Add_Text_Coded, R.style.EditText_Add_Text_Coded);
+            EditText et_name = new EditText(
+                    getContext(),
+                    null,
+                    R.style.EditText_Add_Text_Coded,
+                    R.style.EditText_Add_Text_Coded);
             et_name.setFocusable(true);
             et_name.setFocusableInTouchMode(true);
             et_name.setHint("Рыбка...");
@@ -110,7 +120,10 @@ public class AddFragment extends Fragment {
                 myEditor.commit();
             }
 
-            Toast.makeText(getContext(), "Рыбки очищены", Toast.LENGTH_SHORT).show();
+            Toast.makeText(
+                    getContext(),
+                    "Рыбки очищены",
+                    Toast.LENGTH_SHORT).show();
 
             return true;
         });
@@ -118,13 +131,23 @@ public class AddFragment extends Fragment {
         add_plant.setOnClickListener(v -> {
 
             // Делаем ConstraintLayout и задаём стиль и отступы
-            ConstraintLayout add_sv_cl = new ConstraintLayout(requireContext(), null, R.style.ConstraintLayout_LL, R.style.ConstraintLayout_LL);
-            ConstraintLayout.LayoutParams lp = new ConstraintLayout.LayoutParams(ConstraintLayout.LayoutParams.WRAP_CONTENT, ConstraintLayout.LayoutParams.WRAP_CONTENT);
+            ConstraintLayout add_sv_cl = new ConstraintLayout(
+                    getContext(),
+                    null,
+                    R.style.ConstraintLayout_LL,
+                    R.style.ConstraintLayout_LL);
+            ConstraintLayout.LayoutParams lp = new ConstraintLayout.LayoutParams(
+                    ConstraintLayout.LayoutParams.WRAP_CONTENT,
+                    ConstraintLayout.LayoutParams.WRAP_CONTENT);
             lp.setMargins(0, 0, 0, (int) getResources().getDimension(R.dimen.margin_half));
             add_sv_cl.setLayoutParams(lp);
 
             // Делаем EditText
-            EditText et_name = new EditText(getContext(), null, R.style.EditText_Add_Text_Coded, R.style.EditText_Add_Text_Coded);
+            EditText et_name = new EditText(
+                    getContext(),
+                    null,
+                    R.style.EditText_Add_Text_Coded,
+                    R.style.EditText_Add_Text_Coded);
             et_name.setFocusable(true);
             et_name.setFocusableInTouchMode(true);
             et_name.setHint("Растение...");
@@ -134,7 +157,7 @@ public class AddFragment extends Fragment {
             String plant_id = "PLANT_" + count_plant;
             count_plant++;
             et_name.setTag(plant_id);
-            myEditor.putInt("COUNT_PLANT", count_plant).commit();
+            myEditor.putInt("COUNT_PLANT", count_plant).apply();
 
             // Добавляем всё на слой
             add_sv_cl.addView(et_name);
@@ -153,7 +176,10 @@ public class AddFragment extends Fragment {
                 myEditor.commit();
             }
 
-            Toast.makeText(getContext(), "Растения очищены", Toast.LENGTH_SHORT).show();
+            Toast.makeText(
+                    getContext(),
+                    "Растения очищены",
+                    Toast.LENGTH_SHORT).show();
 
             return true;
         });
@@ -177,18 +203,27 @@ public class AddFragment extends Fragment {
             if (add_vol.getText().length() > 0) {
                 vol = Integer.parseInt(String.valueOf(add_vol.getText()));
                 if (vol == 0) {
-                    Toast.makeText(getContext(), "Объём не может быть равен нулю", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(
+                            getContext(),
+                            "Объём не может быть равен нулю",
+                            Toast.LENGTH_SHORT).show();
                     return;
                 }
             } else {
-                Toast.makeText(getContext(),"Введите объём", Toast.LENGTH_SHORT).show();
+                Toast.makeText(
+                        getContext(),
+                        "Введите объём",
+                        Toast.LENGTH_SHORT).show();
                 return;
             }
 
             if (add_temp.getText().length() > 0)
                 temp = Integer.parseInt(String.valueOf(add_temp.getText()));
             else {
-                Toast.makeText(getContext(),"Введите температуру", Toast.LENGTH_SHORT).show();
+                Toast.makeText(
+                        getContext(),
+                        "Введите температуру",
+                        Toast.LENGTH_SHORT).show();
                 return;
             }
 

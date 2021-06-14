@@ -54,8 +54,12 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/margin"
         android:layout_marginBottom="@dimen/margin_text"
-        app:cardCornerRadius="90dp"
 
+        app:strokeColor="@color/accent_light"
+        app:strokeWidth="5dp"
+        app:cardElevation="0dp"
+
+        app:cardCornerRadius="180dp"
         app:layout_constraintBottom_toTopOf="@+id/edit_userpic_key"
         app:layout_constraintEnd_toStartOf="@+id/edit_right"
         app:layout_constraintStart_toStartOf="@+id/edit_left"

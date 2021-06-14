@@ -56,19 +56,20 @@
         android:layout_marginBottom="@dimen/margin_text"
         android:text="Уведомлять о подмене"
         android:thumb="@drawable/bg_thumb_selector"
-        app:track="@drawable/bg_track_selector"
         app:layout_constraintBottom_toTopOf="@+id/settings_day_key"
         app:layout_constraintEnd_toStartOf="@+id/settings_right"
         app:layout_constraintStart_toStartOf="@+id/settings_left"
         app:layout_constraintTop_toBottomOf="@+id/settings_header"
         app:layout_constraintVertical_bias="0.0"
-        app:layout_constraintVertical_chainStyle="packed" />
+        app:layout_constraintVertical_chainStyle="packed"
+        app:track="@drawable/bg_track_selector" />
 
     <TextView
         android:id="@+id/settings_day_key"
         style="@style/Button.Text.ScrollView"
         android:layout_width="0dp"
         android:layout_height="40dp"
+        android:layout_marginBottom="@dimen/margin_text"
         android:text="День недели"
         app:layout_constraintBottom_toTopOf="@+id/settings_text"
         app:layout_constraintEnd_toStartOf="@+id/settings_right"
@@ -100,7 +101,7 @@
     <TextView
         android:id="@+id/settings_text"
         style="@style/TextView.Text.Light"
-        android:layout_marginTop="@dimen/margin_half"
+        android:layout_marginTop="@dimen/margin_text"
         android:layout_marginBottom="@dimen/margin_text"
         android:drawableStart="@drawable/btn_exclamation"
         android:gravity="center"

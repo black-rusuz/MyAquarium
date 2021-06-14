@@ -62,11 +62,15 @@ public class ProfileFragment extends Fragment {
         int real_count_fish = myPreferences.getInt("REAL_COUNT_FISH", 0);
         int real_count_plant = myPreferences.getInt("REAL_COUNT_PLANT", 0);
 
-        profile_userpic.setImageURI(Uri.parse(myPreferences.getString("USERPIC", "android.resource://com.example.myaquarium/drawable/userpic")));
-        if (!myPreferences.getString("USERPIC", "android.resource://com.example.myaquarium/drawable/userpic")
+        if (!myPreferences.getString(
+                "USERPIC",
+                "android.resource://com.example.myaquarium/drawable/userpic")
                 .equals("android.resource://com.example.myaquarium/drawable/userpic")) {
             profile_userpic.setScaleType(ImageView.ScaleType.CENTER_CROP);
             profile_userpic.setTranslationY(0);
+            profile_userpic.setImageURI(Uri.parse(myPreferences.getString(
+                    "USERPIC",
+                    "android.resource://com.example.myaquarium/drawable/userpic")));
         }
         profile_username.setText(myPreferences.getString("USERNAME", "Новый пользователь"));
 
@@ -81,10 +85,10 @@ public class ProfileFragment extends Fragment {
             profile_aqua_text.setText(this.getResources().getQuantityText(R.plurals.aqua, 1));
 
             profile_fish_num.setText(Integer.toString(real_count_fish));
-            profile_fish_text.setText(this.getResources().getQuantityText(R.plurals.fish,  real_count_fish));
+            profile_fish_text.setText(this.getResources().getQuantityText(R.plurals.fish, real_count_fish));
 
             profile_plant_num.setText(Integer.toString(real_count_plant));
-            profile_plant_text.setText(this.getResources().getQuantityText(R.plurals.plant,  real_count_plant));
+            profile_plant_text.setText(this.getResources().getQuantityText(R.plurals.plant, real_count_plant));
         }
 
         profile_aqua.setOnClickListener(v ->
@@ -93,25 +97,31 @@ public class ProfileFragment extends Fragment {
                     .commit());
 
         profile_fish.setOnClickListener(v -> {
-            Toast.makeText(getContext(),"Это покажет рыбок и их количество (наверно)", Toast.LENGTH_SHORT).show();
+            Toast.makeText(
+                    getContext(),
+                    "Это покажет рыбок и их количество (наверно)",
+                    Toast.LENGTH_SHORT).show();
 
-            ConstraintLayout.LayoutParams lp = (ConstraintLayout.LayoutParams) profile_exp_bar_progress.getLayoutParams();
+            ViewGroup.LayoutParams lp = profile_exp_bar_progress.getLayoutParams();
             int w = lp.width;
             w -= 50;
-            ResizeAnimation r_dec = new ResizeAnimation(profile_exp_bar_progress, w);
-            r_dec.setDuration(250);
-            profile_exp_bar_progress.startAnimation(r_dec);
+            ResizeAnimation resize = new ResizeAnimation(profile_exp_bar_progress, w);
+            resize.setDuration(250);
+            profile_exp_bar_progress.startAnimation(resize);
         });
 
         profile_plant.setOnClickListener(v -> {
-            Toast.makeText(getContext(),"Это покажет растения и их количество (наверно)", Toast.LENGTH_SHORT).show();
+            Toast.makeText(
+                    getContext(),
+                    "Это покажет растения и их количество (наверно)",
+                    Toast.LENGTH_SHORT).show();
 
-            ConstraintLayout.LayoutParams lp = (ConstraintLayout.LayoutParams) profile_exp_bar_progress.getLayoutParams();
+            ViewGroup.LayoutParams lp = profile_exp_bar_progress.getLayoutParams();
             int w = lp.width;
             w += 50;
-            ResizeAnimation r_inc = new ResizeAnimation(profile_exp_bar_progress, w);
-            r_inc.setDuration(250);
-            profile_exp_bar_progress.startAnimation(r_inc);
+            ResizeAnimation resize = new ResizeAnimation(profile_exp_bar_progress, w);
+            resize.setDuration(250);
+            profile_exp_bar_progress.startAnimation(resize);
         });
 
         profile_sv_1.setOnClickListener(v ->

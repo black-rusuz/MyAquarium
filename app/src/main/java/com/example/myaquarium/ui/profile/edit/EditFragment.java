@@ -41,16 +41,21 @@ public class EditFragment extends Fragment {
         EditText edit_name = root.findViewById(R.id.edit_name);
         Button edit_save = root.findViewById(R.id.edit_save);
 
-        edit_userpic.setImageURI(Uri.parse(myPreferences.getString("USERPIC", "android.resource://com.example.myaquarium/drawable/userpic")));
-        if (!myPreferences.getString("USERPIC", "android.resource://com.example.myaquarium/drawable/userpic")
+        if (!myPreferences.getString(
+                "USERPIC",
+                "android.resource://com.example.myaquarium/drawable/userpic")
                 .equals("android.resource://com.example.myaquarium/drawable/userpic")) {
             edit_userpic.setScaleType(ImageView.ScaleType.CENTER_CROP);
             edit_userpic.setTranslationY(0);
+            edit_userpic.setImageURI(Uri.parse(myPreferences.getString(
+                    "USERPIC",
+                    "android.resource://com.example.myaquarium/drawable/userpic")));
         }
         edit_name.setText(myPreferences.getString("USERNAME", null));
 
         Intent imageIntent = new Intent(Intent.ACTION_OPEN_DOCUMENT);
         imageIntent.setType("image/*");
+
         edit_userpic.setOnClickListener(v ->  {
             startActivityForResult(imageIntent, 1);
         });
@@ -65,7 +70,9 @@ public class EditFragment extends Fragment {
             if (image != null) {
                 myEditor.putString("USERPIC", image.toString()).apply();
 
-                edit_userpic.setImageURI(Uri.parse(myPreferences.getString("USERPIC", "android.resource://com.example.myaquarium/drawable/userpic")));
+                edit_userpic.setImageURI(Uri.parse(myPreferences.getString(
+                        "USERPIC",
+                        "android.resource://com.example.myaquarium/drawable/userpic")));
                 edit_userpic.setScaleType(ImageView.ScaleType.CENTER_CROP);
                 edit_userpic.setTranslationY(0);
 
@@ -88,7 +95,9 @@ public class EditFragment extends Fragment {
 
         if (returnedImageIntent != null) {
             image = returnedImageIntent.getData();
-            requireContext().getContentResolver().takePersistableUriPermission(image, Intent.FLAG_GRANT_READ_URI_PERMISSION);
+            getContext().getContentResolver().takePersistableUriPermission(
+                    image,
+                    Intent.FLAG_GRANT_READ_URI_PERMISSION);
         }
     }
 

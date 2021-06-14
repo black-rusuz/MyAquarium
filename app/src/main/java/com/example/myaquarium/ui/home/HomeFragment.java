@@ -28,10 +28,11 @@ public class HomeFragment extends Fragment {
 
         SharedPreferences myPreferences = PreferenceManager.getDefaultSharedPreferences(getContext());
 
+        // TODO: Сделать переключение свайпами или Cardwipe
         View home_fragment = root.findViewById(R.id.home_fragment);
         Button home_add = root.findViewById(R.id.home_add);
 
-
+        // TODO: Доделать редактирование и отображение аквариума
         if (myPreferences.getInt("VOL", 0) == 0) {
             home_fragment.setVisibility(View.INVISIBLE);
         }

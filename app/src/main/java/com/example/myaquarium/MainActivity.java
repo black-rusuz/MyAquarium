@@ -18,14 +18,20 @@ public class MainActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
 
         SharedPreferences myPreferences = PreferenceManager.getDefaultSharedPreferences(getBaseContext());
         SharedPreferences.Editor myEditor = myPreferences.edit();
+
         boolean previouslyStarted = myPreferences.getBoolean("PREVIOUSLY_STARTED", false);
 
-
-        if(!previouslyStarted) {
-            super.onCreate(savedInstanceState);
+        // TODO: Напоминания
+        if(previouslyStarted) {
+            setContentView(R.layout.activity_main);
+            BottomNavigationView navView = findViewById(R.id.nav_view);
+            NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment);
+            NavigationUI.setupWithNavController(navView, navController);
+        } else {
             setContentView(R.layout.activity_start);
 
             Button start_login = findViewById(R.id.start_login);
@@ -33,29 +39,29 @@ public class MainActivity extends AppCompatActivity {
             Button start_help = findViewById(R.id.start_help);
 
             start_login.setOnClickListener(v -> {
-                Toast.makeText(this,"Авторизация временно недоступна", Toast.LENGTH_LONG).show();
+                Toast.makeText(
+                        this,
+                        "Авторизация пока недоступна",
+                        Toast.LENGTH_LONG).show();
                 Intent intent = new Intent(this, LoginActivity.class);
                 startActivity(intent);
             });
 
             start_register.setOnClickListener(v -> {
-                Toast.makeText(this,"Регистрация временно недоступна", Toast.LENGTH_LONG).show();
+                Toast.makeText(
+                        this,
+                        "Регистрация пока недоступна",
+                        Toast.LENGTH_LONG).show();
                 Intent intent = new Intent(this, RegisterActivity.class);
                 startActivity(intent);
             });
 
             start_help.setOnClickListener(v -> {
-                myEditor.putBoolean("PREVIOUSLY_STARTED", true).commit();
+                myEditor.putBoolean("PREVIOUSLY_STARTED", true).apply();
                 Intent intent = new Intent(this, MainActivity.class);
                 startActivity(intent);
                 finish();
             });
-        } else {
-            super.onCreate(savedInstanceState);
-            setContentView(R.layout.activity_main);
-            BottomNavigationView navView = findViewById(R.id.nav_view);
-            NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment);
-            NavigationUI.setupWithNavController(navView, navController);
         }
     }
 
@@ -64,7 +70,7 @@ public class MainActivity extends AppCompatActivity {
                 findViewById(R.id.edit_back) != null ||
                 findViewById(R.id.settings_back) != null ||
                 findViewById(R.id.about_back) != null )
-            getSupportFragmentManager().popBackStack();
+            getFragmentManager().popBackStack();
         else
             finish();
     }
