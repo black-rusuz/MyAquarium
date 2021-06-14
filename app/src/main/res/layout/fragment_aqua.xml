@@ -46,7 +46,8 @@
                 app:layout_constraintBottom_toTopOf="@+id/aqua_icon"
                 app:layout_constraintEnd_toStartOf="@+id/aqua_right"
                 app:layout_constraintStart_toStartOf="@+id/aqua_left"
-                app:layout_constraintTop_toTopOf="parent" />
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_chainStyle="spread_inside" />
 
             <ImageView
                 android:id="@+id/aqua_icon"

@@ -31,7 +31,7 @@ public class EditFragment extends Fragment {
         editViewModel =
                 new ViewModelProvider(this).get(EditViewModel.class);
         root = inflater.inflate(R.layout.fragment_edit, container, false);
-        root.findViewById(R.id.edit_back).setOnClickListener(v -> getFragmentManager().popBackStack());
+        root.findViewById(R.id.edit_back).setOnClickListener(v -> getParentFragmentManager().popBackStack());
 
         SharedPreferences myPreferences = PreferenceManager.getDefaultSharedPreferences(getContext());
         SharedPreferences.Editor myEditor = myPreferences.edit();
@@ -76,12 +76,12 @@ public class EditFragment extends Fragment {
                 edit_userpic.setScaleType(ImageView.ScaleType.CENTER_CROP);
                 edit_userpic.setTranslationY(0);
 
-                getFragmentManager().beginTransaction()
+                getParentFragmentManager().beginTransaction()
                         .replace(R.id.nav_host_fragment, new EditFragment())
                         .commit();
             }
 
-            getFragmentManager().beginTransaction()
+            getParentFragmentManager().beginTransaction()
                     .replace(R.id.nav_host_fragment, new ProfileFragment())
                     .commit();
         });

@@ -92,7 +92,7 @@ public class ProfileFragment extends Fragment {
         }
 
         profile_aqua.setOnClickListener(v ->
-                getFragmentManager().beginTransaction()
+                getParentFragmentManager().beginTransaction()
                     .replace(R.id.nav_host_fragment, new HomeFragment())
                     .commit());
 
@@ -125,22 +125,22 @@ public class ProfileFragment extends Fragment {
         });
 
         profile_sv_1.setOnClickListener(v ->
-            getFragmentManager().beginTransaction()
-                    .replace(R.id.nav_host_fragment, new EditFragment())
-                    .addToBackStack(null)
-                    .commit());
+                getParentFragmentManager().beginTransaction()
+                        .replace(R.id.nav_host_fragment, new AboutFragment())
+                        .addToBackStack(null)
+                        .commit());
 
         profile_sv_2.setOnClickListener(v ->
-            getFragmentManager().beginTransaction()
-                    .replace(R.id.nav_host_fragment, new SettingsFragment())
-                    .addToBackStack(null)
-                    .commit());
+                getParentFragmentManager().beginTransaction()
+                        .replace(R.id.nav_host_fragment, new AboutFragment())
+                        .addToBackStack(null)
+                        .commit());
 
         profile_sv_3.setOnClickListener(v ->
-                getFragmentManager().beginTransaction()
-                .replace(R.id.nav_host_fragment, new AboutFragment())
-                .addToBackStack(null)
-                .commit());
+                getParentFragmentManager().beginTransaction()
+                        .replace(R.id.nav_host_fragment, new AboutFragment())
+                        .addToBackStack(null)
+                        .commit());
 
         return root;
     }

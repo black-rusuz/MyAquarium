@@ -24,7 +24,7 @@ public class AboutFragment extends Fragment {
         aboutViewModel =
                 new ViewModelProvider(this).get(AboutViewModel.class);
         View root = inflater.inflate(R.layout.fragment_about, container, false);
-        root.findViewById(R.id.about_back).setOnClickListener(v -> getFragmentManager().popBackStack());
+        root.findViewById(R.id.about_back).setOnClickListener(v -> getParentFragmentManager().popBackStack());
 
         ImageView about_gsusha_img = root.findViewById(R.id.about_gsusha_img);
         ImageView about_rusuz_img = root.findViewById(R.id.about_rusuz_img);

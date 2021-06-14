@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
+import android.util.Log;
 import android.widget.Button;
 import android.widget.Toast;
 
@@ -69,8 +70,9 @@ public class MainActivity extends AppCompatActivity {
         if (    findViewById(R.id.add_back) != null ||
                 findViewById(R.id.edit_back) != null ||
                 findViewById(R.id.settings_back) != null ||
-                findViewById(R.id.about_back) != null )
-            getFragmentManager().popBackStack();
+                findViewById(R.id.about_back) != null ) {
+            getSupportFragmentManager().popBackStack();
+        }
         else
             finish();
     }
