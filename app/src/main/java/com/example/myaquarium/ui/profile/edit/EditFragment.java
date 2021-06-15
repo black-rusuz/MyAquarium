@@ -69,21 +69,9 @@ public class EditFragment extends Fragment {
 
             if (image != null) {
                 myEditor.putString("USERPIC", image.toString()).apply();
-
-                edit_userpic.setImageURI(Uri.parse(myPreferences.getString(
-                        "USERPIC",
-                        "android.resource://com.example.myaquarium/drawable/userpic")));
-                edit_userpic.setScaleType(ImageView.ScaleType.CENTER_CROP);
-                edit_userpic.setTranslationY(0);
-
-                getParentFragmentManager().beginTransaction()
-                        .replace(R.id.nav_host_fragment, new EditFragment())
-                        .commit();
             }
 
-            getParentFragmentManager().beginTransaction()
-                    .replace(R.id.nav_host_fragment, new ProfileFragment())
-                    .commit();
+            getParentFragmentManager().popBackStack();
         });
 
         return root;

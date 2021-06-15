@@ -93,8 +93,8 @@ public class ProfileFragment extends Fragment {
 
         profile_aqua.setOnClickListener(v ->
                 getParentFragmentManager().beginTransaction()
-                    .replace(R.id.nav_host_fragment, new HomeFragment())
-                    .commit());
+                        .replace(R.id.nav_host_fragment, new HomeFragment())
+                        .commit());
 
         profile_fish.setOnClickListener(v -> {
             Toast.makeText(
@@ -126,13 +126,13 @@ public class ProfileFragment extends Fragment {
 
         profile_sv_1.setOnClickListener(v ->
                 getParentFragmentManager().beginTransaction()
-                        .replace(R.id.nav_host_fragment, new AboutFragment())
+                        .replace(R.id.nav_host_fragment, new EditFragment())
                         .addToBackStack(null)
                         .commit());
 
         profile_sv_2.setOnClickListener(v ->
                 getParentFragmentManager().beginTransaction()
-                        .replace(R.id.nav_host_fragment, new AboutFragment())
+                        .replace(R.id.nav_host_fragment, new SettingsFragment())
                         .addToBackStack(null)
                         .commit());
 

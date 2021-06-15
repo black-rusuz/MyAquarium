@@ -257,9 +257,7 @@ public class AddFragment extends Fragment {
 
             myEditor.apply();
 
-            getParentFragmentManager().beginTransaction()
-                    .replace(R.id.nav_host_fragment, new HomeFragment())
-                    .commit();
+            getParentFragmentManager().popBackStack();
         });
 
         return root;
