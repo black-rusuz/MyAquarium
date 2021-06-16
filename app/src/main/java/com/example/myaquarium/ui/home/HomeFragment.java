@@ -49,7 +49,7 @@ public class HomeFragment extends Fragment {
         home_add.setOnClickListener(v ->
                 getParentFragmentManager().beginTransaction()
                 .replace(R.id.nav_host_fragment, new AddFragment())
-                .addToBackStack(null)
+                .addToBackStack("Home")
                 .commit());
 
         home_add.setOnLongClickListener(v -> {

@@ -56,6 +56,7 @@ public class EditFragment extends Fragment {
         Intent imageIntent = new Intent(Intent.ACTION_OPEN_DOCUMENT);
         imageIntent.setType("image/*");
 
+        // TODO: Добавить нормальный выбор авы
         edit_userpic.setOnClickListener(v ->  {
             startActivityForResult(imageIntent, 1);
         });

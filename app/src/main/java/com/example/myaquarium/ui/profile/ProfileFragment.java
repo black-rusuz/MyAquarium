@@ -127,19 +127,19 @@ public class ProfileFragment extends Fragment {
         profile_sv_1.setOnClickListener(v ->
                 getParentFragmentManager().beginTransaction()
                         .replace(R.id.nav_host_fragment, new EditFragment())
-                        .addToBackStack(null)
+                        .addToBackStack("Profile")
                         .commit());
 
         profile_sv_2.setOnClickListener(v ->
                 getParentFragmentManager().beginTransaction()
                         .replace(R.id.nav_host_fragment, new SettingsFragment())
-                        .addToBackStack(null)
+                        .addToBackStack("Profile")
                         .commit());
 
         profile_sv_3.setOnClickListener(v ->
                 getParentFragmentManager().beginTransaction()
                         .replace(R.id.nav_host_fragment, new AboutFragment())
-                        .addToBackStack(null)
+                        .addToBackStack("Profile")
                         .commit());
 
         return root;
