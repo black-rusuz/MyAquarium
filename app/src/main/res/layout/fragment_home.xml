@@ -40,7 +40,7 @@
         android:layout_marginBottom="@dimen/margin"
 
         android:drawableStart="@drawable/ic_add"
-        android:text="@string/add_temp"
+        android:text="Добавить"
 
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/home_right"

@@ -5,8 +5,10 @@
     <string name="title_help">Справочник</string>
     <string name="title_profile">Профиль</string>
 
+    <string name="save">Сохранить</string>
 
 
+    <!-- fragment_aqua -->
     <string-array name="types">
         <item>Смешанный</item>
         <item>Рыбки</item>
@@ -14,23 +16,21 @@
     </string-array>
 
     <string name="type_">Тип:</string>
-    <string name="vol_">Объём:</string>
-    <string name="temp_">Температура:</string>
+    <string name="volume_">Объём:</string>
+    <string name="temperature_">Температура:</string>
     <string name="feed_">Корм:</string>
     <string name="refresh_">Подмена:</string>
 
-    <plurals name="vol_unit">
-        <item quantity="zero">Пусто</item>
+    <plurals name="volume_unit">
+        <item quantity="zero">&#160;литров</item>
         <item quantity="one">&#160;литр</item>
         <item quantity="few">&#160;литра</item>
         <item quantity="many">&#160;литров</item>
         <item quantity="other">&#160;литров</item>
     </plurals>
-
-    <string name="temp_unit">°C</string>
+    <string name="temperature_unit">°C</string>
 
     <string name="condition_">Состояние:</string>
-
     <string name="terrible">Ужасное</string>
     <string name="bad">Плохое</string>
     <string name="average">Среднее</string>
@@ -38,7 +38,7 @@
     <string name="excellent">Отличное</string>
 
 
-
+    <!-- fragment_profile -->
     <string name="aqua">Аквариум</string>
     <string name="aquas">Аквариумы</string>
     <string name="aquas_">Аквариумы:</string>
@@ -72,6 +72,11 @@
         <item quantity="many">растений</item>
         <item quantity="other">растений</item>
     </plurals>
+
+
+    <!-- TODO: Прописать тут ключи шаредпрефов -->
+    <!-- SharedPreferences, скоро SQLite -->
+    <string name="name">name</string>
 
 
 
@@ -136,13 +141,4 @@
         <item>23:30</item>
     </string-array>
 
-
-
-    <string name="start_temp">Пропустить</string> <!-- TODO: Заменить на "Техподдержка" -->
-
-    <string name="add_temp">Добавить</string> <!-- TODO: Заменить на "Добавить" -->
-
-    <string name="save">Сохранить</string>
-
-    <!-- TODO: Прописать тут ключи шаредпрефов -->
 </resources>

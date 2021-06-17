@@ -87,53 +87,53 @@
                     app:layout_constraintTop_toTopOf="@+id/aqua_type_key" />
 
                 <TextView
-                    android:id="@+id/aqua_vol_key"
+                    android:id="@+id/aqua_volume_key"
                     style="@style/TextView.Text.Light"
-                    android:text="@string/vol_"
+                    android:text="@string/volume_"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/aqua_type_key" />
 
                 <TextView
-                    android:id="@+id/aqua_vol"
+                    android:id="@+id/aqua_volume"
                     style="@style/TextView.Text.Dark"
                     android:layout_marginStart="@dimen/margin_text"
-                    app:layout_constraintBottom_toBottomOf="@+id/aqua_vol_key"
-                    app:layout_constraintStart_toEndOf="@+id/aqua_vol_key"
-                    app:layout_constraintTop_toTopOf="@+id/aqua_vol_key" />
+                    app:layout_constraintBottom_toBottomOf="@+id/aqua_volume_key"
+                    app:layout_constraintStart_toEndOf="@+id/aqua_volume_key"
+                    app:layout_constraintTop_toTopOf="@+id/aqua_volume_key" />
 
                 <TextView
-                    android:id="@+id/aqua_vol_unit"
+                    android:id="@+id/aqua_volume_unit"
                     style="@style/TextView.Text.Dark"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    app:layout_constraintBottom_toBottomOf="@id/aqua_vol"
-                    app:layout_constraintStart_toEndOf="@id/aqua_vol"
-                    app:layout_constraintTop_toTopOf="@id/aqua_vol" />
+                    app:layout_constraintBottom_toBottomOf="@id/aqua_volume"
+                    app:layout_constraintStart_toEndOf="@id/aqua_volume"
+                    app:layout_constraintTop_toTopOf="@id/aqua_volume" />
 
                 <TextView
-                    android:id="@+id/aqua_temp_key"
+                    android:id="@+id/aqua_temperature_key"
                     style="@style/TextView.Text.Light"
-                    android:text="@string/temp_"
+                    android:text="@string/temperature_"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/aqua_vol_key" />
+                    app:layout_constraintTop_toBottomOf="@+id/aqua_volume_key" />
 
                 <TextView
-                    android:id="@+id/aqua_temp"
+                    android:id="@+id/aqua_temperature"
                     style="@style/TextView.Text.Dark"
                     android:layout_marginStart="@dimen/margin_text"
-                    app:layout_constraintBottom_toBottomOf="@+id/aqua_temp_key"
-                    app:layout_constraintStart_toEndOf="@+id/aqua_temp_key"
-                    app:layout_constraintTop_toTopOf="@+id/aqua_temp_key" />
+                    app:layout_constraintBottom_toBottomOf="@+id/aqua_temperature_key"
+                    app:layout_constraintStart_toEndOf="@+id/aqua_temperature_key"
+                    app:layout_constraintTop_toTopOf="@+id/aqua_temperature_key" />
 
                 <TextView
-                    android:id="@+id/aqua_temp_unit"
+                    android:id="@+id/aqua_temperature_unit"
                     style="@style/TextView.Text.Dark"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@string/temp_unit"
-                    app:layout_constraintBottom_toBottomOf="@+id/aqua_temp"
-                    app:layout_constraintStart_toEndOf="@+id/aqua_temp"
-                    app:layout_constraintTop_toTopOf="@+id/aqua_temp" />
+                    android:text="@string/temperature_unit"
+                    app:layout_constraintBottom_toBottomOf="@+id/aqua_temperature"
+                    app:layout_constraintStart_toEndOf="@+id/aqua_temperature"
+                    app:layout_constraintTop_toTopOf="@+id/aqua_temperature" />
             </androidx.constraintlayout.widget.ConstraintLayout>
 
             <androidx.constraintlayout.widget.ConstraintLayout

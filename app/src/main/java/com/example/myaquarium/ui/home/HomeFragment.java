@@ -33,11 +33,11 @@ public class HomeFragment extends Fragment {
         Button home_add = root.findViewById(R.id.home_add);
 
         // TODO: Доделать редактирование и отображение аквариума
-        if (myPreferences.getInt("VOL", 0) == 0) {
+        if (myPreferences.getInt("VOLUME", 0) == 0) {
             home_fragment.setVisibility(View.INVISIBLE);
         }
 
-        if (myPreferences.getInt("VOL", 0) != 0) {
+        if (myPreferences.getInt("VOLUME", 0) != 0) {
             home_add.setText("Изменить");
             home_add.setCompoundDrawablesWithIntrinsicBounds(
                     ResourcesCompat.getDrawable(getResources(), R.drawable.ic_edit, null),

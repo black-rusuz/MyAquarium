@@ -103,7 +103,7 @@
     <Button
         android:id="@+id/start_help"
         style="@style/Button.Text.Small"
-        android:text="@string/start_temp"
+        android:text="Пропустить"
 
         android:layout_height="20dp"
 

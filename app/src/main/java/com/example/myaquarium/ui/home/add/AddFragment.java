@@ -38,15 +38,15 @@ public class AddFragment extends Fragment {
         TextView add_header = root.findViewById(R.id.add_header);
         EditText add_name = root.findViewById(R.id.add_sv_name);
         Spinner add_type = root.findViewById(R.id.add_sv_type);
-        EditText add_vol = root.findViewById(R.id.add_sv_vol);
-        EditText add_temp = root.findViewById(R.id.add_sv_temp);
+        EditText add_volume = root.findViewById(R.id.add_sv_volume);
+        EditText add_temperature = root.findViewById(R.id.add_sv_temperature);
 
         LinearLayout add_sv_ll = root.findViewById(R.id.add_sv_ll);
         Button add_fish = root.findViewById(R.id.add_fish);
         Button add_plant = root.findViewById(R.id.add_plant);
         Button add_save = root.findViewById(R.id.add_save);
 
-        if (myPreferences.getInt("VOL", 0) != 0) {
+        if (myPreferences.getInt("VOLUME", 0) != 0) {
 
             add_header.setText("Изменить аквариум");
             add_name.setText(myPreferences.getString("NAME", null));
@@ -63,8 +63,8 @@ public class AddFragment extends Fragment {
                 add_fish.setVisibility(View.GONE);
             }
 
-            add_vol.setText(String.valueOf(myPreferences.getInt("VOL", 0)));
-            add_temp.setText(String.valueOf(myPreferences.getInt("TEMP", 0)));
+            add_volume.setText(String.valueOf(myPreferences.getInt("VOLUME", 0)));
+            add_temperature.setText(String.valueOf(myPreferences.getInt("TEMPERATURE", 0)));
 
             // TODO: Допилить параметры воды
             // TODO: Допилить вывод полей с обитателями
@@ -98,11 +98,11 @@ public class AddFragment extends Fragment {
             et_name.setHint("Рыбка...");
 
             // Задаём EditText ID со счётчиком
-            int count_fish = myPreferences.getInt("COUNT_FISH", 0);
-            String fish_id = "FISH_" + count_fish;
-            count_fish++;
+            int id_fish = myPreferences.getInt("ID_FISH", 0);
+            String fish_id = "FISH_" + id_fish;
+            id_fish++;
             et_name.setTag(fish_id);
-            myEditor.putInt("COUNT_FISH", count_fish).apply();
+            myEditor.putInt("ID_FISH", id_fish).apply();
 
             // Добавляем всё на слой
             add_sv_cl.addView(et_name);
@@ -113,11 +113,11 @@ public class AddFragment extends Fragment {
         });
 
         add_fish.setOnLongClickListener(v -> {
-            int count_fish = myPreferences.getInt("COUNT_FISH", 0);
-            for (int i = 0; i <= count_fish; i++) {
+            int id_fish = myPreferences.getInt("ID_FISH", 0);
+            for (int i = 0; i <= id_fish; i++) {
                 String fish_id = "FISH_" + i;
                 myEditor.remove(fish_id);
-                myEditor.putInt("COUNT_FISH", 0);
+                myEditor.putInt("ID_FISH", 0);
                 myEditor.commit();
             }
 
@@ -154,11 +154,11 @@ public class AddFragment extends Fragment {
             et_name.setHint("Растение...");
 
             // Задаём EditText ID со счётчиком
-            int count_plant = myPreferences.getInt("COUNT_PLANT", 0);
-            String plant_id = "PLANT_" + count_plant;
-            count_plant++;
+            int id_plant = myPreferences.getInt("ID_PLANT", 0);
+            String plant_id = "PLANT_" + id_plant;
+            id_plant++;
             et_name.setTag(plant_id);
-            myEditor.putInt("COUNT_PLANT", count_plant).apply();
+            myEditor.putInt("ID_PLANT", id_plant).apply();
 
             // Добавляем всё на слой
             add_sv_cl.addView(et_name);
@@ -169,11 +169,11 @@ public class AddFragment extends Fragment {
         });
 
         add_plant.setOnLongClickListener(v -> {
-            int count_plant = myPreferences.getInt("COUNT_PLANT", 0);
-            for (int i = 0; i <= count_plant; i++) {
+            int id_plant = myPreferences.getInt("ID_PLANT", 0);
+            for (int i = 0; i <= id_plant; i++) {
                 String plant_id = "PLANT_" + i;
                 myEditor.remove(plant_id);
-                myEditor.putInt("COUNT_PLANT", 0);
+                myEditor.putInt("ID_PLANT", 0);
                 myEditor.commit();
             }
 
@@ -189,8 +189,8 @@ public class AddFragment extends Fragment {
 
             String name;
             String type;
-            int vol;
-            int temp;
+            int volume;
+            int temperature;
 
             if (add_name.getText().length() > 0)
                 name = String.valueOf(add_name.getText());
@@ -201,9 +201,9 @@ public class AddFragment extends Fragment {
 
             type = String.valueOf(add_type.getSelectedItem());
 
-            if (add_vol.getText().length() > 0) {
-                vol = Integer.parseInt(String.valueOf(add_vol.getText()));
-                if (vol == 0) {
+            if (add_volume.getText().length() > 0) {
+                volume = Integer.parseInt(String.valueOf(add_volume.getText()));
+                if (volume == 0) {
                     Toast.makeText(
                             getContext(),
                             "Объём не может быть равен нулю",
@@ -218,8 +218,8 @@ public class AddFragment extends Fragment {
                 return;
             }
 
-            if (add_temp.getText().length() > 0)
-                temp = Integer.parseInt(String.valueOf(add_temp.getText()));
+            if (add_temperature.getText().length() > 0)
+                temperature = Integer.parseInt(String.valueOf(add_temperature.getText()));
             else {
                 Toast.makeText(
                         getContext(),
@@ -230,11 +230,11 @@ public class AddFragment extends Fragment {
 
             myEditor.putString("NAME", name);
             myEditor.putString("TYPE", type);
-            myEditor.putInt("VOL", vol);
-            myEditor.putInt("TEMP", temp);
+            myEditor.putInt("VOLUME", volume);
+            myEditor.putInt("TEMPERATURE", temperature);
 
-            int count_fish = myPreferences.getInt("COUNT_FISH", 0);
-            for (int i = 0; i <= count_fish; i++) {
+            int id_fish = myPreferences.getInt("ID_FISH", 0);
+            for (int i = 0; i <= id_fish; i++) {
                 String fish_id = "FISH_" + i;
                 EditText fish_et = root.findViewWithTag(fish_id);
                 if(fish_et != null) {
@@ -244,8 +244,8 @@ public class AddFragment extends Fragment {
                 }
             }
 
-            int count_plant = myPreferences.getInt("COUNT_PLANT", 0);
-            for (int i = 0; i <= count_plant; i++) {
+            int id_plant = myPreferences.getInt("ID_PLANT", 0);
+            for (int i = 0; i <= id_plant; i++) {
                 String plant_id = "PLANT_" + i;
                 EditText plant_et = root.findViewWithTag(plant_id);
                 if(plant_et != null) {

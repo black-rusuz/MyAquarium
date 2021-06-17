@@ -59,8 +59,8 @@ public class ProfileFragment extends Fragment {
         Button profile_sv_2 = root.findViewById(R.id.profile_sv_2);
         Button profile_sv_3 = root.findViewById(R.id.profile_sv_3);
 
-        int real_count_fish = myPreferences.getInt("REAL_COUNT_FISH", 0);
-        int real_count_plant = myPreferences.getInt("REAL_COUNT_PLANT", 0);
+        int count_fish = myPreferences.getInt("COUNT_FISH", 0);
+        int count_plant = myPreferences.getInt("COUNT_PLANT", 0);
 
         if (!myPreferences.getString(
                 "USERPIC",
@@ -78,17 +78,17 @@ public class ProfileFragment extends Fragment {
         resizeAnimation.setDuration(1000);
         profile_exp_bar_progress.startAnimation(resizeAnimation);
 
-        if (    !((myPreferences.getInt("VOL", 0)) == 0) &&
-                !((myPreferences.getInt("TEMP", 0)) == 0)) {
+        if (    !((myPreferences.getInt("VOLUME", 0)) == 0) &&
+                !((myPreferences.getInt("TEMPERATURE", 0)) == 0)) {
 
             profile_aqua_num.setText("1");
             profile_aqua_text.setText(this.getResources().getQuantityText(R.plurals.aqua, 1));
 
-            profile_fish_num.setText(Integer.toString(real_count_fish));
-            profile_fish_text.setText(this.getResources().getQuantityText(R.plurals.fish, real_count_fish));
+            profile_fish_num.setText(Integer.toString(count_fish));
+            profile_fish_text.setText(this.getResources().getQuantityText(R.plurals.fish, count_fish));
 
-            profile_plant_num.setText(Integer.toString(real_count_plant));
-            profile_plant_text.setText(this.getResources().getQuantityText(R.plurals.plant, real_count_plant));
+            profile_plant_num.setText(Integer.toString(count_plant));
+            profile_plant_text.setText(this.getResources().getQuantityText(R.plurals.plant, count_plant));
         }
 
         profile_aqua.setOnClickListener(v ->

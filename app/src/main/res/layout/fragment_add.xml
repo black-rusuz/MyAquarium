@@ -148,14 +148,14 @@
                 style="@style/ConstraintLayout.LL">
 
                 <androidx.constraintlayout.widget.Guideline
-                    android:id="@+id/add_sv_vol_gl"
+                    android:id="@+id/add_sv_volume_gl"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:orientation="vertical"
                     app:layout_constraintGuide_percent="0.28" />
 
                 <TextView
-                    android:id="@+id/add_sv_vol_key"
+                    android:id="@+id/add_sv_volume_key"
                     style="@style/TextView.Text.Dark"
                     android:text="Объём (л):"
 
@@ -164,11 +164,11 @@
                     app:layout_constraintTop_toTopOf="parent" />
 
                 <EditText
-                    android:id="@+id/add_sv_vol"
+                    android:id="@+id/add_sv_volume"
                     style="@style/EditText.Add.Num"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toStartOf="@+id/add_sv_vt_gl"
-                    app:layout_constraintStart_toStartOf="@+id/add_sv_vol_gl"
+                    app:layout_constraintStart_toStartOf="@+id/add_sv_volume_gl"
                     app:layout_constraintTop_toTopOf="parent" />
 
                 <androidx.constraintlayout.widget.Guideline
@@ -179,28 +179,28 @@
                     app:layout_constraintGuide_percent="0.5" />
 
                 <androidx.constraintlayout.widget.Guideline
-                    android:id="@+id/add_sv_temp_gl"
+                    android:id="@+id/add_sv_temperature_gl"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:orientation="vertical"
                     app:layout_constraintGuide_percent="0.78" />
 
                 <TextView
-                    android:id="@+id/add_sv_temp_key"
+                    android:id="@+id/add_sv_temperature_key"
                     style="@style/TextView.Text.Dark"
                     android:layout_marginEnd="@dimen/margin_half"
 
                     android:text="t (°C):"
                     app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toStartOf="@+id/add_sv_temp_gl"
+                    app:layout_constraintEnd_toStartOf="@+id/add_sv_temperature_gl"
                     app:layout_constraintTop_toTopOf="parent" />
 
                 <EditText
-                    android:id="@+id/add_sv_temp"
+                    android:id="@+id/add_sv_temperature"
                     style="@style/EditText.Add.Num"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="@+id/add_sv_temp_gl"
+                    app:layout_constraintStart_toStartOf="@+id/add_sv_temperature_gl"
                     app:layout_constraintTop_toTopOf="parent" />
             </androidx.constraintlayout.widget.ConstraintLayout>
 
