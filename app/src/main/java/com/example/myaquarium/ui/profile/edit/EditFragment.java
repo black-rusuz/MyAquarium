@@ -18,7 +18,6 @@ import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
 
 import com.example.myaquarium.R;
-import com.example.myaquarium.ui.profile.ProfileFragment;
 
 public class EditFragment extends Fragment {
 
@@ -56,7 +55,7 @@ public class EditFragment extends Fragment {
         Intent imageIntent = new Intent(Intent.ACTION_OPEN_DOCUMENT);
         imageIntent.setType("image/*");
 
-        // TODO: Добавить нормальный выбор авы
+        // TODO: Добавить нормальный выбор авы c обрезкой
         edit_userpic.setOnClickListener(v ->  {
             startActivityForResult(imageIntent, 1);
         });

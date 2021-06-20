@@ -74,11 +74,6 @@
     </plurals>
 
 
-    <!-- TODO: Прописать тут ключи шаредпрефов -->
-    <!-- SharedPreferences, скоро SQLite -->
-    <string name="name">name</string>
-
-
 
     <string-array name="days">
         <item>Пн</item>

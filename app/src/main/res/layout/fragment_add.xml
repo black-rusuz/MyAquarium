@@ -24,12 +24,11 @@
 
     <ImageView
         android:id="@+id/add_bg"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:scaleType="fitEnd"
+        style="@style/ImageView.Background.Bottom"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/bg_add" />
 
     <Button
@@ -92,6 +91,7 @@
                     android:id="@+id/add_sv_name"
                     style="@style/EditText.Add.Text"
                     android:hint="Введите название"
+                    android:maxLength="20"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="@+id/add_sv_name_gl"

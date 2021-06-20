@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -24,13 +23,12 @@
 
     <ImageView
         android:id="@+id/settings_bg"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:scaleType="fitEnd"
+        style="@style/ImageView.Background.Bottom"
         android:src="@drawable/bg_profile_bottom"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <Button
         android:id="@+id/settings_back"
@@ -49,12 +47,13 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <com.google.android.material.switchmaterial.SwitchMaterial
-        android:id="@+id/settings_switch_refresh"
+        android:id="@+id/settings_refresh"
         style="@style/Button.Text.ScrollView"
         android:layout_width="0dp"
         android:layout_height="40dp"
         android:layout_marginTop="@dimen/margin"
         android:layout_marginBottom="@dimen/margin_text"
+        android:checked="true"
         android:text="Уведомлять о подмене"
         android:thumb="@drawable/bg_thumb_selector"
         app:layout_constraintBottom_toTopOf="@+id/settings_day_key"
@@ -75,7 +74,7 @@
         app:layout_constraintBottom_toTopOf="@+id/settings_text"
         app:layout_constraintEnd_toStartOf="@+id/settings_right"
         app:layout_constraintStart_toStartOf="@+id/settings_left"
-        app:layout_constraintTop_toBottomOf="@+id/settings_switch_refresh" />
+        app:layout_constraintTop_toBottomOf="@+id/settings_refresh" />
 
     <Spinner
         android:id="@+id/settings_day"
@@ -104,10 +103,10 @@
         style="@style/TextView.Text.Light"
         android:layout_marginTop="@dimen/margin_text"
         android:layout_marginBottom="@dimen/margin_text"
-        android:drawableStart="@drawable/btn_exclamation"
         android:gravity="center"
         android:text="подмена воды производится раз в две недели"
         android:textSize="12sp"
+        app:drawableStartCompat="@drawable/btn_exclamation"
         app:layout_constraintBottom_toTopOf="@+id/settings_ll1"
         app:layout_constraintEnd_toStartOf="@+id/settings_right"
         app:layout_constraintStart_toStartOf="@+id/settings_left"
@@ -120,7 +119,7 @@
         android:layout_marginTop="@dimen/margin_half"
         android:layout_marginBottom="@dimen/margin_half"
         android:orientation="horizontal"
-        app:layout_constraintBottom_toTopOf="@+id/settings_switch_feed"
+        app:layout_constraintBottom_toTopOf="@+id/settings_feed"
         app:layout_constraintEnd_toStartOf="@+id/settings_right"
         app:layout_constraintStart_toStartOf="@+id/settings_left"
         app:layout_constraintTop_toBottomOf="@+id/settings_text">
@@ -128,29 +127,31 @@
     </LinearLayout>
 
     <com.google.android.material.switchmaterial.SwitchMaterial
-        android:id="@+id/settings_switch_feed"
+        android:id="@+id/settings_feed"
         style="@style/Button.Text.ScrollView"
         android:layout_width="0dp"
         android:layout_height="40dp"
         android:layout_marginBottom="@dimen/margin_text"
+        android:checked="true"
         android:text="Уведомлять о кормлении"
         android:thumb="@drawable/bg_thumb_selector"
-        app:track="@drawable/bg_track_selector"
         app:layout_constraintBottom_toTopOf="@+id/settings_time_key"
         app:layout_constraintEnd_toStartOf="@+id/settings_right"
         app:layout_constraintStart_toStartOf="@+id/settings_left"
-        app:layout_constraintTop_toBottomOf="@+id/settings_ll1" />
+        app:layout_constraintTop_toBottomOf="@+id/settings_ll1"
+        app:track="@drawable/bg_track_selector" />
 
     <TextView
         android:id="@+id/settings_time_key"
         style="@style/Button.Text.ScrollView"
         android:layout_width="0dp"
-        android:layout_height="40dp"
+        android:layout_height="80dp"
         android:text="Время"
         app:layout_constraintBottom_toTopOf="@+id/settings_ll2"
         app:layout_constraintEnd_toStartOf="@+id/settings_right"
         app:layout_constraintStart_toStartOf="@+id/settings_left"
-        app:layout_constraintTop_toBottomOf="@+id/settings_switch_feed" />
+        app:layout_constraintTop_toBottomOf="@+id/settings_feed" />
+
 
     <Spinner
         android:id="@+id/settings_time"
@@ -159,6 +160,7 @@
         android:background="@drawable/bg_rounded_10dp_border_dark"
         android:entries="@array/times"
         android:popupBackground="@drawable/bg_rounded_10dp"
+        android:visibility="gone"
         app:layout_constraintBottom_toBottomOf="@+id/settings_time_key"
         app:layout_constraintEnd_toStartOf="@+id/settings_right"
         app:layout_constraintTop_toTopOf="@+id/settings_time_key" />
@@ -168,11 +170,22 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginEnd="@dimen/margin_text"
+        android:visibility="gone"
         app:layout_constraintBottom_toBottomOf="@+id/settings_time"
         app:layout_constraintEnd_toStartOf="@+id/settings_right"
         app:layout_constraintTop_toTopOf="@+id/settings_time"
         app:srcCompat="@drawable/ic_select"
         app:tint="@color/text_dark" />
+
+    <TimePicker
+        android:id="@+id/settings_timepicker"
+        android:layout_width="180dp"
+        android:layout_height="140dp"
+        android:numbersTextColor="@color/text_dark"
+        android:timePickerMode="spinner"
+        app:layout_constraintBottom_toBottomOf="@+id/settings_time_key"
+        app:layout_constraintEnd_toStartOf="@+id/settings_right"
+        app:layout_constraintTop_toTopOf="@+id/settings_time_key" />
 
     <LinearLayout
         android:id="@+id/settings_ll2"
@@ -194,8 +207,8 @@
         android:layout_width="0dp"
         android:layout_height="40dp"
         android:layout_marginBottom="@dimen/margin_text"
-        android:text="Изменить пароль"
         android:drawableStart="@drawable/btn_password"
+        android:text="Изменить пароль"
         app:layout_constraintBottom_toTopOf="@id/settings_logout"
         app:layout_constraintEnd_toStartOf="@+id/settings_right"
         app:layout_constraintStart_toStartOf="@+id/settings_left"
@@ -207,8 +220,8 @@
         android:layout_width="0dp"
         android:layout_height="40dp"
         android:layout_marginBottom="@dimen/margin"
-        android:text="Выйти из аккаунта"
         android:drawableStart="@drawable/btn_logout"
+        android:text="Выйти из аккаунта"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/settings_right"
         app:layout_constraintStart_toStartOf="@+id/settings_left"

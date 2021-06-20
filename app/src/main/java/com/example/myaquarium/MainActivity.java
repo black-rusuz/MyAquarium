@@ -4,7 +4,6 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
-import android.util.Log;
 import android.widget.Button;
 import android.widget.Toast;
 
@@ -14,6 +13,8 @@ import androidx.navigation.Navigation;
 import androidx.navigation.ui.NavigationUI;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
+
+import java.util.Calendar;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -26,7 +27,6 @@ public class MainActivity extends AppCompatActivity {
 
         boolean previouslyStarted = myPreferences.getBoolean("PREVIOUSLY_STARTED", false);
 
-        // TODO: Напоминания
         if(previouslyStarted) {
             setContentView(R.layout.activity_main);
             BottomNavigationView navView = findViewById(R.id.nav_view);
@@ -64,8 +64,15 @@ public class MainActivity extends AppCompatActivity {
                 finish();
             });
         }
+
+        Calendar calendar_feed = Calendar.getInstance();
+        calendar_feed.set(Calendar.DAY_OF_WEEK, myPreferences.getInt("DAY", 0));
+        calendar_feed.set(Calendar.HOUR_OF_DAY, myPreferences.getInt("HOUR", 0));
+        calendar_feed.set(Calendar.MINUTE, myPreferences.getInt("MINUTE", 0));
+        calendar_feed.set(Calendar.SECOND, 0);
     }
 
+    @Override
     public void onBackPressed() {
         if (    findViewById(R.id.add_back) != null ||
                 findViewById(R.id.edit_back) != null ||
