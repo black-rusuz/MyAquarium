@@ -18,6 +18,7 @@
     <string name="type_">Тип:</string>
     <string name="volume_">Объём:</string>
     <string name="temperature_">Температура:</string>
+    <string name="ph_">pH:</string>
     <string name="feed_">Корм:</string>
     <string name="refresh_">Подмена:</string>
 

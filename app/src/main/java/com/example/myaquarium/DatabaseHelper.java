@@ -18,7 +18,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     private static final int SCHEMA = 1; // Версия базы данных
     private Context myContext;
 
-    DatabaseHelper(Context context) {
+    public DatabaseHelper(Context context) {
         super(context, DB_NAME, null, SCHEMA);
         this.myContext = context;
         DB_PATH = context.getFilesDir().getPath() + DB_NAME;
@@ -29,7 +29,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion,  int newVersion) { }
 
-    void create_db(){
+    public void create_db(){
 
         InputStream myInput = null;
         OutputStream myOutput = null;

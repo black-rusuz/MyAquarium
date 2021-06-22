@@ -1,6 +1,8 @@
 package com.example.myaquarium.ui.home.add;
 
 import android.content.SharedPreferences;
+import android.database.Cursor;
+import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.view.LayoutInflater;
@@ -9,6 +11,7 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.LinearLayout;
+import android.widget.SimpleCursorAdapter;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -18,6 +21,7 @@ import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
 
+import com.example.myaquarium.DatabaseHelper;
 import com.example.myaquarium.R;
 
 public class AddFragment extends Fragment {
@@ -35,12 +39,19 @@ public class AddFragment extends Fragment {
         SharedPreferences.Editor myEditor = myPreferences.edit();
 
         TextView add_header = root.findViewById(R.id.add_header);
-        EditText add_name = root.findViewById(R.id.add_sv_name);
-        Spinner add_type = root.findViewById(R.id.add_sv_type);
-        EditText add_volume = root.findViewById(R.id.add_sv_volume);
-        EditText add_temperature = root.findViewById(R.id.add_sv_temperature);
+        EditText add_name = root.findViewById(R.id.add_name);
+        Spinner add_type = root.findViewById(R.id.add_type);
+        EditText add_volume = root.findViewById(R.id.add_volume);
+        EditText add_temperature = root.findViewById(R.id.add_temperature);
+        EditText add_ph = root.findViewById(R.id.add_ph);
 
-        LinearLayout add_sv_ll = root.findViewById(R.id.add_sv_ll);
+        EditText add_gh = root.findViewById(R.id.add_gh);
+        EditText add_kh = root.findViewById(R.id.add_kh);
+        EditText add_no2 = root.findViewById(R.id.add_no2);
+        EditText add_no3 = root.findViewById(R.id.add_no3);
+        EditText add_cl = root.findViewById(R.id.add_cl);
+        EditText add_nh = root.findViewById(R.id.add_nh);
+
         Button add_fish = root.findViewById(R.id.add_fish);
         Button add_plant = root.findViewById(R.id.add_plant);
         Button add_save = root.findViewById(R.id.add_save);
@@ -64,6 +75,7 @@ public class AddFragment extends Fragment {
 
             add_volume.setText(String.valueOf(myPreferences.getInt("VOLUME", 0)));
             add_temperature.setText(String.valueOf(myPreferences.getInt("TEMPERATURE", 0)));
+            add_ph.setText(String.valueOf(myPreferences.getFloat("PH", 0)));
 
             // TODO: Допилить параметры воды
             // TODO: Допилить вывод полей с обитателями
@@ -73,7 +85,7 @@ public class AddFragment extends Fragment {
             // TODO: Допилить это говно с добавлениями
 
             // Делаем ConstraintLayout и задаём стиль и отступы
-            ConstraintLayout add_sv_cl = new ConstraintLayout(
+            ConstraintLayout add_clay = new ConstraintLayout(
                     getContext(),
                     null,
                     R.style.ConstraintLayout_LL,
@@ -82,7 +94,7 @@ public class AddFragment extends Fragment {
                     ConstraintLayout.LayoutParams.WRAP_CONTENT,
                     ConstraintLayout.LayoutParams.WRAP_CONTENT);
             lp.setMargins(0, 0, 0, (int) getResources().getDimension(R.dimen.margin_half));
-            add_sv_cl.setLayoutParams(lp);
+            add_clay.setLayoutParams(lp);
 
             // Делаем EditText
             // TODO: Надо делать не ЕТ, а спиннер с поиском
@@ -104,8 +116,8 @@ public class AddFragment extends Fragment {
             myEditor.putInt("ID_FISH", id_fish).apply();
 
             // Добавляем всё на слой
-            add_sv_cl.addView(et_name);
-            add_sv_ll.addView(add_sv_cl);
+            add_clay.addView(et_name);
+            //add_ll.addView(add_cl);
 
             // Даём фокус ласт полю
             et_name.requestFocus();
@@ -131,7 +143,7 @@ public class AddFragment extends Fragment {
         add_plant.setOnClickListener(v -> {
 
             // Делаем ConstraintLayout и задаём стиль и отступы
-            ConstraintLayout add_sv_cl = new ConstraintLayout(
+            ConstraintLayout add_clay = new ConstraintLayout(
                     getContext(),
                     null,
                     R.style.ConstraintLayout_LL,
@@ -140,7 +152,7 @@ public class AddFragment extends Fragment {
                     ConstraintLayout.LayoutParams.WRAP_CONTENT,
                     ConstraintLayout.LayoutParams.WRAP_CONTENT);
             lp.setMargins(0, 0, 0, (int) getResources().getDimension(R.dimen.margin_half));
-            add_sv_cl.setLayoutParams(lp);
+            add_clay.setLayoutParams(lp);
 
             // Делаем EditText
             EditText et_name = new EditText(
@@ -160,8 +172,8 @@ public class AddFragment extends Fragment {
             myEditor.putInt("ID_PLANT", id_plant).apply();
 
             // Добавляем всё на слой
-            add_sv_cl.addView(et_name);
-            add_sv_ll.addView(add_sv_cl);
+            add_clay.addView(et_name);
+            //add_ll.addView(add_cl);
 
             // Даём фокус ласт полю
             et_name.requestFocus();
@@ -190,6 +202,7 @@ public class AddFragment extends Fragment {
             String type;
             int volume;
             int temperature;
+            float ph = 0.0f;
 
             if (add_name.getText().length() > 0)
                 name = String.valueOf(add_name.getText());
@@ -227,10 +240,14 @@ public class AddFragment extends Fragment {
                 return;
             }
 
+            if (add_ph.getText().length() > 0)
+                ph = Float.parseFloat(String.valueOf(add_ph.getText()));
+
             myEditor.putString("NAME", name);
             myEditor.putString("TYPE", type);
             myEditor.putInt("VOLUME", volume);
             myEditor.putInt("TEMPERATURE", temperature);
+            myEditor.putFloat("PH", ph);
 
             int id_fish = myPreferences.getInt("ID_FISH", 0);
             for (int i = 0; i <= id_fish; i++) {

@@ -65,11 +65,11 @@ public class MainActivity extends AppCompatActivity {
             });
         }
 
-        Calendar calendar_feed = Calendar.getInstance();
-        calendar_feed.set(Calendar.DAY_OF_WEEK, myPreferences.getInt("DAY", 0));
-        calendar_feed.set(Calendar.HOUR_OF_DAY, myPreferences.getInt("HOUR", 0));
-        calendar_feed.set(Calendar.MINUTE, myPreferences.getInt("MINUTE", 0));
-        calendar_feed.set(Calendar.SECOND, 0);
+//        Calendar calendar_feed = Calendar.getInstance();
+//        calendar_feed.set(Calendar.DAY_OF_WEEK, myPreferences.getInt("DAY", 0));
+//        calendar_feed.set(Calendar.HOUR_OF_DAY, myPreferences.getInt("HOUR", 0));
+//        calendar_feed.set(Calendar.MINUTE, myPreferences.getInt("MINUTE", 0));
+//        calendar_feed.set(Calendar.SECOND, 0);
     }
 
     @Override

@@ -115,6 +115,13 @@
         <item name="android:textColor">@color/text_dark</item>
     </style>
 
+    <style name="TextView.Grid">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:textSize">14sp</item>
+        <item name="android:fontFamily">@font/roboto</item>
+        <item name="android:textColor">@color/text_dark</item>
+    </style>
+
     <style name="TextView.Accent">
         <item name="android:layout_width">wrap_content</item>
         <item name="android:textSize">13sp</item>
@@ -151,7 +158,8 @@
     </style>
 
     <style name="EditText.Add.Num">
-        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:ems">3</item>
         <item name="android:hint">0</item>
         <item name="android:inputType">numberDecimal</item>
         <item name="android:gravity">center</item>
@@ -159,7 +167,6 @@
 
     <style name="EditText.Add.Num.Coded">
         <item name="android:ems">2</item>
-        <item name="android:hint">0</item>
     </style>
 
     <!-- ImageViews -->

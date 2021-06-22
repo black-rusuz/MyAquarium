@@ -34,6 +34,7 @@ public class AquaFragment extends Fragment {
         TextView aqua_type = root.findViewById(R.id.aqua_type);
         TextView aqua_volume = root.findViewById(R.id.aqua_volume);
         TextView aqua_temperature = root.findViewById(R.id.aqua_temperature);
+        TextView aqua_ph = root.findViewById(R.id.aqua_ph);
 
         ConstraintLayout aqua_content = root.findViewById(R.id.aqua_content);
 
@@ -54,7 +55,6 @@ public class AquaFragment extends Fragment {
 
         if (myPreferences.getInt("VOLUME", 0) != 0) {
             aqua_name.setText(myPreferences.getString("NAME", "Аквариум"));
-
 
             aqua_type.setText(sp_aqua_type);
 
@@ -79,6 +79,7 @@ public class AquaFragment extends Fragment {
             aqua_volume_unit.setText(getResources().getQuantityText(R.plurals.volume_unit,
                     myPreferences.getInt("VOLUME", 0)));
             aqua_temperature.setText(String.valueOf(myPreferences.getInt("TEMPERATURE", 0)));
+            aqua_ph.setText(String.valueOf(myPreferences.getFloat("PH", 0)));
 
             aqua_feed.setText("утром и вечером");
             aqua_refresh.setText("каждые 2 недели");
