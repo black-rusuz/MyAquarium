@@ -136,13 +136,22 @@
                     app:layout_constraintTop_toTopOf="@+id/aqua_temperature" />
 
                 <TextView
-                    android:id="@+id/aqua_ph_key"
-                    style="@style/TextView.Text.Light"
+                    android:id="@+id/aqua_ph_circle"
+                    style="@style/TextView.Grid"
                     android:layout_marginStart="@dimen/margin_half"
-                    android:text="@string/ph_"
+                    android:text="⬤"
                     app:layout_constraintBottom_toBottomOf="@+id/aqua_temperature_unit"
                     app:layout_constraintStart_toEndOf="@+id/aqua_temperature_unit"
                     app:layout_constraintTop_toTopOf="@+id/aqua_temperature_unit" />
+
+                <TextView
+                    android:id="@+id/aqua_ph_key"
+                    style="@style/TextView.Text.Light"
+                    android:layout_marginStart="@dimen/margin_text"
+                    android:text="@string/ph_"
+                    app:layout_constraintBottom_toBottomOf="@+id/aqua_ph_circle"
+                    app:layout_constraintStart_toEndOf="@+id/aqua_ph_circle"
+                    app:layout_constraintTop_toTopOf="@+id/aqua_ph_circle" />
 
                 <TextView
                     android:id="@+id/aqua_ph"
@@ -247,13 +256,10 @@
                 app:layout_constraintStart_toEndOf="@+id/aqua_left"
                 app:layout_constraintTop_toBottomOf="@+id/aqua_calc" />
 
-            <!-- TODO: Прописать цвета в colors-->
             <TextView
                 android:id="@+id/aqua_condition"
                 style="@style/TextView.Accent"
                 android:layout_marginStart="@dimen/margin_text"
-                android:text="@string/excellent"
-                android:textColor="#2E7D32"
                 app:layout_constraintBottom_toBottomOf="@+id/aqua_condition_key"
                 app:layout_constraintEnd_toStartOf="@+id/aqua_right"
                 app:layout_constraintStart_toEndOf="@+id/aqua_condition_key"

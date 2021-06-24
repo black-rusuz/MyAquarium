@@ -1,0 +1,392 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    app:layout_constraintBottom_toBottomOf="parent"
+    app:layout_constraintEnd_toEndOf="parent"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintTop_toTopOf="parent"
+    android:fillViewport="true"
+    tools:context=".ui.home.aquarium.AquariumFragment">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/aquarium_left"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.1" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/aquarium_right"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.9" />
+
+        <Button
+            android:id="@+id/aquarium_back"
+            style="@style/Button.Back"
+            app:layout_constraintBottom_toTopOf="@+id/aquarium_header"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <TextView
+            android:id="@+id/aquarium_header"
+            style="@style/TextView.Header"
+            android:layout_marginTop="@dimen/margin_double"
+            android:text="@string/aqua"
+            android:textSize="22sp"
+            app:layout_constraintBottom_toTopOf="@+id/aquarium_sum"
+            app:layout_constraintEnd_toStartOf="@+id/aquarium_right"
+            app:layout_constraintStart_toStartOf="@+id/aquarium_left"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.0"
+            app:layout_constraintVertical_chainStyle="packed" />
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/aquarium_sum"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margin"
+            app:layout_constraintBottom_toTopOf="@+id/aquarium_content"
+            app:layout_constraintEnd_toStartOf="@+id/aquarium_right"
+            app:layout_constraintStart_toStartOf="@+id/aquarium_left"
+            app:layout_constraintTop_toBottomOf="@+id/aquarium_header">
+
+            <TextView
+                android:id="@+id/aquarium_type_key"
+                style="@style/TextView.Text.Light"
+                android:text="@string/type_"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/aquarium_type"
+                style="@style/TextView.Text.Dark"
+                android:layout_marginStart="@dimen/margin_text"
+                app:layout_constraintBottom_toBottomOf="@+id/aquarium_type_key"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/aquarium_type_key"
+                app:layout_constraintTop_toTopOf="@+id/aquarium_type_key" />
+
+            <TextView
+                android:id="@+id/aquarium_volume_key"
+                style="@style/TextView.Text.Light"
+                android:text="@string/volume_"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/aquarium_type_key" />
+
+            <TextView
+                android:id="@+id/aquarium_volume"
+                style="@style/TextView.Text.Dark"
+                android:layout_marginStart="@dimen/margin_text"
+                app:layout_constraintBottom_toBottomOf="@+id/aquarium_volume_key"
+                app:layout_constraintStart_toEndOf="@+id/aquarium_volume_key"
+                app:layout_constraintTop_toTopOf="@+id/aquarium_volume_key" />
+
+            <TextView
+                android:id="@+id/aquarium_volume_unit"
+                style="@style/TextView.Text.Dark"
+                app:layout_constraintBottom_toBottomOf="@id/aquarium_volume"
+                app:layout_constraintStart_toEndOf="@id/aquarium_volume"
+                app:layout_constraintTop_toTopOf="@id/aquarium_volume" />
+
+            <TextView
+                android:id="@+id/aquarium_temperature_key"
+                style="@style/TextView.Text.Light"
+                android:text="@string/temperature_"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/aquarium_volume_key" />
+
+            <TextView
+                android:id="@+id/aquarium_temperature"
+                style="@style/TextView.Text.Dark"
+                android:layout_marginStart="@dimen/margin_text"
+                app:layout_constraintBottom_toBottomOf="@+id/aquarium_temperature_key"
+                app:layout_constraintStart_toEndOf="@+id/aquarium_temperature_key"
+                app:layout_constraintTop_toTopOf="@+id/aquarium_temperature_key" />
+
+            <TextView
+                android:id="@+id/aquarium_temperature_unit"
+                style="@style/TextView.Text.Dark"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/temperature_unit"
+                app:layout_constraintBottom_toBottomOf="@+id/aquarium_temperature"
+                app:layout_constraintStart_toEndOf="@+id/aquarium_temperature"
+                app:layout_constraintTop_toTopOf="@+id/aquarium_temperature" />
+
+            <TextView
+                android:id="@+id/aquarium_ph_circle"
+                style="@style/TextView.Grid"
+                android:layout_marginStart="@dimen/margin_half"
+                android:text="⬤"
+                app:layout_constraintBottom_toBottomOf="@+id/aquarium_temperature_unit"
+                app:layout_constraintStart_toEndOf="@+id/aquarium_temperature_unit"
+                app:layout_constraintTop_toTopOf="@+id/aquarium_temperature_unit" />
+
+            <TextView
+                android:id="@+id/aquarium_ph_key"
+                style="@style/TextView.Text.Light"
+                android:layout_marginStart="@dimen/margin_text"
+                android:text="@string/ph_"
+                app:layout_constraintBottom_toBottomOf="@+id/aquarium_ph_circle"
+                app:layout_constraintStart_toEndOf="@+id/aquarium_ph_circle"
+                app:layout_constraintTop_toTopOf="@+id/aquarium_ph_circle" />
+
+            <TextView
+                android:id="@+id/aquarium_ph"
+                style="@style/TextView.Text.Dark"
+                android:layout_marginStart="@dimen/margin_text"
+                app:layout_constraintBottom_toBottomOf="@+id/aquarium_ph_key"
+                app:layout_constraintStart_toEndOf="@+id/aquarium_ph_key"
+                app:layout_constraintTop_toTopOf="@+id/aquarium_ph_key" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/aquarium_content"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margin"
+            app:layout_constraintBottom_toTopOf="@+id/aquarium_calc"
+            app:layout_constraintEnd_toStartOf="@+id/aquarium_right"
+            app:layout_constraintStart_toStartOf="@+id/aquarium_left"
+            app:layout_constraintTop_toBottomOf="@+id/aquarium_sum">
+
+            <TextView
+                android:id="@+id/aquarium_fish"
+                style="@style/TextView.Text.Dark"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="@+id/aquarium_fish_key"
+                app:layout_constraintTop_toTopOf="@+id/aquarium_fish_key" />
+
+            <TextView
+                android:id="@+id/aquarium_fish_key"
+                style="@style/TextView.Text.Light"
+                android:text="@string/fishes_"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/aquarium_plant"
+                style="@style/TextView.Text.Dark"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="@+id/aquarium_plant_key"
+                app:layout_constraintTop_toTopOf="@+id/aquarium_plant_key" />
+
+            <TextView
+                android:id="@+id/aquarium_plant_key"
+                style="@style/TextView.Text.Light"
+                android:text="@string/plants_"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/aquarium_fish" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/aquarium_calc"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margin"
+            app:layout_constraintBottom_toTopOf="@id/aquarium_grid"
+            app:layout_constraintEnd_toStartOf="@+id/aquarium_right"
+            app:layout_constraintStart_toStartOf="@+id/aquarium_left"
+            app:layout_constraintTop_toBottomOf="@+id/aquarium_content">
+
+            <TextView
+                android:id="@+id/aquarium_feed_key"
+                style="@style/TextView.Text.Light"
+                android:text="@string/feed_"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/aquarium_feed"
+                style="@style/TextView.Text.Dark"
+                android:layout_marginStart="@dimen/margin_text"
+                app:layout_constraintBottom_toBottomOf="@+id/aquarium_feed_key"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/aquarium_feed_key"
+                app:layout_constraintTop_toTopOf="@+id/aquarium_feed_key" />
+
+            <TextView
+                android:id="@+id/aquarium_refresh_key"
+                style="@style/TextView.Text.Light"
+                android:text="@string/refresh_"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/aquarium_feed_key" />
+
+            <TextView
+                android:id="@+id/aquarium_refresh"
+                style="@style/TextView.Text.Dark"
+                android:layout_marginStart="@dimen/margin_text"
+                app:layout_constraintBottom_toBottomOf="@+id/aquarium_refresh_key"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/aquarium_refresh_key"
+                app:layout_constraintTop_toTopOf="@+id/aquarium_refresh_key" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <androidx.gridlayout.widget.GridLayout
+            android:id="@+id/aquarium_grid"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margin"
+            android:layout_marginBottom="@dimen/margin_double"
+            app:columnCount="7"
+            app:layout_constraintBottom_toTopOf="@+id/aquarium_edit"
+            app:layout_constraintEnd_toStartOf="@+id/aquarium_right"
+            app:layout_constraintStart_toStartOf="@+id/aquarium_left"
+            app:layout_constraintTop_toBottomOf="@+id/aquarium_calc"
+            app:useDefaultMargins="true">
+
+            <TextView
+                android:id="@+id/aquarium_gh_circle"
+                style="@style/TextView.Grid"
+                android:text="⬤" />
+
+            <TextView
+                android:id="@+id/aquarium_gh_key"
+                style="@style/TextView.Grid.Light"
+                android:text="GH" />
+
+            <TextView
+                android:id="@+id/aquarium_gh"
+                style="@style/TextView.Grid.Dark"
+                android:text="0.0" />
+
+            <Space
+                android:layout_width="@dimen/margin_bottom"
+                app:layout_rowSpan="3" />
+
+            <TextView
+                android:id="@+id/aquarium_kh_circle"
+                style="@style/TextView.Grid"
+                android:text="⬤" />
+
+            <TextView
+                android:id="@+id/aquarium_kh_key"
+                style="@style/TextView.Grid.Light"
+                android:text="KH" />
+
+            <TextView
+                android:id="@+id/aquarium_kh"
+                style="@style/TextView.Grid.Dark"
+                android:text="0.0" />
+
+            <TextView
+                android:id="@+id/aquarium_no2_circle"
+                style="@style/TextView.Grid"
+                android:text="⬤" />
+
+            <TextView
+                android:id="@+id/aquarium_no2_key"
+                style="@style/TextView.Grid.Light"
+                android:text="NO₂" />
+
+            <TextView
+                android:id="@+id/aquarium_no2"
+                style="@style/TextView.Grid.Dark"
+                android:text="0.0" />
+
+            <TextView
+                android:id="@+id/aquarium_no3_circle"
+                style="@style/TextView.Grid"
+                android:text="⬤" />
+
+            <TextView
+                android:id="@+id/aquarium_no3_key"
+                style="@style/TextView.Grid.Light"
+                android:text="NO₃" />
+
+            <TextView
+                android:id="@+id/aquarium_no3"
+                style="@style/TextView.Grid.Dark"
+                android:text="0.0" />
+
+            <TextView
+                android:id="@+id/aquarium_cl2_circle"
+                style="@style/TextView.Grid"
+                android:text="⬤" />
+
+            <TextView
+                android:id="@+id/aquarium_cl2_key"
+                style="@style/TextView.Grid.Light"
+                android:text="Cl₂" />
+
+            <TextView
+                android:id="@+id/aquarium_cl2"
+                style="@style/TextView.Grid.Dark"
+                android:text="0.0" />
+
+            <TextView
+                android:id="@+id/aquarium_nh4_circle"
+                style="@style/TextView.Grid"
+                android:text="⬤" />
+
+            <TextView
+                android:id="@+id/aquarium_nh4_key"
+                style="@style/TextView.Grid.Light"
+                android:text="NH₄" />
+
+            <TextView
+                android:id="@+id/aquarium_nh4"
+                style="@style/TextView.Grid.Dark"
+                android:text="0.0" />
+
+        </androidx.gridlayout.widget.GridLayout>
+
+        <Button
+            android:id="@+id/aquarium_addPlant"
+            style="@style/Button.Colored.Light"
+
+            android:layout_width="wrap_content"
+
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margin_half"
+            android:layout_marginBottom="@dimen/margin_half"
+            android:drawableStart="@drawable/ic_add"
+            android:drawableEnd="@drawable/nav_plant"
+            app:layout_constraintBottom_toTopOf="@+id/aquarium_edit"
+            app:layout_constraintEnd_toStartOf="@+id/aquarium_right"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@+id/aquarium_addFish"
+            app:layout_constraintTop_toBottomOf="@+id/aquarium_grid"
+            app:layout_constraintVertical_bias="1.0" />
+
+        <Button
+            android:id="@+id/aquarium_addFish"
+            style="@style/Button.Colored.Light"
+
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margin_half"
+            android:layout_marginBottom="@dimen/margin_half"
+            android:drawableStart="@drawable/ic_add"
+            android:drawableEnd="@drawable/nav_fish"
+            app:layout_constraintBottom_toTopOf="@+id/aquarium_edit"
+            app:layout_constraintEnd_toStartOf="@+id/aquarium_addPlant"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="@+id/aquarium_left"
+            app:layout_constraintTop_toBottomOf="@+id/aquarium_grid"
+            app:layout_constraintVertical_bias="1.0" />
+
+        <Button
+            android:id="@+id/aquarium_edit"
+            style="@style/Button.Colored.Dark.Edit"
+            android:layout_marginBottom="@dimen/margin"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/aquarium_right"
+            app:layout_constraintStart_toStartOf="@+id/aquarium_left" />
+
+        <!-- TODO: Прописать цвета в colors-->
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</ScrollView>

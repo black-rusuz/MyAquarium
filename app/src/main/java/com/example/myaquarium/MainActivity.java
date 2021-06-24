@@ -77,7 +77,8 @@ public class MainActivity extends AppCompatActivity {
         if (    findViewById(R.id.add_back) != null ||
                 findViewById(R.id.edit_back) != null ||
                 findViewById(R.id.settings_back) != null ||
-                findViewById(R.id.about_back) != null ) {
+                findViewById(R.id.about_back) != null ||
+                findViewById(R.id.aquarium_back) != null  ) {
             getSupportFragmentManager().popBackStack();
         }
         else

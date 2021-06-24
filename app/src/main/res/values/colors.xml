@@ -10,4 +10,14 @@
     <color name="transparent">#00FFFFFF</color>
     <color name="white">#FFFFFFFF</color>
     <color name="black">#FF000000</color>
+
+    <color name="bad">#FF4852</color>
+    <color name="average">#FDD76F</color>
+    <color name="good">#71C285</color>
+
+    <color name="terrible_text">#92242A</color>
+    <color name="bad_text">#FF4852</color>
+    <color name="average_text">#FFC62C</color>
+    <color name="good_text">#2CB039</color>
+    <color name="excellent_text">#097814</color>
 </resources>

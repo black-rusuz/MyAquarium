@@ -53,6 +53,11 @@
         <item name="android:backgroundTint">@color/accent</item>
     </style>
 
+    <style name="Button.Colored.Dark.Edit">
+        <item name="android:text">@string/edit</item>
+        <item name="android:drawableStart">@drawable/ic_edit</item>
+    </style>
+
     <style name="Button.Colored.Dark.Save">
         <item name="android:text">@string/save</item>
         <item name="android:drawableStart">@drawable/ic_save</item>
@@ -119,6 +124,13 @@
         <item name="android:layout_width">wrap_content</item>
         <item name="android:textSize">14sp</item>
         <item name="android:fontFamily">@font/roboto</item>
+    </style>
+
+    <style name="TextView.Grid.Light">
+        <item name="android:textColor">@color/text_light</item>
+    </style>
+
+    <style name="TextView.Grid.Dark">
         <item name="android:textColor">@color/text_dark</item>
     </style>
 
@@ -138,9 +150,10 @@
 
     <!-- EditTexts -->
     <style name="EditText">
-        <item name="android:layout_height">40dp</item>
-        <item name="android:background">@drawable/bg_rounded_10dp_border_dark</item>
-        <item name="android:padding">10dp</item>
+        <item name="android:layout_height">36dp</item>
+        <item name="android:background">@drawable/bg_rounded_10dp_border_light</item>
+        <item name="android:paddingStart">10dp</item>
+        <item name="android:paddingEnd">10dp</item>
         <item name="android:textSize">16sp</item>
     </style>
 
@@ -161,8 +174,15 @@
         <item name="android:layout_width">wrap_content</item>
         <item name="android:ems">3</item>
         <item name="android:hint">0</item>
-        <item name="android:inputType">numberDecimal</item>
         <item name="android:gravity">center</item>
+    </style>
+
+    <style name="EditText.Add.Num.Int">
+        <item name="android:inputType">number</item>
+    </style>
+
+    <style name="EditText.Add.Num.Float">
+        <item name="android:inputType">numberDecimal</item>
     </style>
 
     <style name="EditText.Add.Num.Coded">

@@ -1,5 +1,6 @@
 package com.example.myaquarium.ui.home.add;
 
+import android.content.ContentValues;
 import android.content.SharedPreferences;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
@@ -10,8 +11,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.LinearLayout;
-import android.widget.SimpleCursorAdapter;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -35,9 +34,6 @@ public class AddFragment extends Fragment {
         View root = inflater.inflate(R.layout.fragment_add, container, false);
         root.findViewById(R.id.add_back).setOnClickListener(v -> getParentFragmentManager().popBackStack());
 
-        SharedPreferences myPreferences = PreferenceManager.getDefaultSharedPreferences(getContext());
-        SharedPreferences.Editor myEditor = myPreferences.edit();
-
         TextView add_header = root.findViewById(R.id.add_header);
         EditText add_name = root.findViewById(R.id.add_name);
         Spinner add_type = root.findViewById(R.id.add_type);
@@ -49,160 +45,59 @@ public class AddFragment extends Fragment {
         EditText add_kh = root.findViewById(R.id.add_kh);
         EditText add_no2 = root.findViewById(R.id.add_no2);
         EditText add_no3 = root.findViewById(R.id.add_no3);
-        EditText add_cl = root.findViewById(R.id.add_cl);
-        EditText add_nh = root.findViewById(R.id.add_nh);
+        EditText add_cl2 = root.findViewById(R.id.add_cl2);
+        EditText add_nh4 = root.findViewById(R.id.add_nh4);
 
-        Button add_fish = root.findViewById(R.id.add_fish);
-        Button add_plant = root.findViewById(R.id.add_plant);
         Button add_save = root.findViewById(R.id.add_save);
 
-        if (myPreferences.getInt("VOLUME", 0) != 0) {
+        DatabaseHelper databaseHelper = new DatabaseHelper(getContext());
+        databaseHelper.create_db();
+        SQLiteDatabase readableDatabase = databaseHelper.getReadableDatabase();
+        SQLiteDatabase writableDatabase = databaseHelper.getWritableDatabase();
 
+        Cursor userCursor =  readableDatabase.rawQuery("select * from aquariums", null);
+        if ((userCursor != null) && (userCursor.getCount() > 0)) {
+            userCursor.moveToFirst();
             add_header.setText("Изменить аквариум");
-            add_name.setText(myPreferences.getString("NAME", null));
+            add_name.setText(userCursor.getString(userCursor.getColumnIndex("name")));
 
-            if (myPreferences.getString("TYPE", "Смешанный").equals("Смешанный")) {
+            if (userCursor.getString(userCursor.getColumnIndex("type")).equals("Смешанный")) {
                 add_type.setSelection(0);
             }
-            if (myPreferences.getString("TYPE", "Смешанный").equals("Рыбки")) {
+            if (userCursor.getString(userCursor.getColumnIndex("type")).equals("Рыбки")) {
                 add_type.setSelection(1);
-                add_plant.setVisibility(View.GONE);
             }
-            if (myPreferences.getString("TYPE", "Смешанный").equals("Растения")) {
+            if (userCursor.getString(userCursor.getColumnIndex("type")).equals("Растения")) {
                 add_type.setSelection(2);
-                add_fish.setVisibility(View.GONE);
             }
 
-            add_volume.setText(String.valueOf(myPreferences.getInt("VOLUME", 0)));
-            add_temperature.setText(String.valueOf(myPreferences.getInt("TEMPERATURE", 0)));
-            add_ph.setText(String.valueOf(myPreferences.getFloat("PH", 0)));
+            add_volume.setText(String.valueOf(userCursor.getInt(userCursor.getColumnIndex("volume"))));
+            add_temperature.setText(String.valueOf(userCursor.getInt(userCursor.getColumnIndex("temperature"))));
+            add_ph.setText(String.valueOf(userCursor.getFloat(userCursor.getColumnIndex("ph"))));
 
-            // TODO: Допилить параметры воды
-            // TODO: Допилить вывод полей с обитателями
+            add_gh.setText(String.valueOf(userCursor.getInt(userCursor.getColumnIndex("gh"))));
+            add_kh.setText(String.valueOf(userCursor.getInt(userCursor.getColumnIndex("kh"))));
+            add_no2.setText(String.valueOf(userCursor.getInt(userCursor.getColumnIndex("no2"))));
+            add_no3.setText(String.valueOf(userCursor.getInt(userCursor.getColumnIndex("no3"))));
+            add_cl2.setText(String.valueOf(userCursor.getFloat(userCursor.getColumnIndex("cl2"))));
+            add_nh4.setText(String.valueOf(userCursor.getFloat(userCursor.getColumnIndex("nh4"))));
+            userCursor.close();
         }
-
-        add_fish.setOnClickListener(v -> {
-            // TODO: Допилить это говно с добавлениями
-
-            // Делаем ConstraintLayout и задаём стиль и отступы
-            ConstraintLayout add_clay = new ConstraintLayout(
-                    getContext(),
-                    null,
-                    R.style.ConstraintLayout_LL,
-                    R.style.ConstraintLayout_LL);
-            ConstraintLayout.LayoutParams lp = new ConstraintLayout.LayoutParams(
-                    ConstraintLayout.LayoutParams.WRAP_CONTENT,
-                    ConstraintLayout.LayoutParams.WRAP_CONTENT);
-            lp.setMargins(0, 0, 0, (int) getResources().getDimension(R.dimen.margin_half));
-            add_clay.setLayoutParams(lp);
-
-            // Делаем EditText
-            // TODO: Надо делать не ЕТ, а спиннер с поиском
-            // https://github.com/miteshpithadiya/SearchableSpinner
-            EditText et_name = new EditText(
-                    getContext(),
-                    null,
-                    R.style.EditText_Add_Text_Coded,
-                    R.style.EditText_Add_Text_Coded);
-            et_name.setFocusable(true);
-            et_name.setFocusableInTouchMode(true);
-            et_name.setHint("Рыбка...");
-
-            // Задаём EditText ID со счётчиком
-            int id_fish = myPreferences.getInt("ID_FISH", 0);
-            String fish_id = "FISH_" + id_fish;
-            id_fish++;
-            et_name.setTag(fish_id);
-            myEditor.putInt("ID_FISH", id_fish).apply();
-
-            // Добавляем всё на слой
-            add_clay.addView(et_name);
-            //add_ll.addView(add_cl);
-
-            // Даём фокус ласт полю
-            et_name.requestFocus();
-        });
-
-        add_fish.setOnLongClickListener(v -> {
-            int id_fish = myPreferences.getInt("ID_FISH", 0);
-            for (int i = 0; i <= id_fish; i++) {
-                String fish_id = "FISH_" + i;
-                myEditor.remove(fish_id);
-                myEditor.putInt("ID_FISH", 0);
-                myEditor.commit();
-            }
-
-            Toast.makeText(
-                    getContext(),
-                    "Рыбки очищены",
-                    Toast.LENGTH_SHORT).show();
-
-            return true;
-        });
-
-        add_plant.setOnClickListener(v -> {
-
-            // Делаем ConstraintLayout и задаём стиль и отступы
-            ConstraintLayout add_clay = new ConstraintLayout(
-                    getContext(),
-                    null,
-                    R.style.ConstraintLayout_LL,
-                    R.style.ConstraintLayout_LL);
-            ConstraintLayout.LayoutParams lp = new ConstraintLayout.LayoutParams(
-                    ConstraintLayout.LayoutParams.WRAP_CONTENT,
-                    ConstraintLayout.LayoutParams.WRAP_CONTENT);
-            lp.setMargins(0, 0, 0, (int) getResources().getDimension(R.dimen.margin_half));
-            add_clay.setLayoutParams(lp);
-
-            // Делаем EditText
-            EditText et_name = new EditText(
-                    getContext(),
-                    null,
-                    R.style.EditText_Add_Text_Coded,
-                    R.style.EditText_Add_Text_Coded);
-            et_name.setFocusable(true);
-            et_name.setFocusableInTouchMode(true);
-            et_name.setHint("Растение...");
-
-            // Задаём EditText ID со счётчиком
-            int id_plant = myPreferences.getInt("ID_PLANT", 0);
-            String plant_id = "PLANT_" + id_plant;
-            id_plant++;
-            et_name.setTag(plant_id);
-            myEditor.putInt("ID_PLANT", id_plant).apply();
-
-            // Добавляем всё на слой
-            add_clay.addView(et_name);
-            //add_ll.addView(add_cl);
-
-            // Даём фокус ласт полю
-            et_name.requestFocus();
-        });
-
-        add_plant.setOnLongClickListener(v -> {
-            int id_plant = myPreferences.getInt("ID_PLANT", 0);
-            for (int i = 0; i <= id_plant; i++) {
-                String plant_id = "PLANT_" + i;
-                myEditor.remove(plant_id);
-                myEditor.putInt("ID_PLANT", 0);
-                myEditor.commit();
-            }
-
-            Toast.makeText(
-                    getContext(),
-                    "Растения очищены",
-                    Toast.LENGTH_SHORT).show();
-
-            return true;
-        });
 
         add_save.setOnClickListener(v -> {
 
+            ContentValues cv = new ContentValues();
             String name;
             String type;
             int volume;
             int temperature;
             float ph = 0.0f;
+            int gh = 0;
+            int kh = 0;
+            int no2 = 0;
+            int no3 = 0;
+            float cl2 = 0.0f;
+            float nh4 = 0.0f;
 
             if (add_name.getText().length() > 0)
                 name = String.valueOf(add_name.getText());
@@ -243,35 +138,37 @@ public class AddFragment extends Fragment {
             if (add_ph.getText().length() > 0)
                 ph = Float.parseFloat(String.valueOf(add_ph.getText()));
 
-            myEditor.putString("NAME", name);
-            myEditor.putString("TYPE", type);
-            myEditor.putInt("VOLUME", volume);
-            myEditor.putInt("TEMPERATURE", temperature);
-            myEditor.putFloat("PH", ph);
+            if (add_gh.getText().length() > 0)
+                gh = Integer.parseInt(String.valueOf(add_gh.getText()));
+            if (add_kh.getText().length() > 0)
+                kh = Integer.parseInt(String.valueOf(add_kh.getText()));
+            if (add_no2.getText().length() > 0)
+                no2 = Integer.parseInt(String.valueOf(add_no2.getText()));
+            if (add_no3.getText().length() > 0)
+                no3 = Integer.parseInt(String.valueOf(add_no3.getText()));
+            if (add_cl2.getText().length() > 0)
+                cl2 = Float.parseFloat(String.valueOf(add_cl2.getText()));
+            if (add_nh4.getText().length() > 0)
+                nh4 = Float.parseFloat(String.valueOf(add_nh4.getText()));
 
-            int id_fish = myPreferences.getInt("ID_FISH", 0);
-            for (int i = 0; i <= id_fish; i++) {
-                String fish_id = "FISH_" + i;
-                EditText fish_et = root.findViewWithTag(fish_id);
-                if(fish_et != null) {
-                    String fish_name = String.valueOf(fish_et.getText());
-                    if (fish_name.length() > 0)
-                        myEditor.putString(fish_id, fish_name);
-                }
-            }
+            cv.put("name", name);
+            cv.put("type", type);
+            cv.put("volume", volume);
+            cv.put("temperature", temperature);
+            cv.put("ph", ph);
 
-            int id_plant = myPreferences.getInt("ID_PLANT", 0);
-            for (int i = 0; i <= id_plant; i++) {
-                String plant_id = "PLANT_" + i;
-                EditText plant_et = root.findViewWithTag(plant_id);
-                if(plant_et != null) {
-                    String plant_name = String.valueOf(plant_et.getText());
-                    if (plant_name.length() > 0)
-                        myEditor.putString(plant_id, plant_name);
-                }
-            }
+            cv.put("gh", gh);
+            cv.put("kh", kh);
+            cv.put("no2", no2);
+            cv.put("no3", no3);
+            cv.put("cl2", cl2);
+            cv.put("nh4", nh4);
 
-            myEditor.apply();
+            if ((userCursor != null) && (userCursor.getCount() > 0))
+                writableDatabase.update("aquariums", cv, null, null);
+            else
+                writableDatabase.insert("aquariums", null, cv);
+            writableDatabase.close();
 
             getParentFragmentManager().popBackStack();
         });

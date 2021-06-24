@@ -16,12 +16,19 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     private static String DB_PATH; // Полный путь к базе данных
     private static String DB_NAME = "MyAquarium.db";
     private static final int SCHEMA = 1; // Версия базы данных
+    // Названия столбцов
+    static final String column_id = "_id";
+    static final String column_name = "name";
+    static final String column_type = "type";
+    static final String column_volume = "volume";
+    static final String column_temperature = "temperature";
+    static final String column_ph = "ph";
     private Context myContext;
 
     public DatabaseHelper(Context context) {
         super(context, DB_NAME, null, SCHEMA);
         this.myContext = context;
-        DB_PATH = context.getFilesDir().getPath() + DB_NAME;
+        DB_PATH = String.valueOf(context.getDatabasePath(DB_NAME));
     }
 
     @Override

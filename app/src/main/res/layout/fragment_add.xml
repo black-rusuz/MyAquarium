@@ -1,0 +1,211 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    tools:context=".ui.home.add.AddFragment">
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/add_right"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.9" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/add_left"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.1" />
+
+    <ImageView
+        android:id="@+id/add_bg"
+        style="@style/ImageView.Background.Bottom"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/bg_add" />
+
+    <Button
+        android:id="@+id/add_back"
+        style="@style/Button.Back"
+        app:layout_constraintBottom_toTopOf="@+id/add_header"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/add_header"
+        style="@style/TextView.Header"
+
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/margin_double"
+        android:text="Добавить аквариум"
+        app:layout_constraintEnd_toStartOf="@+id/add_right"
+        app:layout_constraintStart_toStartOf="@+id/add_left"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <androidx.gridlayout.widget.GridLayout
+        android:id="@+id/add_grid"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/margin"
+        android:layout_marginBottom="@dimen/margin"
+        app:columnCount="4"
+        app:layout_constraintBottom_toTopOf="@+id/add_save"
+        app:layout_constraintEnd_toStartOf="@+id/add_right"
+        app:layout_constraintStart_toStartOf="@+id/add_left"
+        app:layout_constraintTop_toBottomOf="@+id/add_header"
+        app:useDefaultMargins="true">
+
+        <TextView
+            android:id="@+id/add_name_key"
+            style="@style/TextView.Grid.Dark"
+            android:text="@string/name_" />
+
+        <EditText
+            android:id="@+id/add_name"
+            style="@style/EditText.Add.Text"
+            android:layout_width="wrap_content"
+            android:hint="Введите название"
+            android:maxLength="20"
+            android:ems="1"
+
+            app:layout_columnSpan="3"
+            app:layout_gravity="fill_horizontal" />
+
+        <TextView
+            android:id="@+id/add_type_key"
+            style="@style/TextView.Grid.Dark"
+            android:text="@string/type_" />
+
+        <Spinner
+            android:id="@+id/add_type"
+            android:layout_width="wrap_content"
+            android:layout_height="36dp"
+            android:background="@drawable/bg_rounded_10dp_border_light"
+            android:entries="@array/types"
+            android:popupBackground="@drawable/bg_rounded_10dp"
+            app:layout_columnSpan="3"
+            app:layout_gravity="fill_horizontal" />
+
+        <TextView
+            android:id="@+id/add_volume_key"
+            style="@style/TextView.Grid.Dark"
+            android:text="@string/volume_" />
+
+        <EditText
+            android:id="@+id/add_volume"
+            style="@style/EditText.Add.Num.Int"
+            app:layout_columnSpan="3"
+            app:layout_gravity="fill_horizontal" />
+
+        <TextView
+            android:id="@+id/add_temperature_key"
+            style="@style/TextView.Grid.Dark"
+            android:text="t (°C):" />
+
+        <EditText
+            android:id="@+id/add_temperature"
+            style="@style/EditText.Add.Num.Int"
+            app:layout_columnWeight="1" />
+
+        <TextView
+            android:id="@+id/add_ph_key"
+            style="@style/TextView.Grid.Dark"
+            app:layout_gravity="end"
+            android:text="pH:" />
+
+        <EditText
+            android:id="@+id/add_ph"
+            style="@style/EditText.Add.Num.Float"
+            app:layout_columnWeight="1" />
+
+        <TextView
+            android:id="@+id/add_additional"
+            style="@style/TextView.Grid.Dark"
+            android:text="\nДополнительно:"
+
+            app:layout_columnSpan="4"
+            app:layout_gravity="fill_horizontal" />
+
+        <TextView
+            android:id="@+id/add_gh_key"
+            style="@style/TextView.Grid.Dark"
+            app:layout_gravity="end"
+            android:text="GH " />
+
+        <EditText
+            android:id="@+id/add_gh"
+            style="@style/EditText.Add.Num.Int"
+            app:layout_columnWeight="1" />
+
+        <TextView
+            android:id="@+id/add_kh_key"
+            style="@style/TextView.Grid.Dark"
+            app:layout_gravity="end"
+            android:text="KH " />
+
+        <EditText
+            android:id="@+id/add_kh"
+            style="@style/EditText.Add.Num.Int"
+            app:layout_columnWeight="1" />
+
+        <TextView
+            android:id="@+id/add_no2_key"
+            style="@style/TextView.Grid.Dark"
+            app:layout_gravity="end"
+            android:text="NO₂" />
+
+        <EditText
+            android:id="@+id/add_no2"
+            style="@style/EditText.Add.Num.Int"
+            app:layout_columnWeight="1" />
+
+        <TextView
+            android:id="@+id/add_no3_key"
+            style="@style/TextView.Grid.Dark"
+            app:layout_gravity="end"
+            android:text="NO₃" />
+
+        <EditText
+            android:id="@+id/add_no3"
+            style="@style/EditText.Add.Num.Int"
+            app:layout_columnWeight="1" />
+
+        <TextView
+            android:id="@+id/add_cl2_key"
+            style="@style/TextView.Grid.Dark"
+            app:layout_gravity="end"
+            android:text="Cl₂" />
+
+        <EditText
+            android:id="@+id/add_cl2"
+            style="@style/EditText.Add.Num.Float"
+            app:layout_columnWeight="1" />
+
+        <TextView
+            android:id="@+id/add_nh4_key"
+            style="@style/TextView.Grid.Dark"
+            app:layout_gravity="end"
+            android:text="NH₄" />
+
+        <EditText
+            android:id="@+id/add_nh4"
+            style="@style/EditText.Add.Num.Float"
+            app:layout_columnWeight="1" />
+
+    </androidx.gridlayout.widget.GridLayout>
+
+    <Button
+        android:id="@+id/add_save"
+        style="@style/Button.Colored.Dark.Save"
+
+        android:layout_marginBottom="@dimen/margin"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/add_right"
+        app:layout_constraintStart_toStartOf="@+id/add_left" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

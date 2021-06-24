@@ -80,7 +80,7 @@
         android:id="@+id/settings_day"
         android:layout_width="54dp"
         android:layout_height="25dp"
-        android:background="@drawable/bg_rounded_10dp_border_dark"
+        android:background="@drawable/bg_rounded_10dp_border_light"
         android:entries="@array/days"
         android:popupBackground="@drawable/bg_rounded_10dp"
         app:layout_constraintBottom_toBottomOf="@+id/settings_day_key"
@@ -157,13 +157,13 @@
         android:id="@+id/settings_time"
         android:layout_width="65dp"
         android:layout_height="25dp"
-        android:background="@drawable/bg_rounded_10dp_border_dark"
-        android:entries="@array/times"
+        android:background="@drawable/bg_rounded_10dp_border_light"
         android:popupBackground="@drawable/bg_rounded_10dp"
         android:visibility="gone"
         app:layout_constraintBottom_toBottomOf="@+id/settings_time_key"
         app:layout_constraintEnd_toStartOf="@+id/settings_right"
         app:layout_constraintTop_toTopOf="@+id/settings_time_key" />
+    <!--android:entries="@array/times"-->
 
     <ImageView
         android:id="@+id/settings_time_iv"
