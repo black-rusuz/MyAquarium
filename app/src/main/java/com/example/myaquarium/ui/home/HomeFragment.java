@@ -22,8 +22,6 @@ import com.example.myaquarium.R;
 import com.example.myaquarium.ui.home.add.AddFragment;
 import com.example.myaquarium.ui.home.aquarium.AquariumFragment;
 
-import org.w3c.dom.Text;
-
 public class HomeFragment extends Fragment {
 
     private HomeViewModel homeViewModel;
@@ -59,6 +57,7 @@ public class HomeFragment extends Fragment {
                     null,
                     null,
                     null);
+            myPreferences.edit().putInt("COUNT_A", 1).apply();
         }
         userCursor.close();
 

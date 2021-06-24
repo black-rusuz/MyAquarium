@@ -100,33 +100,6 @@ public class AquaFragment extends Fragment {
                 }
             }
 
-            aqua_feed.setText("утром и вечером");
-            aqua_refresh.setText("каждые 2 недели");
-
-            int rating = myPreferences.getInt("RATING", 0);
-            if (rating < -1) {
-                aqua_condition.setText(getResources().getString(R.string.terrible));
-                aqua_condition.setTextColor(getResources().getColor(R.color.terrible_text));
-            }
-            if (rating == -1) {
-                aqua_condition.setText(getResources().getString(R.string.bad));
-                aqua_condition.setTextColor(getResources().getColor(R.color.bad_text));
-            }
-            if (rating == 0) {
-                aqua_condition.setText(getResources().getString(R.string.average));
-                aqua_condition.setTextColor(getResources().getColor(R.color.average_text));
-            }
-            if (rating == 1) {
-                aqua_condition.setText(getResources().getString(R.string.good));
-                aqua_condition.setTextColor(getResources().getColor(R.color.good_text));
-            }
-            if (rating > 1) {
-                aqua_condition.setText(getResources().getString(R.string.excellent));
-                aqua_condition.setTextColor(getResources().getColor(R.color.excellent_text));
-            }
-
-
-
             int id_fish = myPreferences.getInt("ID_FISH", 0);
             int id_plant = myPreferences.getInt("ID_PLANT", 0);
             int count_fish;
@@ -176,6 +149,31 @@ public class AquaFragment extends Fragment {
                 aqua_plant_key.setVisibility(View.GONE);
                 aqua_plant.setVisibility(View.GONE);
             }
+        }
+
+        aqua_feed.setText("утром и вечером");
+        aqua_refresh.setText("каждые 2 недели");
+
+        int rating = myPreferences.getInt("RATING", 0);
+        if (rating < -1) {
+            aqua_condition.setText(getResources().getString(R.string.terrible));
+            aqua_condition.setTextColor(getResources().getColor(R.color.terrible_text));
+        }
+        if (rating == -1) {
+            aqua_condition.setText(getResources().getString(R.string.bad));
+            aqua_condition.setTextColor(getResources().getColor(R.color.bad_text));
+        }
+        if (rating == 0) {
+            aqua_condition.setText(getResources().getString(R.string.average));
+            aqua_condition.setTextColor(getResources().getColor(R.color.average_text));
+        }
+        if (rating == 1) {
+            aqua_condition.setText(getResources().getString(R.string.good));
+            aqua_condition.setTextColor(getResources().getColor(R.color.good_text));
+        }
+        if (rating > 1) {
+            aqua_condition.setText(getResources().getString(R.string.excellent));
+            aqua_condition.setTextColor(getResources().getColor(R.color.excellent_text));
         }
 
         return root;

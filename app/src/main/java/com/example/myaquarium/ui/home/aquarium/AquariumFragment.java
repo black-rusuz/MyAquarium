@@ -9,10 +9,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
-import android.widget.EditText;
-import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.constraintlayout.widget.ConstraintLayout;
@@ -22,6 +19,8 @@ import androidx.lifecycle.ViewModelProvider;
 import com.example.myaquarium.DatabaseHelper;
 import com.example.myaquarium.R;
 import com.example.myaquarium.ui.home.add.AddFragment;
+import com.example.myaquarium.ui.home.aquarium.fish.FishFragment;
+import com.example.myaquarium.ui.home.aquarium.plant.PlantFragment;
 
 public class AquariumFragment extends Fragment {
 
@@ -103,98 +102,12 @@ public class AquariumFragment extends Fragment {
                 if ((ph >= 5 && ph < 6.5) || (ph > 8.5 && ph <= 9.5)) {
                     aquarium_ph_circle.setTextColor(getResources().getColor(R.color.average));
                 } else {
-                    if (ph >= 6.5 && ph <= 8.5){
+                    if (ph >= 6.5 && ph <= 8.5) {
                         aquarium_ph_circle.setTextColor(getResources().getColor(R.color.good));
                         rating++;
                     }
                 }
             }
-
-            int gh = userCursor.getInt(userCursor.getColumnIndex("gh"));
-            int kh = userCursor.getInt(userCursor.getColumnIndex("kh"));
-            int no2 = userCursor.getInt(userCursor.getColumnIndex("no2"));
-            int no3 = userCursor.getInt(userCursor.getColumnIndex("no3"));
-            float cl2 = userCursor.getFloat(userCursor.getColumnIndex("cl2"));
-            float nh4 = userCursor.getFloat(userCursor.getColumnIndex("nh4"));
-
-            aquarium_gh.setText(String.valueOf(gh));
-            aquarium_kh.setText(String.valueOf(kh));
-            aquarium_no2.setText(String.valueOf(no2));
-            aquarium_no3.setText(String.valueOf(no3));
-            aquarium_cl2.setText(String.valueOf(cl2));
-            aquarium_nh4.setText(String.valueOf(nh4));
-
-            if ((gh >= 0 && gh < 5) || (gh > 20)) {
-                aquarium_gh_circle.setTextColor(getResources().getColor(R.color.average));
-            } else {
-                if (gh >= 5 && gh <= 20){
-                    aquarium_gh_circle.setTextColor(getResources().getColor(R.color.good));
-                    rating++;
-                }
-            }
-
-            if ((kh >= 0 && kh < 4) || (kh > 16)) {
-                aquarium_kh_circle.setTextColor(getResources().getColor(R.color.average));
-            } else {
-                if (kh >= 4 && kh <= 16){
-                    aquarium_kh_circle.setTextColor(getResources().getColor(R.color.good));
-                    rating++;
-                }
-            }
-
-            if (no2 > 0.5) {
-                aquarium_no2_circle.setTextColor(getResources().getColor(R.color.bad));
-                rating--;
-            } else {
-                if (no2 > 0 && no2 <= 0.5) {
-                    aquarium_no2_circle.setTextColor(getResources().getColor(R.color.average));
-                } else {
-                    if (no2 == 0){
-                        aquarium_no2_circle.setTextColor(getResources().getColor(R.color.good));
-                        rating++;
-                    }
-                }
-            }
-
-            if (no3 > 50) {
-                aquarium_no3_circle.setTextColor(getResources().getColor(R.color.bad));
-                rating--;
-            } else {
-                if (no3 > 25 && no3 <= 50) {
-                    aquarium_no3_circle.setTextColor(getResources().getColor(R.color.average));
-                } else {
-                    if (no3 >= 0 && no3 <= 25){
-                        aquarium_no3_circle.setTextColor(getResources().getColor(R.color.good));
-                        rating++;
-                    }
-                }
-            }
-
-            if (cl2 > 0.7) {
-                aquarium_cl2_circle.setTextColor(getResources().getColor(R.color.bad));
-                rating--;
-            } else {
-                if (cl2 >= 0 && cl2 <= 0.7){
-                    aquarium_cl2_circle.setTextColor(getResources().getColor(R.color.good));
-                    rating++;
-                }
-            }
-
-            if (nh4 > 0.01) {
-                aquarium_nh4_circle.setTextColor(getResources().getColor(R.color.bad));
-                rating--;
-            } else {
-                if (nh4 >= 0 && nh4 <= 0.01){
-                    aquarium_nh4_circle.setTextColor(getResources().getColor(R.color.good));
-                    rating++;
-                }
-            }
-
-            userCursor.close();
-            myEditor.putInt("RATING", rating).apply();
-
-            aquarium_feed.setText("утром и вечером");
-            aquarium_refresh.setText("каждые 2 недели");
 
             int id_fish = myPreferences.getInt("ID_FISH", 0);
             int id_plant = myPreferences.getInt("ID_PLANT", 0);
@@ -229,6 +142,10 @@ public class AquariumFragment extends Fragment {
             }
             aquarium_plant.setText(plants);
 
+            myEditor.putInt("COUNT_FISH", count_fish);
+            myEditor.putInt("COUNT_PLANT", count_plant);
+            myEditor.apply();
+
             if (count_fish <= 0 && count_plant <= 0)
                 aquarium_content.setVisibility(View.GONE);
 
@@ -241,128 +158,111 @@ public class AquariumFragment extends Fragment {
                 aquarium_plant_key.setVisibility(View.GONE);
                 aquarium_plant.setVisibility(View.GONE);
             }
-        }
 
-        aquarium_addFish.setOnClickListener(v -> {
-            // TODO: Допилить это говно с добавлениями
+            int gh = userCursor.getInt(userCursor.getColumnIndex("gh"));
+            int kh = userCursor.getInt(userCursor.getColumnIndex("kh"));
+            int no2 = userCursor.getInt(userCursor.getColumnIndex("no2"));
+            int no3 = userCursor.getInt(userCursor.getColumnIndex("no3"));
+            float cl2 = userCursor.getFloat(userCursor.getColumnIndex("cl2"));
+            float nh4 = userCursor.getFloat(userCursor.getColumnIndex("nh4"));
 
-            // Делаем ConstraintLayout и задаём стиль и отступы
-            ConstraintLayout aquarium_clay = new ConstraintLayout(
-                    getContext(),
-                    null,
-                    R.style.ConstraintLayout_LL,
-                    R.style.ConstraintLayout_LL);
-            ConstraintLayout.LayoutParams lp = new ConstraintLayout.LayoutParams(
-                    ConstraintLayout.LayoutParams.WRAP_CONTENT,
-                    ConstraintLayout.LayoutParams.WRAP_CONTENT);
-            lp.setMargins(0, 0, 0, (int) getResources().getDimension(R.dimen.margin_half));
-            aquarium_clay.setLayoutParams(lp);
+            aquarium_gh.setText(String.valueOf(gh));
+            aquarium_kh.setText(String.valueOf(kh));
+            aquarium_no2.setText(String.valueOf(no2));
+            aquarium_no3.setText(String.valueOf(no3));
+            aquarium_cl2.setText(String.valueOf(cl2));
+            aquarium_nh4.setText(String.valueOf(nh4));
 
-            // Делаем EditText
-            // TODO: Надо делать не ЕТ, а спиннер с поиском
-            // https://github.com/miteshpithadiya/SearchableSpinner
-            EditText et_name = new EditText(
-                    getContext(),
-                    null,
-                    R.style.EditText_Add_Text_Coded,
-                    R.style.EditText_Add_Text_Coded);
-            et_name.setFocusable(true);
-            et_name.setFocusableInTouchMode(true);
-            et_name.setHint("Рыбка...");
-
-            // Задаём EditText ID со счётчиком
-            int id_fish = myPreferences.getInt("ID_FISH", 0);
-            String fish_id = "FISH_" + id_fish;
-            id_fish++;
-            et_name.setTag(fish_id);
-            myEditor.putInt("ID_FISH", id_fish).apply();
-
-            // Добавляем всё на слой
-            aquarium_clay.addView(et_name);
-            //aquarium_ll.addView(aquarium_cl);
-
-            // Даём фокус ласт полю
-            et_name.requestFocus();
-        });
-
-        aquarium_addFish.setOnLongClickListener(v -> {
-            int id_fish = myPreferences.getInt("ID_FISH", 0);
-            for (int i = 0; i <= id_fish; i++) {
-                String fish_id = "FISH_" + i;
-                myEditor.remove(fish_id);
-                myEditor.putInt("ID_FISH", 0);
-                myEditor.commit();
+            if ((gh >= 0 && gh < 5) || (gh > 20)) {
+                aquarium_gh_circle.setTextColor(getResources().getColor(R.color.average));
+            } else {
+                if (gh >= 5 && gh <= 20) {
+                    aquarium_gh_circle.setTextColor(getResources().getColor(R.color.good));
+                    rating++;
+                }
             }
 
-            Toast.makeText(
-                    getContext(),
-                    "Рыбки очищены",
-                    Toast.LENGTH_SHORT).show();
-
-            return true;
-        });
-
-        aquarium_addPlant.setOnClickListener(v -> {
-
-            // Делаем ConstraintLayout и задаём стиль и отступы
-            ConstraintLayout aquarium_clay = new ConstraintLayout(
-                    getContext(),
-                    null,
-                    R.style.ConstraintLayout_LL,
-                    R.style.ConstraintLayout_LL);
-            ConstraintLayout.LayoutParams lp = new ConstraintLayout.LayoutParams(
-                    ConstraintLayout.LayoutParams.WRAP_CONTENT,
-                    ConstraintLayout.LayoutParams.WRAP_CONTENT);
-            lp.setMargins(0, 0, 0, (int) getResources().getDimension(R.dimen.margin_half));
-            aquarium_clay.setLayoutParams(lp);
-
-            // Делаем EditText
-            EditText et_name = new EditText(
-                    getContext(),
-                    null,
-                    R.style.EditText_Add_Text_Coded,
-                    R.style.EditText_Add_Text_Coded);
-            et_name.setFocusable(true);
-            et_name.setFocusableInTouchMode(true);
-            et_name.setHint("Растение...");
-
-            // Задаём EditText ID со счётчиком
-            int id_plant = myPreferences.getInt("ID_PLANT", 0);
-            String plant_id = "PLANT_" + id_plant;
-            id_plant++;
-            et_name.setTag(plant_id);
-            myEditor.putInt("ID_PLANT", id_plant).apply();
-
-            // Добавляем всё на слой
-            aquarium_clay.addView(et_name);
-            //aquarium_ll.addView(aquarium_cl);
-
-            // Даём фокус ласт полю
-            et_name.requestFocus();
-        });
-
-        aquarium_addPlant.setOnLongClickListener(v -> {
-            int id_plant = myPreferences.getInt("ID_PLANT", 0);
-            for (int i = 0; i <= id_plant; i++) {
-                String plant_id = "PLANT_" + i;
-                myEditor.remove(plant_id);
-                myEditor.putInt("ID_PLANT", 0);
-                myEditor.commit();
+            if ((kh >= 0 && kh < 4) || (kh > 16)) {
+                aquarium_kh_circle.setTextColor(getResources().getColor(R.color.average));
+            } else {
+                if (kh >= 4 && kh <= 16) {
+                    aquarium_kh_circle.setTextColor(getResources().getColor(R.color.good));
+                    rating++;
+                }
             }
 
-            Toast.makeText(
-                    getContext(),
-                    "Растения очищены",
-                    Toast.LENGTH_SHORT).show();
+            if (no2 > 0.5) {
+                aquarium_no2_circle.setTextColor(getResources().getColor(R.color.bad));
+                rating--;
+            } else {
+                if (no2 > 0 && no2 <= 0.5) {
+                    aquarium_no2_circle.setTextColor(getResources().getColor(R.color.average));
+                } else {
+                    if (no2 == 0) {
+                        aquarium_no2_circle.setTextColor(getResources().getColor(R.color.good));
+                        rating++;
+                    }
+                }
+            }
 
-            return true;
-        });
+            if (no3 > 50) {
+                aquarium_no3_circle.setTextColor(getResources().getColor(R.color.bad));
+                rating--;
+            } else {
+                if (no3 > 25 && no3 <= 50) {
+                    aquarium_no3_circle.setTextColor(getResources().getColor(R.color.average));
+                } else {
+                    if (no3 >= 0 && no3 <= 25) {
+                        aquarium_no3_circle.setTextColor(getResources().getColor(R.color.good));
+                        rating++;
+                    }
+                }
+            }
 
-        aquarium_edit.setOnClickListener(v ->
+            if (cl2 > 0.7) {
+                aquarium_cl2_circle.setTextColor(getResources().getColor(R.color.bad));
+                rating--;
+            } else {
+                if (cl2 >= 0 && cl2 <= 0.7) {
+                    aquarium_cl2_circle.setTextColor(getResources().getColor(R.color.good));
+                    rating++;
+                }
+            }
+
+            if (nh4 > 0.01) {
+                aquarium_nh4_circle.setTextColor(getResources().getColor(R.color.bad));
+                rating--;
+            } else {
+                if (nh4 >= 0 && nh4 <= 0.01) {
+                    aquarium_nh4_circle.setTextColor(getResources().getColor(R.color.good));
+                    rating++;
+                }
+            }
+
+            userCursor.close();
+            myEditor.putInt("RATING", rating).apply();
+
+            aquarium_feed.setText("утром и вечером");
+            aquarium_refresh.setText("каждые 2 недели");
+
+            aquarium_edit.setOnClickListener(v ->
+                    getParentFragmentManager().beginTransaction()
+                            .replace(R.id.nav_host_fragment, new AddFragment())
+                            .addToBackStack("Aquarium")
+                            .commit());
+
+            aquarium_addFish.setOnClickListener(v ->
                 getParentFragmentManager().beginTransaction()
-                        .replace(R.id.nav_host_fragment, new AddFragment())
-                        .addToBackStack("Home")
+                        .replace(R.id.nav_host_fragment, new FishFragment())
+                        .addToBackStack("Aquarium")
                         .commit());
+
+            aquarium_addPlant.setOnClickListener(v ->
+                    getParentFragmentManager().beginTransaction()
+                            .replace(R.id.nav_host_fragment, new PlantFragment())
+                            .addToBackStack("Aquarium")
+                            .commit());
+        }
 
         return root;
     }

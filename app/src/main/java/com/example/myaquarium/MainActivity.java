@@ -14,8 +14,6 @@ import androidx.navigation.ui.NavigationUI;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
-import java.util.Calendar;
-
 public class MainActivity extends AppCompatActivity {
 
     @Override
@@ -78,7 +76,9 @@ public class MainActivity extends AppCompatActivity {
                 findViewById(R.id.edit_back) != null ||
                 findViewById(R.id.settings_back) != null ||
                 findViewById(R.id.about_back) != null ||
-                findViewById(R.id.aquarium_back) != null  ) {
+                findViewById(R.id.aquarium_back) != null ||
+                findViewById(R.id.fish_back) != null ||
+                findViewById(R.id.plant_back) != null   ) {
             getSupportFragmentManager().popBackStack();
         }
         else
