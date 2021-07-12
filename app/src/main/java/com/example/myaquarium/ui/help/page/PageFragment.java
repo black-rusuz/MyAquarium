@@ -92,6 +92,8 @@ public class PageFragment extends Fragment {
 
         page_description.setText(userCursor.getString(userCursor.getColumnIndex("description")));
 
+        readableDatabase.close();
+        userCursor.close();
         return root;
     }
 }

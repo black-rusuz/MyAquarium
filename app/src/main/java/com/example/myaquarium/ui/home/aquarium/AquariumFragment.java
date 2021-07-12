@@ -239,7 +239,6 @@ public class AquariumFragment extends Fragment {
                 }
             }
 
-            userCursor.close();
             myEditor.putInt("RATING", rating).apply();
 
             aquarium_feed.setText("утром и вечером");
@@ -263,7 +262,9 @@ public class AquariumFragment extends Fragment {
                             .addToBackStack("Aquarium")
                             .commit());
         }
-
+        
+        readableDatabase.close();
+        userCursor.close();
         return root;
     }
 }

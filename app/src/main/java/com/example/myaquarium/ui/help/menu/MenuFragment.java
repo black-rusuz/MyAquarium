@@ -26,7 +26,6 @@ public class MenuFragment extends Fragment {
     private DatabaseHelper databaseHelper;
     private SQLiteDatabase db;
     private Cursor userCursor;
-    private SimpleCursorAdapter userAdapter;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
@@ -67,7 +66,7 @@ public class MenuFragment extends Fragment {
         super.onResume();
         db = databaseHelper.open();
         userCursor = db.rawQuery("select * from " + category, null);
-        userAdapter = new SimpleCursorAdapter(
+        SimpleCursorAdapter userAdapter = new SimpleCursorAdapter(
                 getContext(),
                 R.layout.listview,
                 userCursor,

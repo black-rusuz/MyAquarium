@@ -100,8 +100,6 @@ public class AquaFragment extends Fragment {
                 }
             }
 
-            userCursor.close();
-
             int id_fish = myPreferences.getInt("ID_FISH", 0);
             int id_plant = myPreferences.getInt("ID_PLANT", 0);
             int count_fish;
@@ -178,6 +176,8 @@ public class AquaFragment extends Fragment {
             aqua_condition.setTextColor(getResources().getColor(R.color.excellent));
         }
 
+        readableDatabase.close();
+        userCursor.close();
         return root;
     }
 }

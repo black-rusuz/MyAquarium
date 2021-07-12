@@ -57,7 +57,7 @@
             app:layout_constraintTop_toBottomOf="@id/page_header"
             app:layout_constraintVertical_chainStyle="packed"
             app:strokeColor="@color/accent_light"
-            app:strokeWidth="3dp">
+            app:strokeWidth="4.5dp">
 
             <ImageView
                 android:id="@+id/page_image"
