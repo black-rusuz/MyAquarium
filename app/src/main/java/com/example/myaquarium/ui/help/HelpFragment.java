@@ -13,6 +13,9 @@ import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
 
 import com.example.myaquarium.R;
+import com.example.myaquarium.ui.help.menu.MenuFragment;
+import com.example.myaquarium.ui.help.page.PageFragment;
+import com.example.myaquarium.ui.home.aquarium.AquariumFragment;
 
 public class HelpFragment extends Fragment {
 
@@ -32,15 +35,27 @@ public class HelpFragment extends Fragment {
 
         //TODO: Тут переделать под внутреннее отображение
         help_sv_1.setOnClickListener(v -> {
-            Uri uri = Uri.parse("https://www.aqvium.ru/ryby");
-            Intent intent = new Intent(Intent.ACTION_VIEW, uri);
-            startActivity(intent);
+            Fragment fragment = new MenuFragment();
+            Bundle bundle = new Bundle();
+            bundle.putString("category", "fishes");
+            fragment.setArguments(bundle);
+
+            getParentFragmentManager().beginTransaction()
+                    .replace(R.id.nav_host_fragment, fragment)
+                    .addToBackStack("Help")
+                    .commit();
         });
 
         help_sv_2.setOnClickListener(v -> {
-            Uri uri = Uri.parse("https://www.aqvium.ru/vidy-rastenij");
-            Intent intent = new Intent(Intent.ACTION_VIEW, uri);
-            startActivity(intent);
+            Fragment fragment = new MenuFragment();
+            Bundle bundle = new Bundle();
+            bundle.putString("category", "plants");
+            fragment.setArguments(bundle);
+
+            getParentFragmentManager().beginTransaction()
+                    .replace(R.id.nav_host_fragment, fragment)
+                    .addToBackStack("Help")
+                    .commit();
         });
 
         help_sv_3.setOnClickListener(v -> {

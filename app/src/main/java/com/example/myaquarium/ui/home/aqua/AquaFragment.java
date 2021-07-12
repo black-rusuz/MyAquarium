@@ -100,6 +100,8 @@ public class AquaFragment extends Fragment {
                 }
             }
 
+            userCursor.close();
+
             int id_fish = myPreferences.getInt("ID_FISH", 0);
             int id_plant = myPreferences.getInt("ID_PLANT", 0);
             int count_fish;
@@ -157,23 +159,23 @@ public class AquaFragment extends Fragment {
         int rating = myPreferences.getInt("RATING", 0);
         if (rating < -1) {
             aqua_condition.setText(getResources().getString(R.string.terrible));
-            aqua_condition.setTextColor(getResources().getColor(R.color.terrible_text));
+            aqua_condition.setTextColor(getResources().getColor(R.color.terrible));
         }
         if (rating == -1) {
             aqua_condition.setText(getResources().getString(R.string.bad));
-            aqua_condition.setTextColor(getResources().getColor(R.color.bad_text));
+            aqua_condition.setTextColor(getResources().getColor(R.color.bad));
         }
         if (rating == 0) {
             aqua_condition.setText(getResources().getString(R.string.average));
-            aqua_condition.setTextColor(getResources().getColor(R.color.average_text));
+            aqua_condition.setTextColor(getResources().getColor(R.color.average));
         }
         if (rating == 1) {
             aqua_condition.setText(getResources().getString(R.string.good));
-            aqua_condition.setTextColor(getResources().getColor(R.color.good_text));
+            aqua_condition.setTextColor(getResources().getColor(R.color.good));
         }
         if (rating > 1) {
             aqua_condition.setText(getResources().getString(R.string.excellent));
-            aqua_condition.setTextColor(getResources().getColor(R.color.excellent_text));
+            aqua_condition.setTextColor(getResources().getColor(R.color.excellent));
         }
 
         return root;

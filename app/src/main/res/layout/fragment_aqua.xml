@@ -104,8 +104,6 @@
                 <TextView
                     android:id="@+id/aqua_volume_unit"
                     style="@style/TextView.Text.Dark"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
                     app:layout_constraintBottom_toBottomOf="@id/aqua_volume"
                     app:layout_constraintStart_toEndOf="@id/aqua_volume"
                     app:layout_constraintTop_toTopOf="@id/aqua_volume" />
@@ -128,8 +126,6 @@
                 <TextView
                     android:id="@+id/aqua_temperature_unit"
                     style="@style/TextView.Text.Dark"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
                     android:text="@string/temperature_unit"
                     app:layout_constraintBottom_toBottomOf="@+id/aqua_temperature"
                     app:layout_constraintStart_toEndOf="@+id/aqua_temperature"
@@ -138,7 +134,7 @@
                 <TextView
                     android:id="@+id/aqua_ph_circle"
                     style="@style/TextView.Grid"
-                    android:layout_marginStart="@dimen/margin_half"
+                    android:layout_marginStart="@dimen/margin"
                     android:text="⬤"
                     app:layout_constraintBottom_toBottomOf="@+id/aqua_temperature_unit"
                     app:layout_constraintStart_toEndOf="@+id/aqua_temperature_unit"

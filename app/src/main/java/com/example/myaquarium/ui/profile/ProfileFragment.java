@@ -37,7 +37,7 @@ public class ProfileFragment extends Fragment {
         SharedPreferences myPreferences = PreferenceManager.getDefaultSharedPreferences(getContext());
 
         TextView profile_username = root.findViewById(R.id.profile_username);
-        ImageView profile_userpic = root.findViewById(R.id.profile_userpic);
+        ImageView profile_userpic = root.findViewById(R.id.page_image);
 
         //TODO: Сделать кликабельным и выводить инфу о левелах
         ConstraintLayout profile_exp_bar_progress = root.findViewById(R.id.profile_exp_bar_progress);

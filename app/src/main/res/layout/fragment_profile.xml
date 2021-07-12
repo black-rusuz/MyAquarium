@@ -41,7 +41,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <com.google.android.material.card.MaterialCardView
-        android:id="@+id/profile_cv_userpic"
+        android:id="@+id/page_cv_image"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/margin"
@@ -59,7 +59,7 @@
         app:layout_constraintVertical_chainStyle="packed">
 
         <ImageView
-            android:id="@+id/profile_userpic"
+            android:id="@+id/page_image"
             android:layout_width="120dp"
             android:layout_height="120dp"
             android:src="@drawable/userpic"
@@ -80,7 +80,7 @@
         app:layout_constraintBottom_toTopOf="@+id/profile_exp"
         app:layout_constraintEnd_toStartOf="@+id/profile_right"
         app:layout_constraintStart_toStartOf="@+id/profile_left"
-        app:layout_constraintTop_toBottomOf="@+id/profile_cv_userpic" />
+        app:layout_constraintTop_toBottomOf="@+id/page_cv_image" />
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/profile_exp"

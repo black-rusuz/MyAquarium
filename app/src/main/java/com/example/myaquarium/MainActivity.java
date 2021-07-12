@@ -72,13 +72,16 @@ public class MainActivity extends AppCompatActivity {
 
     @Override
     public void onBackPressed() {
-        if (    findViewById(R.id.add_back) != null ||
-                findViewById(R.id.edit_back) != null ||
-                findViewById(R.id.settings_back) != null ||
-                findViewById(R.id.about_back) != null ||
-                findViewById(R.id.aquarium_back) != null ||
-                findViewById(R.id.fish_back) != null ||
-                findViewById(R.id.plant_back) != null   ) {
+        // TODO: Переделать условие под наличие элементов в бэкстеке, а то хуйня какая-то
+        if (    findViewById(R.id.add_back) != null         ||
+                findViewById(R.id.edit_back) != null        ||
+                findViewById(R.id.settings_back) != null    ||
+                findViewById(R.id.about_back) != null       ||
+                findViewById(R.id.aquarium_back) != null    ||
+                findViewById(R.id.fish_back) != null        ||
+                findViewById(R.id.plant_back) != null       ||
+                findViewById(R.id.menu_back) != null        ||
+                findViewById(R.id.page_back) != null        ) {
             getSupportFragmentManager().popBackStack();
         }
         else

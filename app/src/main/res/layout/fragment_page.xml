@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    android:fillViewport="true"
+    tools:context=".ui.profile.ProfileFragment">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/page_left"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.1" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/page_right"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.9" />
+
+        <Button
+            android:id="@+id/page_back"
+            style="@style/Button.Back"
+            app:layout_constraintBottom_toTopOf="@+id/page_header"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <TextView
+            android:id="@+id/page_header"
+            style="@style/TextView.Header"
+
+            android:layout_marginTop="@dimen/margin_double"
+            android:text="#page_header"
+            app:layout_constraintEnd_toStartOf="@+id/page_right"
+            app:layout_constraintStart_toStartOf="@+id/page_left"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/page_cv_image"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margin"
+
+            app:cardCornerRadius="180dp"
+            app:cardElevation="0dp"
+            app:layout_constraintEnd_toStartOf="@+id/page_right"
+
+            app:layout_constraintStart_toStartOf="@+id/page_left"
+            app:layout_constraintTop_toBottomOf="@id/page_header"
+            app:layout_constraintVertical_chainStyle="packed"
+            app:strokeColor="@color/accent_light"
+            app:strokeWidth="3dp">
+
+            <ImageView
+                android:id="@+id/page_image"
+                android:layout_width="180dp"
+                android:layout_height="180dp" />
+        </com.google.android.material.card.MaterialCardView>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/page_cl_sum"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margin"
+            app:layout_constraintEnd_toStartOf="@+id/page_right"
+            app:layout_constraintStart_toStartOf="@+id/page_left"
+            app:layout_constraintTop_toBottomOf="@id/page_cv_image">
+
+            <TextView
+                android:id="@+id/page_temperature_key"
+                style="@style/TextView.Text.Light"
+                android:text="@string/temperature_"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/page_temperature"
+                style="@style/TextView.Text.Dark"
+                android:layout_marginStart="@dimen/margin_text"
+                android:text="#page_temperature"
+                app:layout_constraintBottom_toBottomOf="@+id/page_temperature_key"
+                app:layout_constraintStart_toEndOf="@+id/page_temperature_key"
+                app:layout_constraintTop_toTopOf="@+id/page_temperature_key" />
+
+            <TextView
+                android:id="@+id/page_ph_key"
+                style="@style/TextView.Text.Light"
+                android:text="Значение PH:"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/page_temperature_key" />
+
+            <TextView
+                android:id="@+id/page_ph"
+                style="@style/TextView.Text.Dark"
+                android:text="#page_ph"
+                android:layout_marginStart="@dimen/margin_text"
+                app:layout_constraintBottom_toBottomOf="@+id/page_ph_key"
+                app:layout_constraintStart_toEndOf="@+id/page_ph_key"
+                app:layout_constraintTop_toTopOf="@+id/page_ph_key" />
+
+            <TextView
+                android:id="@+id/page_agressive_key"
+                style="@style/TextView.Text.Light"
+                android:text="Агрессивность:"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/page_ph_key" />
+
+            <TextView
+                android:id="@+id/page_agressive"
+                style="@style/TextView.Text.Dark"
+                android:layout_marginStart="@dimen/margin_text"
+                android:text="#page_agressive"
+                app:layout_constraintBottom_toBottomOf="@+id/page_agressive_key"
+                app:layout_constraintStart_toEndOf="@+id/page_agressive_key"
+                app:layout_constraintTop_toTopOf="@+id/page_agressive_key" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <TextView
+            android:id="@+id/page_description"
+            style="@style/TextView.Text.Dark"
+            android:layout_marginTop="@dimen/margin"
+            android:layout_marginBottom="@dimen/margin_double"
+            android:text="#page_description"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/page_right"
+            app:layout_constraintStart_toStartOf="@+id/page_left"
+            app:layout_constraintTop_toBottomOf="@+id/page_cl_sum"
+            app:layout_constraintVertical_bias="0.0" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>
