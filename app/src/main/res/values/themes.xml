@@ -191,7 +191,7 @@
     </style>
 
     <!-- ImageViews -->
-    <style name="ImageView"></style>
+    <style name="ImageView" />
     <style name="ImageView.Background">
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">match_parent</item>
@@ -207,14 +207,14 @@
     </style>
 
     <!-- Layouts -->
-    <style name="LinearLayout"></style>
+    <style name="LinearLayout" />
     <style name="LinearLayout.Border">
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">1dp</item>
         <item name="android:background">@color/border</item>
     </style>
 
-    <style name="ConstraintLayout"></style>
+    <style name="ConstraintLayout" />
     <style name="ConstraintLayout.LL">
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">36dp</item>

@@ -49,7 +49,7 @@
 
     <fragment
         android:id="@+id/home_fragment"
-        android:name="com.example.myaquarium.ui.home.aqua.AquaFragment"
+        android:name="ru.sfedu.myaquarium.ui.home.aqua.AquaFragment"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:layout_marginTop="@dimen/margin"

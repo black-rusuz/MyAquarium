@@ -7,19 +7,19 @@
 
     <fragment
         android:id="@+id/navigation_home"
-        android:name="com.example.myaquarium.ui.home.HomeFragment"
+        android:name="ru.sfedu.myaquarium.ui.home.HomeFragment"
         android:label="@string/title_home"
         tools:layout="@layout/fragment_home" />
 
     <fragment
         android:id="@+id/navigation_help"
-        android:name="com.example.myaquarium.ui.help.HelpFragment"
+        android:name="ru.sfedu.myaquarium.ui.help.HelpFragment"
         android:label="@string/title_help"
         tools:layout="@layout/fragment_help" />
 
     <fragment
         android:id="@+id/navigation_profile"
-        android:name="com.example.myaquarium.ui.profile.ProfileFragment"
+        android:name="ru.sfedu.myaquarium.ui.profile.ProfileFragment"
         android:label="@string/title_profile"
         tools:layout="@layout/fragment_profile" />
 </navigation>
