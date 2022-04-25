@@ -104,7 +104,6 @@
         android:layout_marginEnd="@dimen/margin_text"
         android:layout_marginBottom="@dimen/margin_half"
         android:src="@drawable/gsusha"
-        android:visibility="gone"
         app:layout_constraintBottom_toTopOf="@+id/about_by_1"
         app:layout_constraintEnd_toStartOf="@+id/about_rusuz_img"
         app:layout_constraintHorizontal_bias="0.5"
@@ -115,7 +114,6 @@
         android:id="@+id/about_di"
         style="@style/TextView.Accent.Light"
         android:text="design &amp; idea"
-        android:visibility="gone"
         app:layout_constraintBottom_toBottomOf="@+id/about_by_1"
         app:layout_constraintEnd_toStartOf="@+id/about_by_1"
         app:layout_constraintTop_toTopOf="@+id/about_by_1" />
@@ -125,7 +123,6 @@
         style="@style/TextView.Accent.Light"
         android:layout_marginBottom="1dp"
         android:text=" by "
-        android:visibility="gone"
         app:layout_constraintBottom_toTopOf="@+id/about_by_2"
         app:layout_constraintEnd_toStartOf="@+id/about_right"
         app:layout_constraintStart_toStartOf="@+id/about_left"
@@ -138,7 +135,6 @@
         style="@style/TextView.Accent.Light"
         android:text="gsusha"
         android:textColor="#71C285"
-        android:visibility="gone"
         app:layout_constraintBottom_toBottomOf="@+id/about_by_1"
         app:layout_constraintStart_toEndOf="@+id/about_by_1"
         app:layout_constraintTop_toTopOf="@+id/about_by_1" />
